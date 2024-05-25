@@ -11,20 +11,25 @@ class Profile(models.Model):
 
 class Message(models.Model):
     sender = models.ForeignKey(
-        Profile, on_delete=models.CASCADE, null=True, related_name="sender_notification"
+        Profile, on_delete=models.CASCADE, null=True, related_name="sent_messages"
     )
     recipient = models.ForeignKey(
-        Profile, on_delete=models.CASCADE, related_name="recipient_notification"
+        Profile,
+        on_delete=models.CASCADE,
+        related_name="received_messages",
+        # through="ProfileMessage",
     )
     content = models.TextField()
-    read = models.BooleanField(default=False)
-    recieved_date = models.DateTimeField(auto_now_add=True)
-    profile = models.ManyToManyField(
-        Profile, related_name="message", through="ProfileMessage"
+    status = models.BooleanField(default=False)
+    received_date = models.DateTimeField(auto_now_add=True)
+    parent_message = models.ForeignKey(
+        "self", on_delete=models.CASCADE, null=True, blank=True, related_name="replies"
     )
 
 
-class ProfileMessage(models.Model):
-    read = models.BooleanField()
-    user = models.ForeignKey()
-    message = models.ForeignKey(Message, related_name="profile_message")
+# class ProfileMessage(models.Model):
+#     read = models.BooleanField(default=False)
+#     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+#     message = models.ForeignKey(
+#         Message, on_delete=models.CASCADE, related_name="profile_messages"
+#     )
