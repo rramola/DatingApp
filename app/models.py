@@ -17,8 +17,14 @@ class Message(models.Model):
         Profile,
         on_delete=models.CASCADE,
         related_name="received_messages",
-        # through="ProfileMessage",
+        through="ProfileMessage",
     )
+    # recipient = models.ManyToManyField(
+    #     Profile,
+    #     on_delete=models.CASCADE,
+    #     related_name="received_messages",
+    #     through="ProfileMessage",
+    # )
     content = models.TextField()
     status = models.BooleanField(default=False)
     received_date = models.DateTimeField(auto_now_add=True)
