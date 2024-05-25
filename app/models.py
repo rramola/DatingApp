@@ -4,9 +4,9 @@ from django.db import models
 
 
 class Profile(models.Model):
-    fname = models.CharField()
-    lname = models.CharField()
-    profile_pic = models.CharField()
+    fname = models.CharField(max_length=255)
+    lname = models.CharField(max_length=255)
+    profile_pic = models.ImageField()
 
 
 class Message(models.Model):
@@ -17,14 +17,15 @@ class Message(models.Model):
         Profile,
         on_delete=models.CASCADE,
         related_name="received_messages",
-        through="ProfileMessage",
     )
+
     # recipient = models.ManyToManyField(
     #     Profile,
     #     on_delete=models.CASCADE,
     #     related_name="received_messages",
     #     through="ProfileMessage",
     # )
+
     content = models.TextField()
     status = models.BooleanField(default=False)
     received_date = models.DateTimeField(auto_now_add=True)
