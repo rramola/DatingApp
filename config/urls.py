@@ -21,7 +21,10 @@ from app.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = [
+urlpatterns = [    
+    path("register/", registration_page, name="register"),
+    path("login/", login_page, name="login"),
+    path("logout/", logout_user, name="logout"),
     path("", home_page, name="home"),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,27 +1,40 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 
-class Profile(models.Model):
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     fname = models.CharField(max_length=255)
     lname = models.CharField(max_length=255)
-    profile_pic = models.ImageField()
+    email = models.EmailField(null=True)
+    profile_pic = models.ImageField(null=True)
 
+class DatingProfile(models.Model):
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name="dating_profile_user", null=True)
+    gender_options = (('male', "MALE"), ('female', "FEMALE"))
+    orientation_options = ("")
+    yes_or_no_options = (("yes", "YES"), ('no', "NO"))
+    gender = models.CharField(max_length=50, choices=gender_options)
+    # orientation = models.CharField(max_length=50, choices=orientation_options)
+    smoker = models.CharField(max_length=50, choices=yes_or_no_options)
+
+class PersonalityProfile(models.Model):
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name="personality_profile_user", null=True)
 
 class Message(models.Model):
     sender = models.ForeignKey(
-        Profile, on_delete=models.CASCADE, null=True, related_name="sent_messages"
+        UserProfile, on_delete=models.CASCADE, null=True, related_name="sent_messages"
     )
     recipient = models.ForeignKey(
-        Profile,
+        UserProfile,
         on_delete=models.CASCADE,
         related_name="received_messages",
+        null=True
     )
 
     # recipient = models.ManyToManyField(
-    #     Profile,
-    #     on_delete=models.CASCADE,
+    #     UserProfile,
     #     related_name="received_messages",
     #     through="ProfileMessage",
     # )
@@ -36,7 +49,7 @@ class Message(models.Model):
 
 # class ProfileMessage(models.Model):
 #     read = models.BooleanField(default=False)
-#     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+#     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 #     message = models.ForeignKey(
 #         Message, on_delete=models.CASCADE, related_name="profile_messages"
 #     )
