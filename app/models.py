@@ -13,11 +13,12 @@ class UserProfile(models.Model):
 class DatingProfile(models.Model):
     user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name="dating_profile_user", null=True)
     gender_options = (('male', "MALE"), ('female', "FEMALE"))
-    orientation_options = ("")
+    interested_in_options = ("men", "MEN"), ("women", "WOMEN"), ("both", "BOTH")
     yes_or_no_options = (("yes", "YES"), ('no', "NO"))
-    gender = models.CharField(max_length=50, choices=gender_options)
-    # orientation = models.CharField(max_length=50, choices=orientation_options)
-    smoker = models.CharField(max_length=50, choices=yes_or_no_options)
+    gender = models.CharField(max_length=50, choices=gender_options, null=True)
+    age = models.IntegerField(null=True)
+    interested_in = models.CharField(max_length=50, choices=interested_in_options, null=True)
+    smoker = models.CharField(max_length=50, choices=yes_or_no_options, null=True)
 
 class PersonalityProfile(models.Model):
     user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name="personality_profile_user", null=True)
