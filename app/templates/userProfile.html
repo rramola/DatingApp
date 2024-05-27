@@ -1,0 +1,16 @@
+{% extends 'home.html'%}
+
+{%block content%}
+     {% for each in userProfile%}
+     <div>
+      <img src="{{each.profile_pic}}" alt = "profile_pic" >
+     </div>
+     {% endfor%}
+     {% for each in user%}
+        {{each.first_name}}
+        {{each.last_name}}
+        {{each.email}}
+     {%endfor%}
+    <br>
+
+{%endblock content%}

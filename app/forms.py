@@ -3,19 +3,43 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from .models import *
+from django.contrib.auth import get_user_model
+
 
 class RegistrationForm(UserCreationForm):
-    username = forms.CharField(max_length=20, required=True)
-    password1 = forms.CharField(widget=forms.PasswordInput, required=True)
-    password2 = forms.CharField(widget=forms.PasswordInput, required=True)
-    fname = forms.CharField(max_length=255)
-    lname = forms.CharField(max_length=255)
     class Meta:
-        model = User
-        fields = [
+        model = get_user_model()
+        fields = (
+            "first_name",
+            "last_name",
+            "email",
             "username",
             "password1",
             "password2",
-            "fname",
-            "lname"
-        ]
+        )
+
+
+class DatingProfileForm(forms.ModelForm):
+    class Meta:
+        model = DatingProfile
+        fields = (
+            "profile_pic",
+            "gender",
+            "age",
+            "interested_in",
+            "smoker",
+        )
+
+
+class PersonalityForm(forms.ModelForm):
+    class Meta:
+        model = PersonalityProfile
+        fields = (
+            "interests",
+            "do_you_like_drinking",
+            "are_you_active",
+            "music_pick",
+            "outdoor_indoor_pick",
+            "what_do_you_do_for_fun_pick",
+            "movie_pick",
+        )

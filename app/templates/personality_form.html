@@ -1,0 +1,134 @@
+{% extends "home.html" %}
+
+ {% block content %}
+        <p>
+            <h2 class = "job-header">Personality Quiz</h2>
+        </p>
+             
+          <form  method="POST" enctype="multipart/form-data">
+          <div class="container">
+            <div class="form container">
+                <h3 class="createformheader">Quiz</h3>
+                    {% if form.errors %}
+                          {% for field in form %}
+                              {% for error in field.errors %}
+                                  <div class="alert alert-danger alert-dismissable">
+                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                      <strong>{{ field.label }}: {{ error|escape }}</strong>
+                                  </div>
+                              {% endfor %}
+                          {% endfor %}
+                      {% endif %}
+              {% csrf_token %}
+                  {% for field in form %}
+                      {% if field.name == 'do_you_like_drinking'  %}
+                          <div class="form-group">
+                          <label for="do_you_like_drinking">Do You Drink</label>
+                          <select name="do_you_like_drinking" class="selectpicker" id="do_you_like_drinking" data-style="btn-black" data-width="100%" data-live-search="true" title="Select">
+                                <option value="1">Yes</option>
+                                <option value="2">NO</option>
+                    
+                          </select>
+                          </div>
+                      
+                                            
+                        {% elif field.name == 'are_you_active' %}
+                        <div class="form-group">
+                            <label for="are_you_active">Are You Active?</label>
+                            <select name="are_you_active" class="selectpicker" id="are_you_active" data-style="btn-black" data-width="100%" data-live-search="true" title="Select">
+                                  <option value="1">Yes</option>
+                                  <option value="2">NO</option>
+                      
+                            </select>
+                            </div>
+                        {% elif field.name == 'outdoor_indoor_pick' %}
+                        <div class="form-group">
+                            <label for="outdoor_indoor_pick">Outdoor or Indoor</label>
+                            <select name="outdoor_indoor_pick" class="selectpicker" id="outdoor_indoor_pick" data-style="btn-black" data-width="100%" data-live-search="true" title="Select">
+                                    <option value="1">Outdoor</option>
+                                    <option value="2">Indoor</option>
+                        
+                            </select>
+                            </div>
+                        {% elif field.name == 'interests' %}
+                        <div class="form-group">
+                            <label for="interests">Interested in?</label>
+                            <select name="interests" class="selectpicker" id="interests" data-style="btn-black" data-width="100%" data-live-search="true" title="Select">
+                                <option value="1">Long-Term</option>
+                                <option value="2">Short-Term</option>
+                                <option value="3">Still Figuring it Out</option>
+                    
+                            </select>
+                            </div>
+                        {% elif field.name == 'music_pick' %}
+                        <div class="form-group">
+                            <label for="music_pick">What type of Music do you like?</label>
+                            <select name="music_pick" class="selectpicker" id="music_pic" data-style="btn-black" data-width="100%" data-live-search="true" title="Select from List">
+                                <option value="1">Metal</option>
+                                <option value="2">Classic</option>
+                                <option value="3">Country</option>
+                                <option value="4">Country</option>
+                                <option value="5">Pop</option>
+                                <option value="6">Gospel</option>
+                    
+                            </select>
+                            </div>
+                        {% elif field.name == 'what_do_you_do_for_fun_pick' %}
+                        <div class="form-group">
+                            <label for="what_do_you_do_for_fun_pick">What do you do for Fun?</label>
+                            <select name="what_do_you_do_for_fun_pick" class="selectpicker" id="what_do_you_do_for_fun_pick" data-style="btn-black" data-width="100%" data-live-search="true" title="Select from List">
+                                <option value="1">Hiking</option>
+                                <option value="2">Gaming</option>
+                                <option value="3">Reading</option>
+                                <option value="4">Singing</option>
+                                <option value="5">Sports</option>
+                                <option value="6">Dancing</option>
+                                <option value="7">Travel</option>
+                                <option value="8">Peotry</option>
+                    
+                            </select>
+                            </div>
+                        {% elif field.name == 'movie_pick' %}
+                        <div class="form-group">
+                            <label for="movie_pick">What type of Movies do you like?</label>
+                            <select name="movie_pick" class="selectpicker" id="movie_pick" data-style="btn-black" data-width="100%" data-live-search="true" title="Select from List">
+                                <option value="1">Horror</option>
+                                <option value="2">Romance</option>
+                                <option value="3">Comedy</option>
+                                <option value="4">Action</option>
+                                <option value="5">Anime</option>
+                                <option value="6">Sci-fi</option>
+                    
+                            </select>
+                            </div>  
+                        {% else %}
+                        <div class="form-group">
+                            <label class="text-black" for="id_{{ field.name }}">{{ field.label }}</label>
+                            <input type="{{ field.field.widget.input_type }}"
+                                    class="form-control"
+                                    name="{{ field.name }}"
+                                    id="id_{{ field.name }}"
+                                    placeholder="{{ field.field.widget.attrs.placeholder }}">
+                        </div> 
+                      {% endif %}
+                  {% endfor %}
+                
+                 
+            </div>    
+          </div>
+          
+          <div class="row align-items">
+            <div class="collums">
+              <div class="row">
+                <div class="colllums more">
+  
+                  <input class="btn1" type="submit" value="Submit" >
+                </div>
+              </div>
+            </div>
+              </form>
+  
+          </div>
+        </div>
+
+{% endblock content %}
