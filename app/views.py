@@ -10,20 +10,7 @@ from django.contrib.auth.models import User, Group
 # Create your views here.
 from .forms import *
 from .models import *
-
-
-from django.shortcuts import render, redirect
-from django.http import HttpRequest, HttpResponse
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User, Group
-
-
-# Create your views here.
-from .forms import *
-from .models import *
+import random
 
 
 @login_required(login_url="login")

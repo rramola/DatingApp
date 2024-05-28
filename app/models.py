@@ -48,38 +48,38 @@ class PersonalityProfile(models.Model):
         null=True,
     )
     created = models.BooleanField(default=False)
-    yes_or_no_options = (("1", "YES"), ("1", "NO"))
+    yes_or_no_options = (("Yes", "YES"), ("No", "NO"))
     what_are_you_looking_for_options = (
-        ("1", "Long-term partner"),
-        ("2", "Short-term partner"),
-        ("3", "Still figuring out"),
+        ("long-term", "Long-term partner"),
+        ("short-term", "Short-term partner"),
+        ("firguring-out", "Still figuring out"),
     )
     music_options = (
-        ("1", "METAL"),
-        ("2", "CLASSIC"),
-        ("3", "COUNTRY"),
-        ("4", "POP"),
-        ("5", "HIP-HOP"),
-        ("6", "GOSPEL"),
+        ("metal", "METAL"),
+        ("classic", "CLASSIC"),
+        ("country", "COUNTRY"),
+        ("pop", "POP"),
+        ("hip-hop", "HIP-HOP"),
+        ("gospel", "GOSPEL"),
     )
-    outdoor_indoor_options = (("1", "OUTDOOR"), ("2", "INDOOR"))
+    outdoor_indoor_options = (("outdoor", "OUTDOOR"), ("indoor", "INDOOR"))
     what_do_you_do_for_fun_options = (
-        ("1", "HIKING"),
-        ("2", "GAMING"),
-        ("3", "Reading"),
-        ("4", "SINGING"),
-        ("5", "SPORTS"),
-        ("6", "DANCING"),
-        ("7", "TRAVEL"),
-        ("8", "POETRY"),
+        ("hiking", "HIKING"),
+        ("gaming", "GAMING"),
+        ("reading", "Reading"),
+        ("singing", "SINGING"),
+        ("sport", "SPORTS"),
+        ("dancing", "DANCING"),
+        ("travel", "TRAVEL"),
+        ("poetry", "POETRY"),
     )
     movie_genre_options = (
-        ("1", "HORROR"),
-        ("2", "ROMANCE"),
-        ("3", "COMEDY"),
-        ("4", "ACTION"),
-        ("5", "ANIME"),
-        ("6", "SCI-FI"),
+        ("horror", "HORROR"),
+        ("romance", "ROMANCE"),
+        ("comedy", "COMEDY"),
+        ("action", "ACTION"),
+        ("anime", "ANIME"),
+        ("sci-fi", "SCI-FI"),
     )
     interests = models.CharField(
         max_length=50, choices=what_are_you_looking_for_options, null=True
