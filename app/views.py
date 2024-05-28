@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
+import random
 
 
 # Create your views here.
@@ -89,6 +90,40 @@ def logout_user(request):
 def profileView(request):
     user = User.objects.filter(id=request.user.id)
     userProfile = DatingProfile.objects.filter(user_profile=request.user)
-    print(user)
     context = {"user": user, "userProfile": userProfile}
     return render(request, "userProfile.html", context)
+
+
+def matchmakingView(request):
+    user = User.objects.filter(id=request.user.id)
+
+    user_dating_profile= DatingProfile.objects.get(user_profile = user).interested_in
+    user_personality_profile = PersonalityProfile.objects.get(user_profile = user)
+
+    
+    #choices
+    potentialPartners_Sexual_Preference = DatingProfile.objects.filter(interested_in = user_dating_profile)
+    potentialPartners_interests = PersonalityProfile.objects.filter(interests = user_personality_profile.interests)
+    potentialPartners_music = PersonalityProfile.objects.filter(music_pick = user_personality_profile.music_pick)
+    potentialPartners_fun_pick = PersonalityProfile.objects.filter(what_do_you_do_for_fun_pick = user_personality_profile.what_do_you_do_for_fun_pick)
+    potentialPartner_drinker = PersonalityProfile.objects.filter(do_you_like_drinking = user_personality_profile.do_you_like_drinking)
+    potentialPartner_outdoor_or_indoor = PersonalityProfile.objects.filter(outdoor_indoor_pick = user_personality_profile.outdoor_indoor_pick)
+    potentialPartner_movie_pick = PersonalityProfile.objects.filter(movie_pick = user_personality_profile.movie_pick)
+
+    choices = {
+        "1":[ potentialPartners_Sexual_Preference,potentialPartners_interests,potentialPartners_music,
+    potentialPartners_fun_pick],
+        "2":[ potentialPartners_Sexual_Preference,potentialPartner_drinker,potentialPartner_outdoor_or_indoor,
+    potentialPartner_movie_pick],
+        "3":[ potentialPartners_Sexual_Preference,potentialPartner_drinker,potentialPartners_music,
+    potentialPartner_movie_pick],
+        "4":[ potentialPartners_Sexual_Preference,potentialPartners_interests,potentialPartner_outdoor_or_indoor,
+    potentialPartners_fun_pick]
+      
+    }
+
+    random_potential_partners = random.choice(list(choices.items()))
+    context = { "random_potental_partners": random_potential_partners}
+
+    return render(request, "matchmaking.html", context)
+
