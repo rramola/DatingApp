@@ -104,7 +104,10 @@ def dating_profile_register(request):
     if request.method == "POST":
         form = DatingProfileForm(request.POST, instance=dating_profile)
         if form.is_valid():
-            form.save()
+            new_form = form.save(commit=False)
+            new_form.created = True
+            new_form.save()
+
             user_profile.has_dating_profile = True
             user_profile.save()
             return redirect("profile")
@@ -122,8 +125,10 @@ def personality_register(request):
     if request.method == "POST":
         form = PersonalityForm(request.POST, instance=personality_profile)
         if form.is_valid():
-            form.save()
-            return redirect("home")
+            new_form = form.save(commit=False)
+            new_form.created = True
+            new_form.save()
+            return redirect("profile")
     else:
         form = PersonalityForm()
     context = {"form": form}
@@ -136,10 +141,14 @@ def profileView(request):
     dating_profile, created = DatingProfile.objects.get_or_create(
         user_profile=user_profile
     )
+    personality_profile, created = PersonalityProfile.objects.get_or_create(
+        user_profile=user_profile
+    )
     context = {
         "user": user,
         "user_profile": user_profile,
         "dating_profile": dating_profile,
+        "personality_profile": personality_profile,
     }
     return render(request, "userProfile.html", context)
 

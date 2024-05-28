@@ -16,6 +16,7 @@ class DatingProfile(models.Model):
         related_name="dating_profile_user",
         null=True,
     )
+    created = models.BooleanField(default=False)
     profile_pic = models.ImageField(upload_to="", null=True, blank=True)
     gender_options = (("Male", "MALE"), ("Female", "FEMALE"))
     interested_in_options = ("Men", "MEN"), ("Women", "WOMEN"), ("Both", "BOTH")
@@ -46,6 +47,7 @@ class PersonalityProfile(models.Model):
         related_name="personality_profile_user",
         null=True,
     )
+    created = models.BooleanField(default=False)
     yes_or_no_options = (("1", "YES"), ("1", "NO"))
     what_are_you_looking_for_options = (
         ("1", "Long-term partner"),

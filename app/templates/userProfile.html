@@ -3,13 +3,16 @@
   <div id="profile_name_container">{{user.first_name}} {{user.last_name}}</div>
 </div>
 <button>
-  <a href="{%url 'personality'%}">Edit Personal Profile</a>
+  <a href="{%url 'personality'%}">Edit Personality Profile</a>
 </button>
 <button>
   <a href="{%url 'dating'%}">Edit Dating Profile</a>
 </button>
 {% if user_profile.has_dating_profile %}
 <div id="dating_profile_information_container">
-  {{dating_profile.profile_pic}}{{dating_profile.gender}}{{dating_profile.age}}{{dating_profile.interested_in}}{{dating_profile.smoker}}
+  {% if dating_profile.created %} {{dating_profile}} {% endif %}
+</div>
+<div id="personality_profile_container">
+  {% if personality_profile.created %}{{personality_profile}}{% endif %}
 </div>
 {% endif %} {%endblock content%}
