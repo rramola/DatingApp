@@ -4,14 +4,22 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    has_dating_profile = models.BooleanField(default=False)
+
+
 class DatingProfile(models.Model):
     user_profile = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="dating_profile_user", null=True
+        Profile,
+        on_delete=models.CASCADE,
+        related_name="dating_profile_user",
+        null=True,
     )
     profile_pic = models.ImageField(upload_to="", null=True, blank=True)
-    gender_options = (("1", "MALE"), ("2", "FEMALE"))
-    interested_in_options = ("1", "MEN"), ("2", "WOMEN"), ("3", "BOTH")
-    yes_or_no_options = (("1", "YES"), ("2", "NO"))
+    gender_options = (("Male", "MALE"), ("Femal", "FEMALE"))
+    interested_in_options = ("Men", "MEN"), ("Women", "WOMEN"), ("Both", "BOTH")
+    yes_or_no_options = (("Yes", "YES"), ("No", "NO"))
     gender = models.CharField(max_length=50, choices=gender_options, null=True)
     age = models.IntegerField(null=True)
     interested_in = models.CharField(
@@ -33,7 +41,7 @@ def createdatingProfile(user_profile, profile_pic, gender, age, interested_in, s
 
 class PersonalityProfile(models.Model):
     user_profile = models.ForeignKey(
-        User,
+        Profile,
         on_delete=models.CASCADE,
         related_name="personality_profile_user",
         null=True,
@@ -94,10 +102,10 @@ class PersonalityProfile(models.Model):
 
 class Message(models.Model):
     sender = models.ForeignKey(
-        User, on_delete=models.CASCADE, null=True, related_name="sent_messages"
+        Profile, on_delete=models.CASCADE, null=True, related_name="sent_messages"
     )
     recipient = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="received_messages", null=True
+        Profile, on_delete=models.CASCADE, related_name="received_messages", null=True
     )
 
     # recipient = models.ManyToManyField(

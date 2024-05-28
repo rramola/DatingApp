@@ -1,16 +1,16 @@
-{% extends 'home.html'%}
-
-{%block content%}
-     {% for each in userProfile%}
-     <div>
-      <img src="{{each.profile_pic}}" alt = "profile_pic" >
-     </div>
-     {% endfor%}
-     {% for each in user%}
-        {{each.first_name}}
-        {{each.last_name}}
-        {{each.email}}
-     {%endfor%}
-    <br>
-
-{%endblock content%}
+{% extends 'home.html'%} {%block content%}
+<div id="profile_information_container">
+  <div id="profile_name_container">{{user.first_name}} {{user.last_name}}</div>
+</div>
+<button>
+  <a href="{%url 'personality'%}">Make Dating Profile</a>
+</button>
+{% if user_profile.has_dating_profile == False %}
+<button>
+  <a href="{%url 'dating'%}">Make Dating Profile</a>
+</button>
+{% endif %} {% if user_profile.has_dating_profile %}
+<div id="dating_profile_information_container">
+  {{dating_profile.profile_pic}}{{dating_profile.gender}}{{dating_profile.age}}{{dating_profile.interested_in}}{{dating_profile.smoker}}
+</div>
+{% endif %} {%endblock content%}
