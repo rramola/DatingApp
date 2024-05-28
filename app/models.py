@@ -17,7 +17,7 @@ class DatingProfile(models.Model):
         null=True,
     )
     profile_pic = models.ImageField(upload_to="", null=True, blank=True)
-    gender_options = (("Male", "MALE"), ("Femal", "FEMALE"))
+    gender_options = (("Male", "MALE"), ("Female", "FEMALE"))
     interested_in_options = ("Men", "MEN"), ("Women", "WOMEN"), ("Both", "BOTH")
     yes_or_no_options = (("Yes", "YES"), ("No", "NO"))
     gender = models.CharField(max_length=50, choices=gender_options, null=True)
@@ -28,15 +28,15 @@ class DatingProfile(models.Model):
     smoker = models.CharField(max_length=50, choices=yes_or_no_options, null=True)
 
 
-def createdatingProfile(user_profile, profile_pic, gender, age, interested_in, smoker):
-    DatingProfile.objects.create(
-        user_profile=user_profile,
-        profile_pic=profile_pic,
-        gender=gender,
-        age=age,
-        interested_in=interested_in,
-        smoker=smoker,
-    )
+# def createdatingProfile(user_profile, profile_pic, gender, age, interested_in, smoker):
+#     DatingProfile.objects.create(
+#         user_profile=user_profile,
+#         profile_pic=profile_pic,
+#         gender=gender,
+#         age=age,
+#         interested_in=interested_in,
+#         smoker=smoker,
+#     )
 
 
 class PersonalityProfile(models.Model):

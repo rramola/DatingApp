@@ -29,6 +29,8 @@ class DatingProfileForm(forms.ModelForm):
             "interested_in",
             "smoker",
         )
+        def __init__(self, *args, **kwargs):
+            user_profile = kwargs.pop("user_profile", None)
 
 
 class PersonalityForm(forms.ModelForm):

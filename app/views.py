@@ -38,7 +38,7 @@ def registration_page(request):
         if form.is_valid():
             user = form.save()
             Profile.objects.create(user=user)
-            return redirect("profile")
+            return redirect("home")
     else:
         form = RegistrationForm()
     context = {"form": form}
@@ -66,34 +66,64 @@ def logout_user(request):
     return redirect("login")
 
 
-def dating_profile_register(request):
-    form = DatingProfileForm()
-    user = request.user.profile
-    if request.method == "POST":
-        form = DatingProfileForm(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)
-            gender = request.POST.get("gender")
-            age = request.POST.get("age")
-            interested_in = request.POST.get("interested_in")
-            smoker = request.POST.get("smoker")
-            profile_pic = request.FILES.get("profile_pic")
-            createdatingProfile(user, profile_pic, gender, age, interested_in, smoker)
-            user.has_dating_profile = True
-            user.save()
-            return redirect("personality")
+# def dating_profile_register(request):
+#     form = DatingProfileForm()
+#     user = request.user.profile
+#     if request.method == "POST":
+#         form = DatingProfileForm(request.POST)
 
-    context = {"form": form, "user": user}
+#     if request.method == "POST":
+#         form = DatingProfileForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form = form.save(commit=False)
+#             gender = request.POST.get("gender")
+#             age = request.POST.get("age")
+#             interested_in = request.POST.get("interested_in")
+#             smoker = request.POST.get("smoker")
+#             profile_pic = request.FILES.get("profile_pic")
+#             createdatingProfile(user, profile_pic, gender, age, interested_in, smoker)
+#             user.has_dating_profile = True
+#             user.save()
+#             return redirect("personality")
+
+#         user.has_dating_profile = True
+#         user.save()
+#         return redirect("personality")
+#     else:
+#         form = DatingProfileForm()
+
+#     context = {"form": form, "user": user}
+#     return render(request, "dating_form.html", context)
+
+
+def dating_profile_register(request):
+    user_profile = request.user.profile
+    dating_profile, created = DatingProfile.objects.get_or_create(
+        user_profile=user_profile
+    )
+    if request.method == "POST":
+        form = DatingProfileForm(request.POST, instance=dating_profile)
+        if form.is_valid():
+            form.save()
+            user_profile.has_dating_profile = True
+            user_profile.save()
+            return redirect("profile")
+    else:
+        form = DatingProfileForm(instance=dating_profile)
+    context = {"form": form}
     return render(request, "dating_form.html", context)
 
 
 def personality_register(request):
+    user_profile = request.user.profile
+    personality_profile, created = PersonalityProfile.objects.get_or_create(
+        user_profile=user_profile
+    )
     if request.method == "POST":
-        form = PersonalityForm(request.POST)
+        form = PersonalityForm(request.POST, instance=personality_profile)
         if form.is_valid():
             form.save()
             return redirect("home")
-
     else:
         form = PersonalityForm()
     context = {"form": form}
@@ -103,7 +133,9 @@ def personality_register(request):
 def profileView(request):
     user = request.user
     user_profile = request.user.profile
-    dating_profile = DatingProfile.objects.get(user_profile=user_profile)
+    dating_profile, created = DatingProfile.objects.get_or_create(
+        user_profile=user_profile
+    )
     context = {
         "user": user,
         "user_profile": user_profile,
