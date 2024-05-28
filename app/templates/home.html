@@ -1,14 +1,14 @@
-{% load static %}
-<body>
+{% extends "base.html" %}
+{% comment %} <body>
     <div id="navigation_container">
         <a href="{%url 'logout'%}">Logout</a>
         <a href ="{% url 'profile'%}">Profile</a>
         <a href ="{% url 'home'%}">Home</a>
-    </div>
+    </div> {% endcomment %}
 
     {% block content %}
-    <p>test text</p>
+    <p>home text</p>
     {% endblock content %}
     
-</body>
-</html>
+{% comment %} </body>
+</html> {% endcomment %}
