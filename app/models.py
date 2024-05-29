@@ -8,7 +8,6 @@ class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     first_name = models.CharField(null=True, max_length=255)
     last_name = models.CharField(null=True, max_length=255)
-    has_dating_profile = models.BooleanField(default=False)
 
 
 class DatingProfile(models.Model):
@@ -33,17 +32,13 @@ class DatingProfile(models.Model):
         max_length=50, choices=interested_in_options, null=True
     )
     smoker = models.CharField(max_length=50, choices=yes_or_no_options, null=True)
+    drinker = models.CharField(max_length=50, choices=yes_or_no_options, null=True)
+    occupation = models.CharField(max_length=50, null=True)
+    bio = models.TextField(null=True)
+    favorite_place_ever_been = models.TextField(null=True)
 
-
-# def createdatingProfile(user_profile, profile_pic, gender, age, interested_in, smoker):
-#     DatingProfile.objects.create(
-#         user_profile=user_profile,
-#         profile_pic=profile_pic,
-#         gender=gender,
-#         age=age,
-#         interested_in=interested_in,
-#         smoker=smoker,
-#     )
+    def __str__(self) -> str:
+        return self.user_profile.first_name
 
 
 class PersonalityProfile(models.Model):
@@ -122,9 +117,9 @@ class Message(models.Model):
     #     through="ProfileMessage",
     # )
 
-    content = models.TextField()
-    status = models.BooleanField(default=False)
-    received_date = models.DateTimeField(auto_now_add=True)
+    content = models.TextField(null=True)
+    status = models.BooleanField(default=False, null=True)
+    received_date = models.DateTimeField(auto_now_add=True, null=True)
     parent_message = models.ForeignKey(
         "self", on_delete=models.CASCADE, null=True, blank=True, related_name="replies"
     )
