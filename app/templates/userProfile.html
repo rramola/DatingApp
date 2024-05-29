@@ -7,26 +7,50 @@
       <div id="profile_last_name_container">{{user.last_name}}!</div>
     </div>
   </div>
+
   <div id="profile_modifier_buttons_container">
+    {% if dating_profile.created == False %}
+    <button>
+      <a href="{%url 'dating'%}">Create Dating Profile</a></button
+    >{% endif %} {% if personality_profile.created == False %}
     <button>
       <a href="{%url 'personality'%}">Edit Personality Profile</a>
     </button>
-    <button>
-      <a href="{%url 'dating'%}">Edit Dating Profile</a>
-    </button>
-  </div>
-  <div id="dating_profile_information_container">
-    {% if dating_profile.created %}
-    <div id="dating_profile_image_container">
-      <img src="{{dating_profile.profile_pic.url}}" />
-    </div>
-    <div id="dating_profile_gender_container">{{dating_profile.gender}}</div>
-    <div id="dating_profile_age_container">{{dating_profile.age}}</div>
-    <div id="dating_profile_interested_in_container">
-      {{dating_profile.intersted_in}}
-    </div>
     {% endif %}
+  </div>
+  {% if dating_profile.created %}
+  <div id="dating_profile_image_container">
+    <img src="{{dating_profile.profile_pic.url}}" />
+  </div>
+  {% endif %}
+  <div id="dating_and_personality_profile_information_container">
+    <div id="dating_profile_information_container">
+      <div id="dating_profile_header_container">
+        <p id="dating_profile_header_text">Your Profile</p>
+      </div>
+      {% if dating_profile.created %} {% comment %}
+      <div id="dating_profile_image_container">
+        <img src="{{dating_profile.profile_pic.url}}" />
+      </div>
+      {% endcomment %}
+      <div id="dating_profile_gender_container">{{dating_profile.gender}}</div>
+      <div id="dating_profile_age_container">{{dating_profile.age}}</div>
+      <div id="dating_profile_interested_in_container">
+        {{dating_profile.interested_in}}
+      </div>
+      <div id="dating_profile_smoker_container">{{dating_profile.smoker}}</div>
+      <button>
+        <a href="{%url 'dating'%}">Edit Dating Profile</a>
+      </button>
+      {% endif %}
+    </div>
+
     <div id="personality_profile_container">
+      <div id="personality_profile_header_container">
+        <p id="personality_profile_header_text">
+          Your Personality Test Results
+        </p>
+      </div>
       {% if personality_profile.created %}
       <div id="personality_profile_interests_container">
         {{personality_profile.interests}}
@@ -49,8 +73,11 @@
       <div id="personality_profile_movie_pick_container">
         {{personality_profile.movie_pick}}
       </div>
+      <button>
+        <a href="{%url 'personality'%}">Edit Personality Profile</a>
+      </button>
       {% endif %}
     </div>
   </div>
-  {%endblock content%}
 </div>
+{%endblock content%}

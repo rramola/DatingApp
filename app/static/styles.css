@@ -3,11 +3,49 @@ body {
     background-color: lightpink;
 }
 
+#navigation_container {
+    display: flex;
+    background-color: rgb(154, 107, 154);
+    padding: 1rem;
+    column-gap: 3rem;
+}
+
+#navigation_container > a {
+    text-decoration: none;
+    font-size: 1.2rem;
+}
 
 #profile_name_container {
     display: flex;
     column-gap: 3rem;
     justify-content: center;
-    font-size: 4rem;
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
 }
 
+#profile_modifier_buttons_container {
+    display: flex;
+}
+
+
+#dating_and_personality_profile_information_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#dating_profile_information_container {
+    margin:0
+}
+
+#dating_profile_header_container {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+#personality_profile_header_container {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+}
