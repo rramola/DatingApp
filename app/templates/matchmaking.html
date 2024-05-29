@@ -9,8 +9,8 @@
   {% endcomment %}
   <div>
     <div>
-      {% for set in val %}{% for item in set%}{{item.user_profile.user_profile}}
-      <div>{{item.user_profile.user_profile.first_name}}</div>
+      {% for set in val %}{% for item in set%}{% if user != item.user_profile.user_profile %}
+      <div>{{item.user_profile.user_profile}}{% endif %}</div>
       {%endfor%}{%endfor %}
     </div>
   </div>

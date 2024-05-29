@@ -186,6 +186,7 @@ def matchmakingView(request):
         "random_potential_partners": random_potential_partners,
         "key": key,
         "val": val,
+        "user": user
     }
 
     return render(request, "matchmaking.html", context)
