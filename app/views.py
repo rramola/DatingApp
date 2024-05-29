@@ -24,7 +24,11 @@ def registration_page(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            Profile.objects.create(user=user)
+            first_name = request.POST.get("first_name")
+            last_name = request.POST.get("first_name")
+            Profile.objects.create(
+                user=user, first_name=first_name, last_name=last_name
+            )
             return redirect("home")
     else:
         form = RegistrationForm()
@@ -89,7 +93,7 @@ def dating_profile_register(request):
         user_profile=user_profile
     )
     if request.method == "POST":
-        form = DatingProfileForm(request.POST, instance=dating_profile)
+        form = DatingProfileForm(request.POST, request.FILES, instance=dating_profile)
         if form.is_valid():
             new_form = form.save(commit=False)
             new_form.created = True
@@ -105,9 +109,11 @@ def dating_profile_register(request):
 
 
 def personality_register(request):
-    user_profile = request.user.profile
+    user_get = request.user.profile
+    dating_profile = DatingProfile.objects.get(user_profile=user_get)
+
     personality_profile, created = PersonalityProfile.objects.get_or_create(
-        user_profile=user_profile
+        user_profile=dating_profile
     )
     if request.method == "POST":
         form = PersonalityForm(request.POST, instance=personality_profile)
@@ -129,8 +135,9 @@ def profileView(request):
         user_profile=user_profile
     )
     personality_profile, created = PersonalityProfile.objects.get_or_create(
-        user_profile=user_profile
+        user_profile=dating_profile
     )
+    dating_profile = DatingProfile.objects.get(user_profile=user_profile)
     context = {
         "user": user,
         "user_profile": user_profile,
@@ -141,62 +148,74 @@ def profileView(request):
 
 
 def matchmakingView(request):
-    user = User.objects.filter(id=request.user.id)
+    # user = User.objects.filter(id=request.user.id)
+    user = request.user.profile
 
-    user_dating_profile = DatingProfile.objects.get(user_profile=user).interested_in
-    user_personality_profile = PersonalityProfile.objects.get(user_profile=user)
+    user_dating_profile = DatingProfile.objects.get(user_profile=user)
+    user_personality_profile = PersonalityProfile.objects.get(
+        user_profile=user_dating_profile
+    )
+    # user_dating_profile = DatingProfile.objects.get(user_profile=user).interested_in
+    # user_personality_profile = PersonalityProfile.objects.get(user_profile=user)
 
     # choices
-    potentialPartners_Sexual_Preference = DatingProfile.objects.filter(
-        interested_in=user_dating_profile
+    # potentialPartners_Sexual_Preference = DatingProfile.objects.filter(
+    #     interested_in=user_dating_profile
+    # )
+    # potentialPartners_interests = PersonalityProfile.objects.filter(
+    #     interests=user_personality_profile.interests
+    # )
+    # potentialPartners_music = PersonalityProfile.objects.filter(
+    #     music_pick=user_personality_profile.music_pick
+    # )
+    # potentialPartners_fun_pick = PersonalityProfile.objects.filter(
+    #     what_do_you_do_for_fun_pick=user_personality_profile.what_do_you_do_for_fun_pick
+    # )
+    # potentialPartner_drinker = PersonalityProfile.objects.filter(
+    #     do_you_like_drinking=user_personality_profile.do_you_like_drinking
+    # )
+    # potentialPartner_outdoor_or_indoor = PersonalityProfile.objects.filter(
+    #     outdoor_indoor_pick=user_personality_profile.outdoor_indoor_pick
+    # )
+    # potentialPartner_movie_pick = PersonalityProfile.objects.filter(
+    #     movie_pick=user_personality_profile.movie_pick
+    # )
+    choice2 = PersonalityProfile.objects.filter(
+        # user_profile__interested_in=user_dating_profile,
+        do_you_like_drinking=user_personality_profile.do_you_like_drinking,
+        outdoor_indoor_pick=user_personality_profile.outdoor_indoor_pick,
+        movie_pick=user_personality_profile.movie_pick,
     )
-    potentialPartners_interests = PersonalityProfile.objects.filter(
-        interests=user_personality_profile.interests
+    choice3 = PersonalityProfile.objects.filter(
+        # user_profile__interested_in=user_dating_profile,
+        do_you_like_drinking=user_personality_profile.do_you_like_drinking,
+        music_pick=user_personality_profile.music_pick,
+        movie_pick=user_personality_profile.movie_pick,
     )
-    potentialPartners_music = PersonalityProfile.objects.filter(
-        music_pick=user_personality_profile.music_pick
+    choice4 = PersonalityProfile.objects.filter(
+        # user_profile__interested_in=user_dating_profile,
+        interests=user_personality_profile.interests,
+        outdoor_indoor_pick=user_personality_profile.outdoor_indoor_pick,
+        what_do_you_do_for_fun_pick=user_personality_profile.what_do_you_do_for_fun_pick,
     )
-    potentialPartners_fun_pick = PersonalityProfile.objects.filter(
-        what_do_you_do_for_fun_pick=user_personality_profile.what_do_you_do_for_fun_pick
+    choice1 = PersonalityProfile.objects.filter(
+        # user_profile__interested_in=user_dating_profile,
+        interests=user_personality_profile.interests,
+        music_pick=user_personality_profile.music_pick,
+        what_do_you_do_for_fun_pick=user_personality_profile.what_do_you_do_for_fun_pick,
     )
-    potentialPartner_drinker = PersonalityProfile.objects.filter(
-        do_you_like_drinking=user_personality_profile.do_you_like_drinking
-    )
-    potentialPartner_outdoor_or_indoor = PersonalityProfile.objects.filter(
-        outdoor_indoor_pick=user_personality_profile.outdoor_indoor_pick
-    )
-    potentialPartner_movie_pick = PersonalityProfile.objects.filter(
-        movie_pick=user_personality_profile.movie_pick
-    )
-
     choices = {
-        "1": [
-            potentialPartners_Sexual_Preference,
-            potentialPartners_interests,
-            potentialPartners_music,
-            potentialPartners_fun_pick,
-        ],
-        "2": [
-            potentialPartners_Sexual_Preference,
-            potentialPartner_drinker,
-            potentialPartner_outdoor_or_indoor,
-            potentialPartner_movie_pick,
-        ],
-        "3": [
-            potentialPartners_Sexual_Preference,
-            potentialPartner_drinker,
-            potentialPartners_music,
-            potentialPartner_movie_pick,
-        ],
-        "4": [
-            potentialPartners_Sexual_Preference,
-            potentialPartners_interests,
-            potentialPartner_outdoor_or_indoor,
-            potentialPartners_fun_pick,
-        ],
+        "1": [choice1],
+        "2": [choice2],
+        "3": [choice3],
+        "4": [choice4],
     }
 
-    random_potential_partners = random.choice(list(choices.items()))
-    context = {"random_potental_partners": random_potential_partners}
+    random_potential_partners = key, val = random.choice(list(choices.items()))
+    context = {
+        "random_potential_partners": random_potential_partners,
+        "key": key,
+        "val": val,
+    }
 
     return render(request, "matchmaking.html", context)

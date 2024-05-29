@@ -5,8 +5,9 @@
         <a href ="{% url 'profile'%}">Profile</a>
         <a href ="{% url 'home'%}">Home</a>
     </div> {% endcomment %}
-
+     
     {% block content %}
+    <button> <a href= "{% url "matchmaking"%}">Meet your Match</a></button>
     <p>home text</p>
     {% endblock content %}
     

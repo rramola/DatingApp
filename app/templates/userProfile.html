@@ -3,12 +3,8 @@
   <div id="profile_header_container">
     <div id="profile_name_container">
       <div id="profile_welcome_text">Welcome</div>
-      <div id="profile_first_name_container">
-        {{user.first_name}}
-      </div>
-      <div id="profile_last_name_container">
-        {{user.last_name}}!
-      </div>
+      <div id="profile_first_name_container">{{user.first_name}}</div>
+      <div id="profile_last_name_container">{{user.last_name}}!</div>
     </div>
   </div>
   <div id="profile_modifier_buttons_container">
@@ -19,46 +15,42 @@
       <a href="{%url 'dating'%}">Edit Dating Profile</a>
     </button>
   </div>
-  <div id"dating_profile_information_container">
-    {% if dating_profile.created %} 
+  <div id="dating_profile_information_container">
+    {% if dating_profile.created %}
     <div id="dating_profile_image_container">
-      {{dating_profile.pic}}
+      <img src="{{dating_profile.profile_pic.url}}" />
     </div>
-    <div id="dating_profile_gender_container">
-      {{dating_profile.gender}}
-    </div>
-    <div id="dating_profile_age_container">
-      {{dating_profile.age}}
-    </div>
+    <div id="dating_profile_gender_container">{{dating_profile.gender}}</div>
+    <div id="dating_profile_age_container">{{dating_profile.age}}</div>
     <div id="dating_profile_interested_in_container">
       {{dating_profile.intersted_in}}
     </div>
     {% endif %}
-  <div id="personality_profile_container">
-    {% if personality_profile.created %}
-    <div id="personality_profile_interests_container">
-      {{personality_profile.interests}}
+    <div id="personality_profile_container">
+      {% if personality_profile.created %}
+      <div id="personality_profile_interests_container">
+        {{personality_profile.interests}}
+      </div>
+      <div id="personality_profile_do_you_like_drinking_container">
+        {{personality_profile.do_you_like_drinking}}
+      </div>
+      <div id="personality_profile_are_you_active_container">
+        {{personality_profile.are_you_active}}
+      </div>
+      <div id="personality_profile_music_pick_container">
+        {{personality_profile.music_pick}}
+      </div>
+      <div id="personality_profile_outdoor_indoor_pick_container">
+        {{personality_profile.outdoor_indoor_pick}}
+      </div>
+      <div id="personality_profile_what_do_you_do_for_fun_container">
+        {{personality_profile.what_do_you_do_for_fun}}
+      </div>
+      <div id="personality_profile_movie_pick_container">
+        {{personality_profile.movie_pick}}
+      </div>
+      {% endif %}
     </div>
-    <div id="personality_profile_do_you_like_drinking_container">
-      {{personality_profile.do_you_like_drinking}}
-    </div>
-    <div id="personality_profile_are_you_active_container">
-      {{personality_profile.are_you_active}}
-    </div>
-    <div id="personality_profile_music_pick_container">
-      {{personality_profile.music_pick}}
-    </div>
-    <div id="personality_profile_outdoor_indoor_pick_container">
-      {{personality_profile.outdoor_indoor_pick}}
-    </div>
-    <div id="personality_profile_what_do_you_do_for_fun_container">
-      {{personality_profile.what_do_you_do_for_fun}}
-    </div>
-    <div id="personality_profile_movie_pick_container">
-      {{personality_profile.movie_pick}}
-    </div>
-    {% endif %}
   </div>
-
+  {%endblock content%}
 </div>
-{%endblock content%}

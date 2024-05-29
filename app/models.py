@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    first_name = models.CharField(null=True, max_length=255)
+    last_name = models.CharField(null=True, max_length=255)
     has_dating_profile = models.BooleanField(default=False)
 
 
@@ -17,7 +19,11 @@ class DatingProfile(models.Model):
         null=True,
     )
     created = models.BooleanField(default=False)
-    profile_pic = models.ImageField(upload_to="", null=True, blank=True)
+    profile_pic = models.ImageField(
+        default="no-profile-picture-icon-15_oLIFS4i.jpg",
+        null=True,
+        blank=True,
+    )
     gender_options = (("Male", "MALE"), ("Female", "FEMALE"))
     interested_in_options = ("Men", "MEN"), ("Women", "WOMEN"), ("Both", "BOTH")
     yes_or_no_options = (("Yes", "YES"), ("No", "NO"))
@@ -42,9 +48,9 @@ class DatingProfile(models.Model):
 
 class PersonalityProfile(models.Model):
     user_profile = models.ForeignKey(
-        Profile,
+        DatingProfile,
         on_delete=models.CASCADE,
-        related_name="personality_profile_user",
+        related_name="dating_profile_user",
         null=True,
     )
     created = models.BooleanField(default=False)

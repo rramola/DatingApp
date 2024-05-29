@@ -1,9 +1,19 @@
-{%extends 'base.html'%}
+{%extends 'base.html'%} {% block content%}
 
-{% block content%}
- {%for key, value in random_potential_partners.items()%}
-      {% if key == "1"%}
-         
-        
+<div id="matchmaking_container">
+  <div id="matches">
+    {% comment %} {%for key, value in random_potential_partners.items()%}
+    <div id="render">{% if key == "1"%}</div>
+    {{value.user__first_name}}
+  </div>
+  {% endcomment %}
+  <div>
+    <div>
+      {% for set in val %}{% for item in set%}{{item.user_profile.user_profile}}
+      <div>{{item.user_profile.user_profile.first_name}}</div>
+      {%endfor%}{%endfor %}
+    </div>
+  </div>
 
-{%endblock content%}
+  {%endblock content%}
+</div>
