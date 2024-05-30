@@ -91,6 +91,7 @@ class PersonalityProfile(models.Model):
         ("antiquing", "ANTIQUING"),
         ("couch-potato", "COUCH-POTATO"),
         ("kayaking", "KAYAKING"),
+        ("swimming","SWIMMING"),
     )
     sport_interest_options = (
         ("baseball", "BASEBALL"),
@@ -100,6 +101,7 @@ class PersonalityProfile(models.Model):
         ("soccer", "SOCCER"),
         ("skate", "SKATING"),
         ("golf", "GOLF"),
+        
     )
     interests = models.CharField(
         max_length=50, choices=what_are_you_looking_for_options, null=True
