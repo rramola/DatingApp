@@ -4,24 +4,37 @@
     <div id="profile_name_container">
       <div id="profile_welcome_text">Welcome</div>
       <div id="profile_first_name_container">{{user.first_name}}</div>
-      {% comment %} <div id="profile_last_name_container">{{user.last_name}}!</div> {% endcomment %}
+      {% comment %}
+      <div id="profile_last_name_container">{{user.last_name}}!</div>
+      {% endcomment %}
     </div>
   </div>
 
   <div id="profile_modifier_buttons_container">
     {% if dating_profile.created == False %}
     <div id="dating_profil_create_button_container">
-      <a href="{%url 'dating'%}"><button class="user_profile_button" id="dating_profile_create_button">Create Dating Profile</button></a></div>{% endif %} {% if personality_profile.created == False %}
+      <a href="{%url 'dating'%}"
+        ><button class="user_profile_button" id="dating_profile_create_button">
+          Create Dating Profile
+        </button></a
+      >
+    </div>
+    {% endif %} {% if personality_profile.created == False %}
     <div id="personality_profile_create_button_container">
-      
-        <a href="{%url 'personality'%}"><button class="user_profile_button" id="personality_profile_create_button">Edit Personality Profile</button></a>
-
+      <a href="{%url 'personality'%}"
+        ><button
+          class="user_profile_button"
+          id="personality_profile_create_button"
+        >
+          Edit Personality Profile
+        </button></a
+      >
     </div>
     {% endif %}
   </div>
   {% if dating_profile.created %}
   <div id="dating_profile_image_container">
-    <img src="{{dating_profile.profile_pic.url}}"/>
+    <img src="{{dating_profile.profile_pic.url}}" />
   </div>
   {% endif %}
   <div id="dating_and_personality_profile_information_container">
@@ -31,56 +44,83 @@
       </div>
       <div id="dating_profile_information_container">
         {% if dating_profile.created %}
-        <div id="dating_profile_gender_container"><div id="gender">Gender: </div>{{dating_profile.gender}}</div>
-        <div id="dating_profile_age_container"><div id="age">Age:</div>{{dating_profile.age}}</div>
-        <div id="dating_profile_interested_in_container">
-          <div id="interested_in">Interested In: </div>{{dating_profile.interested_in}}
+        <div id="dating_profile_gender_container">
+          <div id="gender">Gender:</div>
+          {{dating_profile.gender}}
         </div>
-        <div id="dating_profile_smoker_container"><div id="smoker">Do you smoke? </div>{{dating_profile.smoker}}</div>
+        <div id="dating_profile_age_container">
+          <div id="age">Age:</div>
+          {{dating_profile.age}}
+        </div>
+        <div id="dating_profile_interested_in_container">
+          <div id="interested_in">Interested In:</div>
+          {{dating_profile.interested_in}}
+        </div>
+        <div id="dating_profile_smoker_container">
+          <div id="smoker">Do you smoke?</div>
+          {{dating_profile.smoker}}
+        </div>
       </div>
       <div id="dating_profile_edit_button_container">
-          <a href="{%url 'dating'%}"><button class="user_profile_button" id="dating_profile_edit_button">Edit Dating Profile</button></a>
+        <a href="{%url 'dating'%}"
+          ><button class="user_profile_button" id="dating_profile_edit_button">
+            Edit Dating Profile
+          </button></a
+        >
       </div>
       {% endif %}
     </div>
 
     <div id="personality_profile_container">
       <div id="personality_profile_header_container">
-        <p id="personality_profile_header_text">
-          Your Personality Test
-        </p>
+        <p id="personality_profile_header_text">Your Personality Test</p>
       </div>
       <div id="personality_profile_information_container">
         {% if personality_profile.created %}
         <div id="personality_profile_interests_container">
-          <div id="looking_form">Looking for: {{personality_profile.interests}}
+          <div id="looking_for">
+            Looking for: </div>{{personality_profile.interests}}
+          </div>
+          <div id="personality_profile_do_you_like_drinking_container">
+            <div id="like_drinking">Do you like drinking?</div>
+            {{personality_profile.do_you_like_drinking}}
+          </div>
+          <div id="personality_profile_are_you_active_container">
+            <div id="active">Are you active?</div>
+            {{personality_profile.are_you_active}}
+          </div>
+          <div id="personality_profile_music_pick_container">
+            <div id="music">What music do you like?</div>
+            {{personality_profile.music_pick}}
+          </div>
+          <div id="personality_profile_outdoor_indoor_pick_container">
+            <div id="outdoor_indoor">
+              Do you prefer to be outdoors or indoors?
+            </div>
+            {{personality_profile.outdoor_indoor_pick}}
+          </div>
+          <div id="personality_profile_what_do_you_do_for_fun_container">
+            <div id="fun">What do you do for fun?</div>
+            {{personality_profile.what_do_you_do_for_fun}}
+          </div>
+          <div id="personality_profile_movie_pick_container">
+            <div id="movie">What is your favorite moview genre?</div>
+            {{personality_profile.movie_pick}}
+          </div>
         </div>
-        <div id="personality_profile_do_you_like_drinking_container">
-          <div id="{{personality_profile.do_you_like_drinking}}
+        <div id="personality_profile_edit_button_container">
+          <a href="{%url 'personality'%}"
+            ><button
+              class="user_profile_button"
+              id="personality_profile_edit_button"
+            >
+              Edit Personality Profile
+            </button></a
+          >
         </div>
-        <div id="personality_profile_are_you_active_container">
-          {{personality_profile.are_you_active}}
-        </div>
-        <div id="personality_profile_music_pick_container">
-          {{personality_profile.music_pick}}
-        </div>
-        <div id="personality_profile_outdoor_indoor_pick_container">
-          {{personality_profile.outdoor_indoor_pick}}
-        </div>
-        <div id="personality_profile_what_do_you_do_for_fun_container">
-          {{personality_profile.what_do_you_do_for_fun}}
-        </div>
-        <div id="personality_profile_movie_pick_container">
-          {{personality_profile.movie_pick}}
-        </div>
+        {% endif %}
       </div>
-      <div id="personality_profile_edit_button_container">
-
-          <a href="{%url 'personality'%}"><button class="user_profile_button" id="personality_profile_edit_button">Edit Personality Profile</button></a>
-
-      </div>
-      {% endif %}
     </div>
   </div>
+  {%endblock content%}
 </div>
-{%endblock content%}
