@@ -4,7 +4,7 @@
     <div id="profile_name_container">
       <div id="profile_welcome_text">Welcome</div>
       <div id="profile_first_name_container">{{user.first_name}}</div>
-      <div id="profile_last_name_container">{{user.last_name}}!</div>
+      {% comment %} <div id="profile_last_name_container">{{user.last_name}}!</div> {% endcomment %}
     </div>
   </div>
 
@@ -21,21 +21,23 @@
   </div>
   {% if dating_profile.created %}
   <div id="dating_profile_image_container">
-    <img src="{{dating_profile.profile_pic.url}}" />
+    <img src="{{dating_profile.profile_pic.url}}"/>
   </div>
   {% endif %}
   <div id="dating_and_personality_profile_information_container">
-    <div id="dating_profile_information_container">
+    <div id="dating_profile_container">
       <div id="dating_profile_header_container">
         <p id="dating_profile_header_text">Your Profile</p>
       </div>
-      {% if dating_profile.created %}
-      <div id="dating_profile_gender_container">{{dating_profile.gender}}</div>
-      <div id="dating_profile_age_container">{{dating_profile.age}}</div>
-      <div id="dating_profile_interested_in_container">
-        {{dating_profile.interested_in}}
+      <div id="dating_profile_information_container">
+        {% if dating_profile.created %}
+        <div id="dating_profile_gender_container"><div id="gender">Gender: </div>{{dating_profile.gender}}</div>
+        <div id="dating_profile_age_container"><div id="age">Age:</div>{{dating_profile.age}}</div>
+        <div id="dating_profile_interested_in_container">
+          <div id="interests">Interested In: </div>{{dating_profile.interested_in}}
+        </div>
+        <div id="dating_profile_smoker_container"><div id="smoker">Do you smoke? </div>{{dating_profile.smoker}}</div>
       </div>
-      <div id="dating_profile_smoker_container">{{dating_profile.smoker}}</div>
       <div id="dating_profile_edit_button_container">
       
           <a href="{%url 'dating'%}"><button class="user_profile_button" id="dating_profile_edit_button">Edit Dating Profile</button></a>
@@ -50,27 +52,29 @@
           Your Personality Test
         </p>
       </div>
-      {% if personality_profile.created %}
-      <div id="personality_profile_interests_container">
-        {{personality_profile.interests}}
-      </div>
-      <div id="personality_profile_do_you_like_drinking_container">
-        {{personality_profile.do_you_like_drinking}}
-      </div>
-      <div id="personality_profile_are_you_active_container">
-        {{personality_profile.are_you_active}}
-      </div>
-      <div id="personality_profile_music_pick_container">
-        {{personality_profile.music_pick}}
-      </div>
-      <div id="personality_profile_outdoor_indoor_pick_container">
-        {{personality_profile.outdoor_indoor_pick}}
-      </div>
-      <div id="personality_profile_what_do_you_do_for_fun_container">
-        {{personality_profile.what_do_you_do_for_fun}}
-      </div>
-      <div id="personality_profile_movie_pick_container">
-        {{personality_profile.movie_pick}}
+      <div id="personality_profile_information_container">
+        {% if personality_profile.created %}
+        <div id="personality_profile_interests_container">
+          {{personality_profile.interests}}
+        </div>
+        <div id="personality_profile_do_you_like_drinking_container">
+          {{personality_profile.do_you_like_drinking}}
+        </div>
+        <div id="personality_profile_are_you_active_container">
+          {{personality_profile.are_you_active}}
+        </div>
+        <div id="personality_profile_music_pick_container">
+          {{personality_profile.music_pick}}
+        </div>
+        <div id="personality_profile_outdoor_indoor_pick_container">
+          {{personality_profile.outdoor_indoor_pick}}
+        </div>
+        <div id="personality_profile_what_do_you_do_for_fun_container">
+          {{personality_profile.what_do_you_do_for_fun}}
+        </div>
+        <div id="personality_profile_movie_pick_container">
+          {{personality_profile.movie_pick}}
+        </div>
       </div>
       <div id="personality_profile_edit_button_container">
 
