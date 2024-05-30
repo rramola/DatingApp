@@ -7,25 +7,25 @@
     {{value.user__first_name}}
   </div>
   {% endcomment %}
-  <div>
     <div>
       {% for set in val %}
         {% for object in set%} 
           {% if user != object.user_profile.user_profile  %}
-     <div><img src="{{object.user_profile.profile_pic.url}}"/>
+          <img src="{{object.user_profile.profile_pic.url}}"/>
           {{object.user_profile.user_profile.first_name}}
           {{ object.user_profile.user_profile.last_name}}
           {{ object.user_profile.age}}
           <button> <a href= "{% url "partner" object.id %}" >View Profile</a></button>
           <button> <a href= # >Message</a></button>
           {% endif %}  
-      </div>
+     
 
               
             {%endfor %}
        {%endfor%} 
     </div>
-  </div>
+ 
+
 
   {%endblock content%}
 </div>
