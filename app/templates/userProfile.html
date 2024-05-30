@@ -1,6 +1,11 @@
 {% extends 'base.html'%} {%block content%}
 <div id="profile_information_container">
   <div id="profile_header_container">
+    {% if dating_profile.created %}
+    <div id="dating_profile_image_container">
+      <img src="{{dating_profile.profile_pic.url}}" />
+    </div>
+    {% endif %}
     <div id="profile_name_container">
       <div id="profile_welcome_text">Welcome</div>
       <div id="profile_first_name_container">{{user.first_name}}</div>
@@ -12,7 +17,7 @@
 
   <div id="profile_modifier_buttons_container">
     {% if dating_profile.created == False %}
-    <div id="dating_profil_create_button_container">
+    <div id="dating_profile_create_button_container">
       <a href="{%url 'dating'%}"
         ><button class="user_profile_button" id="dating_profile_create_button">
           Create Dating Profile
@@ -32,11 +37,11 @@
     </div>
     {% endif %}
   </div>
-  {% if dating_profile.created %}
+  {% comment %} {% if dating_profile.created %}
   <div id="dating_profile_image_container">
     <img src="{{dating_profile.profile_pic.url}}" />
   </div>
-  {% endif %}
+  {% endif %} {% endcomment %}
   <div id="dating_and_personality_profile_information_container">
     <div id="dating_profile_container">
       <div id="dating_profile_header_container">
@@ -83,7 +88,7 @@
           </div>
           <div id="personality_profile_do_you_like_drinking_container">
             <div id="like_drinking">Do you like drinking?</div>
-            {{personality_profile.do_you_like_drinking}}
+            {{personality_profile.do_you_like_drinking}}">
           </div>
           <div id="personality_profile_are_you_active_container">
             <div id="active">Are you active?</div>
@@ -101,7 +106,7 @@
           </div>
           <div id="personality_profile_what_do_you_do_for_fun_container">
             <div id="fun">What do you do for fun?</div>
-            {{personality_profile.what_do_you_do_for_fun}}
+            {{personality_profile.what_do_you_do_for_fun_pick}}
           </div>
           <div id="personality_profile_movie_pick_container">
             <div id="movie">What is your favorite moview genre?</div>

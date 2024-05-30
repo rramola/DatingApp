@@ -117,6 +117,12 @@ def profileView(request):
     return render(request, "userProfile.html", context)
 
 
+def partner_profile_view(request, id):
+    partner = Profile.objects.get(user__id=id)
+    dating_profile = DatingProfile.objects.get(user_profile = partner)
+    context = { "dating_profile": dating_profile}
+    return render(request, "potiental_partner_profile.html", context)
+
 def matchmakingView(request):
     # user = User.objects.filter(id=request.user.id)
     user = request.user.profile
@@ -186,7 +192,7 @@ def matchmakingView(request):
         "random_potential_partners": random_potential_partners,
         "key": key,
         "val": val,
-        "user": user
+        "user": user,
     }
 
     return render(request, "matchmaking.html", context)
