@@ -34,7 +34,7 @@
         <div id="dating_profile_gender_container"><div id="gender">Gender: </div>{{dating_profile.gender}}</div>
         <div id="dating_profile_age_container"><div id="age">Age:</div>{{dating_profile.age}}</div>
         <div id="dating_profile_interested_in_container">
-          <div id="interests">Interested In: </div>{{dating_profile.interested_in}}
+          <div id="interested_in">Interested In: </div>{{dating_profile.interested_in}}
         </div>
         <div id="dating_profile_smoker_container"><div id="smoker">Do you smoke? </div>{{dating_profile.smoker}}</div>
       </div>
@@ -53,10 +53,10 @@
       <div id="personality_profile_information_container">
         {% if personality_profile.created %}
         <div id="personality_profile_interests_container">
-          {{personality_profile.interests}}
+          <div id="looking_form">Looking for: {{personality_profile.interests}}
         </div>
         <div id="personality_profile_do_you_like_drinking_container">
-          {{personality_profile.do_you_like_drinking}}
+          <div id="{{personality_profile.do_you_like_drinking}}
         </div>
         <div id="personality_profile_are_you_active_container">
           {{personality_profile.are_you_active}}
