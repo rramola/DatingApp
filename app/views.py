@@ -12,6 +12,11 @@ from .forms import *
 from .models import *
 import random
 
+@login_required(login_url="login")
+def base(request):
+    user = request.user
+    context = {"user": user}
+    return render(request, "base.html", context)
 
 @login_required(login_url="login")
 def home_page(request):
@@ -77,7 +82,7 @@ def dating_profile_register(request):
     context = {"form": form}
     return render(request, "dating_form.html", context)
 
-
+@login_required(login_url="login")
 def personality_register(request):
     user_get = request.user.profile
     dating_profile = DatingProfile.objects.get(user_profile=user_get)
@@ -97,7 +102,7 @@ def personality_register(request):
     context = {"form": form}
     return render(request, "personality_form.html", context)
 
-
+@login_required(login_url="login")
 def profileView(request):
     user = request.user
     user_profile = request.user.profile
@@ -116,14 +121,14 @@ def profileView(request):
     }
     return render(request, "userProfile.html", context)
 
-
+@login_required(login_url="login")
 def partner_profile_view(request, id):
     partner = Profile.objects.get(user__id=id)
     dating_profile = DatingProfile.objects.get(user_profile=partner)
     context = {"dating_profile": dating_profile}
     return render(request, "potiental_partner_profile.html", context)
 
-
+@login_required(login_url="login")
 def matchmakingView(request):
     # user = User.objects.filter(id=request.user.id)
     user = request.user.profile
