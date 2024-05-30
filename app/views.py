@@ -119,9 +119,10 @@ def profileView(request):
 
 def partner_profile_view(request, id):
     partner = Profile.objects.get(user__id=id)
-    dating_profile = DatingProfile.objects.get(user_profile = partner)
-    context = { "dating_profile": dating_profile}
+    dating_profile = DatingProfile.objects.get(user_profile=partner)
+    context = {"dating_profile": dating_profile}
     return render(request, "potiental_partner_profile.html", context)
+
 
 def matchmakingView(request):
     # user = User.objects.filter(id=request.user.id)
@@ -157,25 +158,25 @@ def matchmakingView(request):
     #     movie_pick=user_personality_profile.movie_pick
     # )
     choice2 = PersonalityProfile.objects.filter(
-        # user_profile__interested_in=user_dating_profile,
+        user_profile__interested_in=user_dating_profile.interested_in,
         do_you_like_drinking=user_personality_profile.do_you_like_drinking,
         outdoor_indoor_pick=user_personality_profile.outdoor_indoor_pick,
         movie_pick=user_personality_profile.movie_pick,
     )
     choice3 = PersonalityProfile.objects.filter(
-        # user_profile__interested_in=user_dating_profile,
+        user_profile__interested_in=user_dating_profile.interested_in,
         do_you_like_drinking=user_personality_profile.do_you_like_drinking,
         music_pick=user_personality_profile.music_pick,
         movie_pick=user_personality_profile.movie_pick,
     )
     choice4 = PersonalityProfile.objects.filter(
-        # user_profile__interested_in=user_dating_profile,
+        user_profile__interested_in=user_dating_profile.interested_in,
         interests=user_personality_profile.interests,
         outdoor_indoor_pick=user_personality_profile.outdoor_indoor_pick,
         what_do_you_do_for_fun_pick=user_personality_profile.what_do_you_do_for_fun_pick,
     )
     choice1 = PersonalityProfile.objects.filter(
-        # user_profile__interested_in=user_dating_profile,
+        user_profile__interested_in=user_dating_profile.interested_in,
         interests=user_personality_profile.interests,
         music_pick=user_personality_profile.music_pick,
         what_do_you_do_for_fun_pick=user_personality_profile.what_do_you_do_for_fun_pick,
