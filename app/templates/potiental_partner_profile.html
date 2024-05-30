@@ -1,0 +1,17 @@
+{%extends 'home.html'%}
+
+{%block content%}
+<div id="partner_profile_image_container">
+    <img src="{{dating_profile.profile_pic.url}}"/>
+</div>
+<div id="partner_profile_gender_container"><div id="gender">Gender: </div>{{dating_profile.gender}}</div>
+<div id="partner_profile_age_container"><div id="age">Age:</div>{{dating_profile.age}}</div>
+<div id="partner_profile_interested_in_container">
+  <div id="partner_interested_in">Interested In: </div>{{dating_profile.interested_in}}
+</div>
+<div id="partner_profile_smoker_container"><div id="smoker">Do you smoke? </div>{{dating_profile.smoker}}</div>
+</div>
+<button> <a href= "{% url "matchmaking"%}" >Back</a></button>
+<button> <a href= # >Message</a></button>
+
+{%endblock content%}
