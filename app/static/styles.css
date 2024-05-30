@@ -23,14 +23,16 @@ body {
 
 /* LOGIN FORM STYLES */
 
+#login_page_container{
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
 #login-form{
-    height: 520px;
-    width: 400px;
+    height: fit-content;
+    width: 25rem;
     background-color: rgba(255, 255, 255, 0.301);
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
     border-radius: 10px;
     backdrop-filter: blur(15px);
     border: 2px solid rgba(255, 255, 255, 0.349);
@@ -71,9 +73,7 @@ body {
     font-size: 1rem;
     font-weight: 300;
 }
-login-form >input::placeholder {
-    color: #e1e1e1;
-  }
+
   
  #login-form > input:hover{
     outline: 7px solid #0001;
@@ -90,6 +90,110 @@ login-form >input::placeholder {
     border-radius: 5px;
     cursor: pointer;
   }
+
+  /* REGISTRATION FORM STYLE */
+
+#registration_form_page_container{
+display: flex;
+justify-content: center;
+padding-top: 2rem;
+padding-bottom: 2rem;
+}
+
+#registration_form{
+    height: fit-content;
+    width: 25rem;
+    background-color: rgba(255, 255, 255, 0.301);
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.349);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+}
+
+#registration-form_title_container > h3 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 42px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2;   
+    color: purple;
+    font-family: "Poppins", sans-serif;
+
+
+  }
+
+#id_username, #id_first_name, #id_last_name, #id_email, #id_password1, #id_password2 {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.411);
+    border-radius: 3px;
+    padding: 0 .5rem;
+    margin-top: .5rem;
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+    color: purple;
+}
+
+#id_password2:hover{
+    outline: 7px solid #0001;
+
+}
+
+
+#id_password1:hover{
+    outline: 7px solid #0001;
+
+}
+#id_email:hover{
+    outline: 7px solid #0001;
+
+}
+#id_last_name:hover{
+    outline: 7px solid #0001;
+
+}
+#id_first_name:hover{
+    outline: 7px solid #0001;
+
+}
+#id_username:hover{
+    outline: 7px solid #0001;
+}
+
+#id_password1:hover{
+    outline: 7px solid #0001;
+}
+
+
+#register_button {
+    margin-top: 3.1rem;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size:1.5rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+  }
+
+  #registration_page_login_link{
+    font-family: "Poppins", sans-serif;
+    color: purple;
+    letter-spacing: 0.5px;
+  }
+
 /* PROFILE PAGE STYLES */
 #profile_name_container {
     display: flex;
@@ -452,6 +556,8 @@ login-form >input::placeholder {
     color: white;
     font-size:1.4rem;
     padding: .5rem;
+    cursor: pointer;
+
 }
 
 /* .user_profile_button {
