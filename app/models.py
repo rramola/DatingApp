@@ -67,12 +67,13 @@ class PersonalityProfile(models.Model):
     what_do_you_do_for_fun_options = (
         ("hiking", "HIKING"),
         ("gaming", "GAMING"),
-        ("reading", "Reading"),
+        ("reading", "READING"),
         ("singing", "SINGING"),
-        ("sport", "SPORTS"),
+        ("sports", "SPORTS"),
         ("dancing", "DANCING"),
         ("travel", "TRAVEL"),
         ("poetry", "POETRY"),
+        ("music", "MUSIC"),
     )
     movie_genre_options = (
         ("horror", "HORROR"),
@@ -81,6 +82,26 @@ class PersonalityProfile(models.Model):
         ("action", "ACTION"),
         ("anime", "ANIME"),
         ("sci-fi", "SCI-FI"),
+    )
+    hobby_options = (
+        ("biking", "BIKING"),
+        ("knitting", "KNITTING"),
+        ("painting", "PAINTING"),
+        ("bird-watching", "BIRD-WATCHING"),
+        ("antiquing", "ANTIQUING"),
+        ("couch-potato", "COUCH-POTATO"),
+        ("kayaking", "KAYAKING"),
+        ("swimming","SWIMMING"),
+    )
+    sport_interest_options = (
+        ("baseball", "BASEBALL"),
+        ("basketball", "BASKETBALL"),
+        ("tennis", "TENNIS"),
+        ("football", "FOOTBALL"),
+        ("soccer", "SOCCER"),
+        ("skate", "SKATING"),
+        ("golf", "GOLF"),
+        
     )
     interests = models.CharField(
         max_length=50, choices=what_are_you_looking_for_options, null=True
@@ -100,6 +121,10 @@ class PersonalityProfile(models.Model):
     )
     movie_pick = models.CharField(
         max_length=300, choices=movie_genre_options, null=True
+    )
+    hobby_pick = models.CharField(max_length=300, choices=hobby_options, null=True)
+    sport_pick = models.CharField(
+        max_length=300, choices=sport_interest_options, null=True
     )
 
 

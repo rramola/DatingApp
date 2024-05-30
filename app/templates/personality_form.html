@@ -92,7 +92,7 @@
                         <div class="form-group">
                             <label for="movie_pick">What type of Movies do you like?</label>
                             <select name="movie_pick" class="selectpicker" id="movie_pick" data-style="btn-black" data-width="100%" data-live-search="true" title="Select from List">
-                                <option value="horro">Horror</option>
+                                <option value="horror">Horror</option>
                                 <option value="romance">Romance</option>
                                 <option value="comedy">Comedy</option>
                                 <option value="action">Action</option>
@@ -101,6 +101,36 @@
                     
                             </select>
                             </div>  
+                        {% elif field.name == 'hobby_pick' %}
+                        <div class="form-group">
+                            <label for="hobby_pick">What hobbies do you enjoy?</label>
+                            <select name="hobby_pick" class="selectpicker" id="hobby_pick" data-style="btn-black" data-width="100%" data-live-search="true" title="Select from List">
+                                <option value="biking">Biking</option>
+                                <option value="knitting">Knitting</option>
+                                <option value="painting">Painting</option>
+                                <option value="bird-watching">Bird-Watching</option>
+                                <option value="antiquing">Antiquing</option>
+                                <option value="couch-potato">Couch-Potato</option>
+                                <option value="kayaking">Kayaking</option>
+                                <option value= "swimming">Swimming</option>
+                    
+                            </select>
+                            </div>  
+                        {% elif field.name == 'sport_pick' %}
+                        <div class="form-group">
+                            <label for="sport_pick">What Sports do you enjoy to watch/participate?</label>
+                            <select name="sport_pick" class="selectpicker" id="sport_pick" data-style="btn-black" data-width="100%" data-live-search="true" title="Select from List">
+                                <option value="baseball">Baseball</option>
+                                <option value="basketball">Basketball</option>
+                                <option value="tennis">Tennis</option>
+                                <option value="football">Football</option>
+                                <option value="soccer">Soccer</option>
+                                <option value="skate">Skating</option>
+                                <option value="golf">Golf</option>
+                    
+                            </select>
+                            </div>  
+                           
                         {% else %}
                         <div class="form-group">
                             <label class="text-black" for="id_{{ field.name }}">{{ field.label }}</label>
