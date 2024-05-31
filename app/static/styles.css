@@ -574,11 +574,14 @@ padding-bottom: 2rem;
 }
 
 #partner-cards {
+    color: purple;
+    font-weight: 900;
+    font-size: 2rem;
     display: flex;
     flex-direction: column;
     padding: 10px;
-    background: rgba(93, 24, 107, 0.363);
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.301);
+    border: 2px solid rgba(255, 255, 255, 0.349);
     height: 430px;
     width: 320px;
     border-radius: 10px;
@@ -688,6 +691,8 @@ opacity: 0;
 
 /* //////////////MESSAGES////////////// */
 .inboxMSGs{
+    color: purple;
+    font-weight: 900;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -701,27 +706,76 @@ opacity: 0;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin-right: 80%;
     backdrop-filter: blur(10px);
+    border-radius: 10px;
 }
 
+.inboxBTN{
+    border-radius: .5rem;
+    background-color: rgb(185, 120, 180);
+    color: white;
+    font-size: 1.1rem;
+    padding: .5rem;
+    cursor: pointer;
+}
 
-/* ///////////////POTENTIAL PARTNER//////////// */
-.potential_partner_profile{
+/* /////////////SEND MSGS//////////////// */
+.sendMSGs{
+    color: purple;
+    font-weight: 900;
+    font-size: 1.1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.301);
-    backdrop-filter: blur(10px);
     padding: 10px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     border: 2px solid rgba(255, 255, 255, 0.349);
     padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-right: 80%;
+    backdrop-filter: blur(10px);
+
+}
+
+.sendMSGs > button{
+    border-radius: .5rem;
+    background-color: rgb(185, 120, 180);
+    color: white;
+    font-size: 1.1rem;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+/* ///////////////POTENTIAL PARTNER//////////// */
+.potential_partner_profile{
+    color: purple;
+    font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.301);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.349);
     margin: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin-right: 80%;
 }
 
 .potential_partner_profile > img{
-    border-radius: 70%;
+    border-radius: 0%;
     object-fit: cover;
+}
+
+.potential_partner_profile > button{
+    border-radius: .5rem;
+    background-color: rgb(185, 120, 180);
+    color: white;
+    font-size: 1.1rem;
+    padding: .5rem;
+    cursor: pointer;
 }

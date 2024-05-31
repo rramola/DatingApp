@@ -4,7 +4,7 @@
     <div class="inboxMSGs">
         <p>From: {{ message.sender.user.username }}</p>
         <p>{{ message.content }}</p>
-        <a href="{% url 'message_detail' message.id %}">Reply</a>
+        <button class="inboxBTN"><a href="{% url 'message_detail' message.id %}">Reply</a></button>
         {% comment %} <a href="{% url 'delete_message' message.id %}">Delete</a> {% endcomment %}
     </div>
 {% endfor %}

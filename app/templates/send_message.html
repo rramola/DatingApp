@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="sendMSGs">
 <form method="post">
     {% csrf_token %}
+    <img src="{{ recipient.user_profile_pic.url }}"/>
     <p>Recipient: {{ recipient.user.first_name }} {{ recipient.user.last_name }}</p>
     <textarea name="content"></textarea>
     <input type="submit" value="Send" placeholder="Where the magic happens..">
 </form>
+</div>
 {% endblock content %}
 
 
