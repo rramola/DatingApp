@@ -19,8 +19,7 @@ class DatingProfile(models.Model):
     )
     created = models.BooleanField(default=False)
     profile_pic = models.ImageField(
-        upload_to="",
-        default="default_profile.png",
+        default="default_pic.jpg",
         null=True,
         blank=True,
     )
@@ -33,10 +32,10 @@ class DatingProfile(models.Model):
         max_length=50, choices=interested_in_options, null=True
     )
     smoker = models.CharField(max_length=50, choices=yes_or_no_options, null=True)
-    drinker = models.CharField(max_length=50, choices=yes_or_no_options, null=True)
-    occupation = models.CharField(max_length=50, null=True)
-    bio = models.TextField(null=True)
-    favorite_place_ever_been = models.TextField(null=True)
+    # drinker = models.CharField(max_length=50, choices=yes_or_no_options, null=True)
+    # occupation = models.CharField(max_length=50, null=True)
+    # bio = models.TextField(null=True)
+    # favorite_place_ever_been = models.TextField(null=True)
 
     def __str__(self) -> str:
         return self.user_profile.first_name
