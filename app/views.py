@@ -228,6 +228,7 @@ def messagesView(request, id):
         new_message.save()
     return render(request, "messages.html", context)
 
+@login_required
 def send_message(request, recipient_id):
     if request.method == 'POST':
         sender = request.user.profile
@@ -238,6 +239,26 @@ def send_message(request, recipient_id):
     else:
         recipient = Profile.objects.get(id=recipient_id)
         return render(request, 'send_message.html', {'recipient': recipient})
+    
+# THREAD ATTEMPT
+# @login_required
+# def send_message(request, recipient_id, parent_message_id=None):
+#     if request.method == 'POST':
+#         sender = request.user.profile
+#         recipient = Profile.objects.get(id=recipient_id)
+#         content = request.POST.get('content')
+#         if parent_message_id:
+#             parent_message = Message.objects.get(id=parent_message_id)
+#             message = Message.objects.create(sender=sender, recipient=recipient, content=content, parent_message=parent_message)
+#         else:
+#             message = Message.objects.create(sender=sender, recipient=recipient, content=content)
+#         return redirect('inbox')
+#     else:
+#         recipient = Profile.objects.get(id=recipient_id)
+#         parent_message = None
+#         if parent_message_id:
+#             parent_message = Message.objects.get(id=parent_message_id)
+#         return render(request, 'send_message.html', {'recipient': recipient, 'parent_message': parent_message})
 
 @login_required
 def inbox(request):

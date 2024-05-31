@@ -7,3 +7,23 @@
     <input type="submit" value="Send" placeholder="Where the magic happens..">
 </form>
 {% endblock content %}
+
+
+
+
+
+{% comment %} THREAD ATTEMPT {% endcomment %}
+{% comment %} {% extends "base.html" %}
+{% block content %}
+<h1>Compose Message</h1>
+<form method="post">
+    {% csrf_token %}
+    <p>Recipient: {{ recipient.user.first_name }} {{ recipient.user.last_name }}</p>
+    {% if parent_message %}
+    <p>In reply to: {{ parent_message.content }}</p>
+    <input type="hidden" name="parent_message_id" value="{{ parent_message.id }}">
+    {% endif %}
+    <textarea name="content"></textarea>
+    <input type="submit" value="Send" placeholder="Where the magic happens..">
+</form>
+{% endblock content %} {% endcomment %}
