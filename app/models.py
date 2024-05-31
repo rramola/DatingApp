@@ -19,7 +19,7 @@ class DatingProfile(models.Model):
     )
     created = models.BooleanField(default=False)
     profile_pic = models.ImageField(
-        default="default_profile.png",
+        default="default_pic.jpg",
         null=True,
         blank=True,
     )
