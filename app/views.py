@@ -212,3 +212,18 @@ def matchmakingView(request):
     }
 
     return render(request, "matchmaking.html", context)
+
+
+def messagesView(request, id):
+    user = Profile.objects.get(user__id=id)
+    messages = Message.objects.filter(recipient=user)
+    context = {"messages": messages}
+    if request.method == "POST":
+        content = request.POST.get("content")
+        new_message = Message.objects.create(
+            sender=request.user.profile,
+            recipient=user,
+            content=content,
+        )
+        new_message.save()
+    return render(request, "messages.html", context)

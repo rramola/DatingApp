@@ -24,7 +24,7 @@
           </div>
           <div id= "partner_buttons">
           <button> <a href= "{% url "partner" object.id %}" >View Profile</a></button>
-          <button> <a href= # >Message</a></button>
+          <button> <a href= "{% url "messages" object.id %}" >Message</a></button>
           </div>
     </div>
     {% endif %}  

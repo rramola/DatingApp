@@ -30,6 +30,7 @@ urlpatterns = [
     path("dating/", dating_profile_register, name="dating"),
     path("personality/", personality_register, name="personality"),
     path("matchmaking/", matchmakingView, name="matchmaking"),
+    path("messages/<int:id>", messagesView, name="messages"),
     path("partner_profile/<int:id>", partner_profile_view, name="partner"),
     path("", home_page, name="home"),
     path("admin/", admin.site.urls),

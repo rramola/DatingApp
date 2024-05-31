@@ -1,0 +1,19 @@
+{% extends 'base.html' %}{% block content %}
+
+{% for message in messages %}
+    <div class="message">
+        <img src="{{ message.sender.profile_pic.url }}">
+        <p>Sender: {{ message.sender }}</p>
+        <p>Recipient: {{ message.recipient }}</p>
+        <p>Content: {{ message.content }}</p>
+        <p>Status: {{ message.status }}</p>
+        <p>Received Date: {{ message.received_date }}</p>
+        <p>Parent Message: {{ message.parent_message }}</p>
+{% endfor %}
+<form method="POST">
+    {% csrf_token %}
+    <label for="content">Content:</label>
+    <input type="text" name="content" id="content" placeholder="Enter message here..">
+    <button type="submit" id="messageBTN">Send</button>
+    </div>
+{% endblock content %}
