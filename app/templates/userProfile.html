@@ -1,11 +1,9 @@
 {% extends 'base.html'%} {%block content%}
 <div id="profile_information_container">
   <div id="profile_header_container">
-    {% if dating_profile.created %}
     <div id="dating_profile_image_container">
       <img src="{{dating_profile.profile_pic.url}}" />
     </div>
-    {% endif %}
     <div id="profile_name_container">
       <div id="profile_welcome_text">Welcome</div>
       <div id="profile_first_name_container">{{user.first_name}}</div>
@@ -31,7 +29,9 @@
             </button></a
           >
         </div>
-        {% endif %} {% if dating_profile.created %}
+        {% endif %} 
+        
+        {% if dating_profile.created %}
         <div id="dating_profile_gender_container">
           <div class="profile_info_text">GENDER</div>
           {{dating_profile.gender}}
