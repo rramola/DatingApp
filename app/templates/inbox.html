@@ -5,6 +5,7 @@
         <p>From: {{ message.sender.user.username }}</p>
         <p>{{ message.content }}</p>
         <a href="{% url 'message_detail' message.id %}">Reply</a>
+        {% comment %} <a href="{% url 'delete_message' message.id %}">Delete</a> {% endcomment %}
     </div>
 {% endfor %}
 {% endblock content %}
