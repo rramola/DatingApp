@@ -19,7 +19,7 @@ class DatingProfile(models.Model):
     )
     created = models.BooleanField(default=False)
     profile_pic = models.ImageField(
-        default="no-profile-picture-icon-15_oLIFS4i.jpg",
+        default="default_pic.jpg",
         null=True,
         blank=True,
     )
@@ -32,10 +32,10 @@ class DatingProfile(models.Model):
         max_length=50, choices=interested_in_options, null=True
     )
     smoker = models.CharField(max_length=50, choices=yes_or_no_options, null=True)
-    drinker = models.CharField(max_length=50, choices=yes_or_no_options, null=True)
-    occupation = models.CharField(max_length=50, null=True)
-    bio = models.TextField(null=True)
-    favorite_place_ever_been = models.TextField(null=True)
+    # drinker = models.CharField(max_length=50, choices=yes_or_no_options, null=True)
+    # occupation = models.CharField(max_length=50, null=True)
+    # bio = models.TextField(null=True)
+    # favorite_place_ever_been = models.TextField(null=True)
 
     def __str__(self) -> str:
         return self.user_profile.first_name
@@ -91,7 +91,7 @@ class PersonalityProfile(models.Model):
         ("antiquing", "ANTIQUING"),
         ("couch-potato", "COUCH-POTATO"),
         ("kayaking", "KAYAKING"),
-        ("swimming","SWIMMING"),
+        ("swimming", "SWIMMING"),
     )
     sport_interest_options = (
         ("baseball", "BASEBALL"),
@@ -101,7 +101,6 @@ class PersonalityProfile(models.Model):
         ("soccer", "SOCCER"),
         ("skate", "SKATING"),
         ("golf", "GOLF"),
-        
     )
     interests = models.CharField(
         max_length=50, choices=what_are_you_looking_for_options, null=True
