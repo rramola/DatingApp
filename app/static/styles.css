@@ -195,6 +195,7 @@ padding-bottom: 2rem;
   }
 
 /* PROFILE PAGE STYLES */
+
 #profile_name_container {
     display: flex;
     column-gap: 3rem;
@@ -203,10 +204,10 @@ padding-bottom: 2rem;
     font-weight: 900;
     margin-top: 2rem;
     margin-bottom: 4rem;
-    text-shadow: 1px 1px 2px rgb(162, 130, 167), 0 0 1em rgb(247, 0, 255), 0 0 0.2em rgb(133, 55, 133);
     justify-content: left;
     padding-left: 10rem;
     margin-right: 2rem;
+    color: purple;
 }
 
 #profile_modifier_buttons_container {
@@ -233,10 +234,10 @@ padding-bottom: 2rem;
 #dating_profile_image_container > img{
     width: 256px;
     height: 256px;
-    border-radius: 50%;
+    border-radius: 50%;    border-radius: 50%;
     object-fit: cover;
 
-    
+    object-fit: cover;
 }
 #dating_and_personality_profile_information_container {
     display: grid;
@@ -276,93 +277,103 @@ padding-bottom: 2rem;
     font-weight: 900;
     padding: 1rem;
     color: purple;
-    /* text-shadow: 1px 1px 2px rgb(162, 130, 167), 0 0 1em rgb(247, 0, 255), 0 0 0.2em rgb(133, 55, 133); */
 }
 
 #dating_profile_information_container {
-    display: grid;
-    grid-template-rows: auto;
+    display: flex;
+    flex-direction: column;
     row-gap: 2rem;
-    padding-left: 2rem;
-    padding-right:  2rem;
-    margin-bottom: 2rem;
+    padding: 2rem;
     min-width: fit-content;
+    background-color: rgba(255, 255, 255, 0.512);
+    margin: 2rem;
+    border-radius: 10px;
+
 
 }
-
 #dating_profile_gender_container{
     display: flex;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    column-gap: 2rem;
-    width: 50%;
-    min-width: fit-content;
-    font-size:1.6rem;
-    text-align: center;
-    padding-left: .2rem;
-    color: purple;
-    /* text-shadow: 1px 1px 2px rgb(162, 130, 167), 0 0 1em rgb(247, 0, 255), 0 0 0.2em rgb(133, 55, 133); */
-
-}
-
-
-#dating_profile_age_container{
-    display: flex;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    column-gap: 2rem;
-    width: 60%;
-    min-width: fit-content;
+    justify-content: space-between;
     font-size:1.6rem;
     text-align: center;
     padding-left: .2rem;
     padding-right: .2rem;
     color: purple;
-    /* text-shadow: 1px 1px 2px rgb(162, 130, 167), 0 0 1em rgb(247, 0, 255), 0 0 0.2em rgb(133, 55, 133); */
+}
 
+#dating_profile_age_container{
+    display: flex;
+    justify-content: space-between;
+
+    font-size:1.6rem;
+    text-align: center;
+    padding-left: .2rem;
+    padding-right: .2rem;
+    color: purple;
 
 }
 #dating_profile_interested_in_container{
     display: flex;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    column-gap: 2rem;
-    width: 70%;
-    min-width: fit-content;
+    justify-content: space-between;
     font-size:1.6rem;
     text-align: center;
     padding-left: .2rem;
     padding-right: .2rem;
     color: purple;
-    /* text-shadow: 1px 1px 2px rgb(162, 130, 167), 0 0 1em rgb(247, 0, 255), 0 0 0.2em rgb(133, 55, 133); */
 
 }
 #dating_profile_smoker_container{
     display: flex;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    column-gap: 2rem;
-    width: 80%;
-    min-width: fit-content;
+    justify-content: space-between;
     font-size:1.6rem;
     text-align: center;
     padding-left: .2rem;
     padding-right: .2rem;
     color: purple;
-    /* text-shadow: 1px 1px 2px rgb(162, 130, 167), 0 0 1em rgb(247, 0, 255), 0 0 0.2em rgb(133, 55, 133); */
+}
 
+#dating_profile_drinker_container{
+    display: flex;
+    justify-content: space-between;
+
+    font-size:1.6rem;
+    text-align: center;
+    padding-left: .2rem;
+    padding-right: .2rem;
+    color: purple;
+}
+
+#dating_profile_occupation_container{
+    display: flex;
+    justify-content: space-between;
+
+    font-size:1.6rem;
+    text-align: center;
+    padding-left: .2rem;
+    padding-right: .2rem;
+    color: purple;
+}
+
+#dating_profile_bio_container{
+    display: flex;
+    justify-content: space-between;
+
+    font-size:1.6rem;
+    text-align: center;
+    padding-left: .2rem;
+    padding-right: .2rem;
+    color: purple;
+}
+
+
+#dating_profile_favorite_place_container{
+    display: flex;
+    justify-content: space-between;
+    font-size:1.6rem;
+    text-align: center;
+    padding-left: .2rem;
+    padding-right: .2rem;
+    color: purple;
 }
 
 #dating_profile_edit_button_container{
@@ -388,6 +399,7 @@ padding-bottom: 2rem;
     font-size: 2.6rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    color: purple;
     
 }
 
@@ -401,16 +413,17 @@ padding-bottom: 2rem;
     text-align: center;
     font-weight: 900;
     padding: 1rem;
-    text-shadow: 1px 1px 2px rgb(162, 130, 167), 0 0 1em rgb(247, 0, 255), 0 0 0.2em rgb(133, 55, 133);
 }
 
 #personality_profile_information_container{
-    display: grid;
-    grid-template-rows: auto;
+    display: flex;
+    flex-direction: column;
     row-gap: 2rem;
-    padding-left: 2rem;
-    padding-right:  2rem;
-    margin-bottom: 2rem;
+    padding: 2rem;
+    min-width: fit-content;
+    background-color: rgba(255, 255, 255, 0.512);
+    margin: 2rem;
+    border-radius: 10px;
 }
 
 #personality_profile_edit_button_container{
@@ -421,135 +434,113 @@ padding-bottom: 2rem;
 #personality_profile_interests_container{
     display: flex;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    column-gap: 2rem;
-    width: 90%;
-    min-width: fit-content;
+
     font-size:1.6rem;
     text-align: center;
     padding-left: .2rem;
-    padding-right: 2rem;
-    text-shadow: 1px 1px 2px rgb(162, 130, 167), 0 0 1em rgb(247, 0, 255), 0 0 0.2em rgb(133, 55, 133);
+    padding-right: .2rem;
+    color: purple;
+
 }
 
 #personality_profile_do_you_like_drinking_container{
     display: flex;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    column-gap: 2rem;
-    width: 90%;
-    min-width: fit-content;
+
     font-size:1.6rem;
     text-align: center;
     padding-left: .2rem;
-    padding-right: 2rem;
-    text-shadow: 1px 1px 2px rgb(162, 130, 167), 0 0 1em rgb(247, 0, 255), 0 0 0.2em rgb(133, 55, 133);
+    padding-right: .2rem;
+    color: purple;
+
 
 }
 
 #personality_profile_are_you_active_container{
     display: flex;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    column-gap: 2rem;
-    width: 90%;
-    min-width: fit-content;
+
     font-size:1.6rem;
     text-align: center;
     padding-left: .2rem;
-    padding-right: 2rem;
-    text-shadow: 1px 1px 2px rgb(162, 130, 167), 0 0 1em rgb(247, 0, 255), 0 0 0.2em rgb(133, 55, 133);
+    padding-right: .2rem;
+    color: purple;
+
 
 }
 
 #personality_profile_music_pick_container{
     display: flex;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    column-gap: 2rem;
-    width: 90%;
-    min-width: fit-content;
+
     font-size:1.6rem;
     text-align: center;
     padding-left: .2rem;
-    padding-right: 2rem;
-    text-shadow: 1px 1px 2px rgb(162, 130, 167), 0 0 1em rgb(247, 0, 255), 0 0 0.2em rgb(133, 55, 133);
+    padding-right: .2rem;
+    color: purple;
+
 
 }
 
 #personality_profile_outdoor_indoor_pick_container{
     display: flex;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    column-gap: 2rem;
-    width: 90%;
-    min-width: fit-content;
+
     font-size:1.6rem;
     text-align: center;
     padding-left: .2rem;
-    padding-right: 2rem;
-    text-shadow: 1px 1px 2px rgb(162, 130, 167), 0 0 1em rgb(247, 0, 255), 0 0 0.2em rgb(133, 55, 133);
+    padding-right: .2rem;
+    color: purple;
+
 
 }
 
 #personality_profile_what_do_you_do_for_fun_container{
     display: flex;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    column-gap: 2rem;
-    width: 90%;
-    min-width: fit-content;
+
     font-size:1.6rem;
     text-align: center;
     padding-left: .2rem;
-    padding-right: 2rem;
-    text-shadow: 1px 1px 2px rgb(162, 130, 167), 0 0 1em rgb(247, 0, 255), 0 0 0.2em rgb(133, 55, 133);
+    padding-right: .2rem;
+    color: purple;
+
 
 }
 
 #personality_profile_movie_pick_container{
     display: flex;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    column-gap: 2rem;
-    width: 90%;
-    min-width: fit-content;
+
     font-size:1.6rem;
     text-align: center;
     padding-left: .2rem;
-    padding-right: 2rem;
-    text-shadow: 1px 1px 2px rgb(162, 130, 167), 0 0 1em rgb(247, 0, 255), 0 0 0.2em rgb(133, 55, 133);
+    padding-right: .2rem;
+    color: purple;
 
 }
 
+#dating_profile_create_button_container{
+    display: flex;
+    justify-content: right;
+}
+
+#dating_profile_edit_button_container{
+    display: flex;
+    justify-content: right;
+}
+#personality_profile_create_button_container{
+    display: flex;
+    justify-content: right;
+}
+#personality_profile_edit_button_container{
+    display: flex;
+    justify-content: right;
+}
+
+.profile_info_text{
+    font-weight: 900;
+}
 
 
 .user_profile_button {

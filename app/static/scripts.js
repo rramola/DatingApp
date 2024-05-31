@@ -21,6 +21,6 @@ document.addEventListener("DOMContentLoaded", function() {
         passOneField.placeholder = "Password..";
         }
     if (passTwoField) {
-        passTwoField.placeholder = "Password..";
+        passTwoField.placeholder = "Confirm Password..";
         }
     });
