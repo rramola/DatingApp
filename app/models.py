@@ -19,7 +19,8 @@ class DatingProfile(models.Model):
     )
     created = models.BooleanField(default=False)
     profile_pic = models.ImageField(
-        default="no-profile-picture-icon-15_oLIFS4i.jpg",
+        upload_to="",
+        default="default_profile.png",
         null=True,
         blank=True,
     )
@@ -91,7 +92,7 @@ class PersonalityProfile(models.Model):
         ("antiquing", "ANTIQUING"),
         ("couch-potato", "COUCH-POTATO"),
         ("kayaking", "KAYAKING"),
-        ("swimming","SWIMMING"),
+        ("swimming", "SWIMMING"),
     )
     sport_interest_options = (
         ("baseball", "BASEBALL"),
@@ -101,7 +102,6 @@ class PersonalityProfile(models.Model):
         ("soccer", "SOCCER"),
         ("skate", "SKATING"),
         ("golf", "GOLF"),
-        
     )
     interests = models.CharField(
         max_length=50, choices=what_are_you_looking_for_options, null=True
