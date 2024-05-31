@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+{% for message in received_messages %}
+    <div class="inboxMSGs">
+        <p>{{ message.sender.user.username }}:</p>
+        <p>{{ message.content }}</p>
+        <a href="{% url 'message_detail' message.id %}">View</a>
+    </div>
+{% endfor %}
+{% endblock content %}

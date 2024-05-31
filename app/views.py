@@ -227,3 +227,34 @@ def messagesView(request, id):
         )
         new_message.save()
     return render(request, "messages.html", context)
+
+def send_message(request, recipient_id):
+    if request.method == 'POST':
+        sender = request.user.profile
+        recipient = Profile.objects.get(id=recipient_id)
+        content = request.POST.get('content')
+        message = Message.objects.create(sender=sender, recipient=recipient, content=content)
+        return redirect('inbox')  
+    else:
+        recipient = Profile.objects.get(id=recipient_id)
+        return render(request, 'send_message.html', {'recipient': recipient})
+
+@login_required
+def inbox(request):
+    user = request.user.profile
+    received_messages = Message.objects.filter(recipient=user)
+    return render(request, 'inbox.html', {'received_messages': received_messages})
+
+
+@login_required
+def message_detail(request, message_id):
+    message = Message.objects.get(id=message_id)
+    if request.method == 'POST':
+        content = request.POST.get('content')
+        reply = Message.objects.create(
+            sender=request.user.profile,
+            recipient=message.sender,
+            content=content
+        )
+        return redirect('message_detail', message_id=message_id)
+    return render(request, 'message_detail.html', {'message': message})

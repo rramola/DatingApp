@@ -15,6 +15,9 @@
             <a href="{%url 'logout'%}">Logout</a>
             <a href ="{% url 'profile'%}">Profile</a>
             <a href ="{% url 'home'%}">Home</a>
+            <a href ="{% url 'inbox'%}">Inbox</a>
+            <span id="bannerName">Welcome, {{user.username}}</span>
+
         {% endif %}
     </div>
 

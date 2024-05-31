@@ -1,4 +1,4 @@
-{% extends 'base.html' %}{% block content %}
+{% comment %} {% extends 'base.html' %}{% block content %}
 
 {% for message in messages %}
     <div class="message">
@@ -16,4 +16,4 @@
     <input type="text" name="content" id="content" placeholder="Enter message here..">
     <button type="submit" id="messageBTN">Send</button>
     </div>
-{% endblock content %}
+{% endblock content %} {% endcomment %}

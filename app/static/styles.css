@@ -21,8 +21,6 @@ body {
     color: white;
 }
 
-/* LOGIN FORM STYLES */
-
 #login_page_container{
     display: flex;
     justify-content: center;
@@ -605,3 +603,17 @@ padding-bottom: 2rem;
   .button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
+
+
+/* //////////////MESSAGES////////////// */
+.inboxMSGs{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-right: 80%;
+}
