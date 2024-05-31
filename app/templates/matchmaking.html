@@ -1,31 +1,38 @@
 {%extends 'base.html'%} {% block content%}
-<button> <a href= "{% url "matchmaking"%}">Find More matches</a></button>
-<div id="matchmaking_container">
-  <div id="matches">
+<h2 class = "match-making-title">Meet your Matches!</h2>
+<button> <a href= "{% url "matchmaking"%}">Find More Matches</a></button>
+
+
+<div id="matches">
+  {% for set in val %}
+  {% for object in set%} 
+    {% if user != object.user_profile.user_profile  %}
     {% comment %} {%for key, value in random_potential_partners.items()%}
     <div id="render">{% if key == "1"%}</div>
     {{value.user__first_name}}
   </div>
   {% endcomment %}
-    <div>
-      {% for set in val %}
-        {% for object in set%} 
-          {% if user != object.user_profile.user_profile  %}
-          <img src="{{object.user_profile.profile_pic.url}}"/>
-          {{object.user_profile.user_profile.first_name}}
-          {{ object.user_profile.user_profile.last_name}}
-          {{ object.user_profile.age}}
+    <div id="partner-cards">
+
+          <img src="{{object.user_profile.profile_pic.url}}" id="partner-img"/>
+          <div id = "partner-name">
+            {{object.user_profile.user_profile.first_name}}
+            {{ object.user_profile.user_profile.last_name}}
+          </div>
+          <div id = "partner_age">
+            {{ object.user_profile.age}}
+          </div>
+          <div id= "partner_buttons">
           <button> <a href= "{% url "partner" object.id %}" >View Profile</a></button>
           <button> <a href= # >Message</a></button>
-          {% endif %}  
-     
-
-              
-            {%endfor %}
-       {%endfor%} 
+          </div>
     </div>
+    {% endif %}  
+    {%endfor%} 
+    {%endfor%} 
  
 
-
-  {%endblock content%}
 </div>
+
+
+{%endblock content%}
