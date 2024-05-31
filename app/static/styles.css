@@ -604,11 +604,95 @@ padding-bottom: 2rem;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
 
+/* ////////////////HOME HEART//////////////// */
+  
+.wrapper {
+width: 200px;
+height: 200px;
+position: relative;
+}
+
+/* Heart Style */
+.heart {
+position: absolute;
+height: 100px;
+width: 100px;
+background-color: rgb(185, 120, 180);
+top: 50px;
+left: 50px;
+border: none;
+transform: rotate(45deg);
+}
+
+.heart:focus {
+outline: none;
+}
+
+.heart::before,
+.heart::after {
+content: '';
+position: absolute;
+height: 100%;
+width: 100%;
+background-color: rgb(185, 120, 180);
+border-radius: 50%;
+}
+
+.heart::before {
+top: -50px;
+left: 0;
+}
+
+.heart::after {
+top: 0;
+left: -50px;
+}
+
+/* Beat Style */
+.beat {
+height: 100px;
+width: 100px;
+background-color: rgb(185, 120, 180);
+position: absolute;
+top: 50px;
+left: 50px;
+transform: rotate(45deg);
+transition: all 0.2s;
+}
+
+.beat::before,
+.beat::after {
+content: '';
+position: absolute;
+height: 100%;
+width: 100%;
+background-color: rgb(185, 120, 180);
+border-radius: 50%;
+}
+
+.beat::before {
+top: -50px;
+left: 0;
+}
+
+.beat::after {
+top: 0;
+left: -50px;
+}
+
+/* Heart beat effect */
+.beat:hover {
+transform: rotate(45deg) scale(1.2);
+opacity: 0;
+}
 
 /* //////////////MESSAGES////////////// */
 .inboxMSGs{
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(185, 120, 180);
     padding: 10px;
     justify-content: space-evenly;
     border: 1px solid black;
