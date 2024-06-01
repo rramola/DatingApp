@@ -29,6 +29,13 @@ body {
     color: white;
 }
 
+#bannerName{
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: rgb(210, 204, 209);  
+}
+
+/* ////////////LOGIN/////////// */
 #login_page_container{
     display: flex;
     justify-content: center;
@@ -97,11 +104,6 @@ body {
     cursor: pointer;
   }
 
-#bannerName{
-    font-size: 1.3rem;
-    font-weight: 900;
-    color: white;
-}
 
   /* REGISTRATION FORM STYLE */
 
