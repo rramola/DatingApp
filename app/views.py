@@ -130,7 +130,10 @@ def profileView(request):
 def partner_profile_view(request, id):
     partner = Profile.objects.get(user__id=id)
     dating_profile = DatingProfile.objects.get(user_profile=partner)
-    context = {"dating_profile": dating_profile}
+    context = {
+        "dating_profile": dating_profile,
+        "partner": partner,
+    }
     return render(request, "potiental_partner_profile.html", context)
 
 
@@ -204,11 +207,48 @@ def matchmakingView(request):
     }
 
     random_potential_partners = key, val = random.choice(list(choices.items()))
+    # Collect the user's personality data
+    # user_data_list = [
+    #     user_personality_profile.id,
+    #     user_personality_profile.interests,
+    #     user_personality_profile.do_you_like_drinking,
+    #     user_personality_profile.are_you_active,
+    #     user_personality_profile.music_pick,
+    #     user_personality_profile.outdoor_indoor_pick,
+    #     user_personality_profile.what_do_you_do_for_fun_pick,
+    #     user_personality_profile.movie_pick,
+    # ]
+
+    # # Initialize list to store compatible profiles
+    # compatible_personality_profiles_list = []
+    # # Iterate through all personality profiles in the database
+    # for profile in PersonalityProfile.objects.all():
+    #     profile_data = {
+    #         "id": profile.id,
+    #         "interests": profile.interests,
+    #         "drinking": profile.do_you_like_drinking,
+    #         "active": profile.are_you_active,
+    #         "music": profile.music_pick,
+    #         "outdoor_indoor": profile.outdoor_indoor_pick,
+    #         "fun": profile.what_do_you_do_for_fun_pick,
+    #         "movie": profile.movie_pick,
+    #     }
+
+    #     matches = 0
+    #     for user_value, profile_value in zip(user_data_list, profile_data.values()):
+    #         if user_value == profile_value:
+    #             matches += 1
+    #         # Check for compatibility
+
+    #     if matches > 3:
+    #         compatible_personality_profiles_list.append(profile)
+
     context = {
         "random_potential_partners": random_potential_partners,
         "key": key,
         "val": val,
         "user": user,
+        # "compatible_personality_profiles": compatible_personality_profiles_list,
     }
 
     return render(request, "matchmaking.html", context)
@@ -228,18 +268,22 @@ def messagesView(request, id):
         new_message.save()
     return render(request, "messages.html", context)
 
+
 @login_required
 def send_message(request, recipient_id):
-    if request.method == 'POST':
+    if request.method == "POST":
         sender = request.user.profile
         recipient = Profile.objects.get(id=recipient_id)
-        content = request.POST.get('content')
-        message = Message.objects.create(sender=sender, recipient=recipient, content=content)
-        return redirect('inbox')  
+        content = request.POST.get("content")
+        message = Message.objects.create(
+            sender=sender, recipient=recipient, content=content
+        )
+        return redirect("inbox")
     else:
         recipient = Profile.objects.get(id=recipient_id)
-        return render(request, 'send_message.html', {'recipient': recipient})
-    
+        return render(request, "send_message.html", {"recipient": recipient})
+
+
 # THREAD ATTEMPT
 # @login_required
 # def send_message(request, recipient_id, parent_message_id=None):
@@ -260,22 +304,21 @@ def send_message(request, recipient_id):
 #             parent_message = Message.objects.get(id=parent_message_id)
 #         return render(request, 'send_message.html', {'recipient': recipient, 'parent_message': parent_message})
 
+
 @login_required
 def inbox(request):
     user = request.user.profile
     received_messages = Message.objects.filter(recipient=user)
-    return render(request, 'inbox.html', {'received_messages': received_messages})
+    return render(request, "inbox.html", {"received_messages": received_messages})
 
 
 @login_required
 def message_detail(request, message_id):
     message = Message.objects.get(id=message_id)
-    if request.method == 'POST':
-        content = request.POST.get('content')
+    if request.method == "POST":
+        content = request.POST.get("content")
         reply = Message.objects.create(
-            sender=request.user.profile,
-            recipient=message.sender,
-            content=content
+            sender=request.user.profile, recipient=message.sender, content=content
         )
-        return redirect('message_detail', message_id=message_id)
-    return render(request, 'message_detail.html', {'message': message})
+        return redirect("message_detail", message_id=message_id)
+    return render(request, "message_detail.html", {"message": message})

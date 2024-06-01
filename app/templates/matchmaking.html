@@ -30,7 +30,32 @@
     {% endif %}  
     {%endfor%} 
     {%endfor%} 
- 
+   
+  {% comment %} {% for object in compatible_personality_profiles  %}
+      {% if user != object.user_profile.user_profile  %} {% endcomment %}
+    {% comment %} {%for key, value in random_potential_partners.items()%}
+    <div id="render">{% if key == "1"%}</div>
+    {{value.user__first_name}}
+  </div>
+  {% endcomment %}
+    {% comment %} <div id="partner-cards">
+          <img src="{{object.user_profile.profile_pic.url}}" id="partner-img"/>
+          <div id = "partner-name">
+            {{object.user_profile.user_profile.first_name}}
+            {{object.user_profile.user_profile.las}}
+          </div>
+          <div id = "partner_age">
+            {{ object.user_profile.age}}
+          </div>
+          <div id= "partner_buttons">
+          <button> <a href= "{% url "partner" object.id %}" >View Profile</a></button>
+          <button> <a href= "{% url "send_message" object.id %}" >Message</a></button>
+          </div>
+    </div>
+    {% endif %}  
+    {%endfor%}  {% endcomment %}
+
+    
 
 </div>
 
