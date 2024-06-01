@@ -634,7 +634,8 @@ padding-bottom: 2rem;
 }
 
 #partner-img{
-    border-radius: 50%;
+    width: 200px;
+    border-radius: 50%; 
     object-fit: cover;
 }
 
