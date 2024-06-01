@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% comment %} <body>
     <div id="navigation_container">
         <a href="{%url 'logout'%}">Logout</a>
@@ -7,6 +8,43 @@
     </div> {% endcomment %}
      
     {% block content %}
+    <h3 class="home_text">Don't take our word for it, look at these happy couples!</h3>
+    <h2 class="lyric_text">If you had to describe your relationship in one lyric, what would it be?</h2>
+    
+    <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="ryandkris.jpg">
+            <img src="{% static 'ryandkris.jpg' %}" alt="ryandkris"> 
+          </a>
+          <p class="lyric_text">These are lyrics from Ryan's song of choice</p>
+          <div class="desc">Ryan and Kristen together since...</div>
+        </div>
+      </div>
+      
+      <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="naeandbri.jpg">
+                <img src="{% static 'naeandbri.jpg' %}" alt="naeandbri">
+          </a>
+          <p class="lyric_text">"You gotta see the artistry in tearing apart this place with me baby!"</p>
+          <div class="desc">Briana and Nathan together since 2014</div>
+        </div>
+      </div>
+      
+      <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="kerandjo.jpg">
+                <img src="{% static 'kerandjo.jpg' %}" alt="kerandjo">
+          </a>
+          <p class="lyric_text">These are lyrics from Kera's song of choice</p>
+          <div class="desc">Kera and John together since...</div>
+        </div>
+      </div>
+      
+      <div class="clearfix"></div>
+
+
+    <h3 class="home_text">What are you waiting for? Find your match now!</h3>
     {% comment %} <button class = "button"> <a href= "{% url "matchmaking"%}">Match</a></button> {% endcomment %}
     <div class="wrapper">
         <a href="{% url 'matchmaking' %}">

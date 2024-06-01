@@ -10,6 +10,10 @@
 
 </head>
 <body>
+    <img class="logo_img" src="{% static 'logo.png' %}" alt="Logo"> 
+
+    <h3 class="logo_name">Cupid Shuffle</h3>
+    <p class="slogan_text">To the Right Love, Now Find Your Match, And Do Your Dance - with Cupid Shuffle!</p>
     <div id="navigation_container">
         {% if user.id != None %}
             <a href="{%url 'logout'%}">Logout</a>

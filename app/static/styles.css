@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Poetsen+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Quicksand:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lobster&family=Quicksand:wght@300..700&display=swap"); 
+
+
+
+
 body {
     margin: 0;
     background-color: lightpink;
@@ -613,6 +621,110 @@ padding-bottom: 2rem;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
 
+/* ////////////HOME///////////// */
+.logo_img{
+    background: url("/DatingApp/app/static/border.png");
+    background-size: 30%;
+    background-position: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15% ;
+    justify-content: center;
+}
+
+.logo_name{
+    background: url("/DatingApp/app/static/cupidbackground.png");
+    background-size: 30%;
+    color: rgb(120, 17, 33);
+    font-weight: bold;
+    font-size: 5rem;
+    margin: auto 0;  
+    text-align: center;
+    margin-top: .2%;
+    font-family: "Pacifico", cursive;
+    font-weight: 300;
+    font-style: normal;
+    margin-bottom: 1%;
+  }
+
+.slogan_text{
+font-family: "Dancing Script", cursive;
+font-optical-sizing: auto;
+text-align: center;
+font-weight: bold;
+font-size: 180%;
+color:purple;
+}
+
+/* ////////////HOME GALLERY///////////// */
+
+div.gallery {
+    background-color: rgba(255, 255, 255, 0.512);
+    border: 1px solid #ccc;
+  }
+  
+  
+  div.gallery img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:  300px;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  div.desc {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .responsive {
+    padding: 0 6px;
+    padding-left: 6%;
+    margin: auto;
+    float: left;
+    width: 24.99999%;
+  }
+  
+  @media only screen and (max-width: 700px) {
+    .responsive {
+      width: 49.99999%;
+      margin: 6px 0;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .responsive {
+      width: 100%;
+    }
+  }
+  
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .match_btn{
+    justify-content: center;
+  }
+  
+
+  .home_text{
+    text-align: center;
+    color:purple;
+    font-size: 150%;
+  }
+
+  .lyric_text{
+    font-family: "Lobster", sans-serif;
+    text-align: center;
+    color: rgb(120, 17, 33);
+  }
+
 /* ////////////////HOME HEART//////////////// */
 
 
@@ -620,6 +732,7 @@ padding-bottom: 2rem;
 width: 200px;
 height: 200px;
 position: relative;
+margin: 50px auto;
 }
 
 
