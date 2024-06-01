@@ -580,6 +580,16 @@ padding-bottom: 2rem;
 } */
 
 /* ///////////match-making/////////// */
+
+.no_milfs{
+    width: 20%;
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid;
+    border-radius: 10px;
+}
 .match-making-title{
     font-size: 2rem;
     font-weight: 900;
