@@ -29,6 +29,13 @@ body {
     color: white;
 }
 
+#bannerName{
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: rgb(210, 204, 209);  
+}
+
+/* ////////////LOGIN/////////// */
 #login_page_container{
     display: flex;
     justify-content: center;
@@ -97,11 +104,6 @@ body {
     cursor: pointer;
   }
 
-#bannerName{
-    font-size: 1.3rem;
-    font-weight: 900;
-    color: white;
-}
 
   /* REGISTRATION FORM STYLE */
 
@@ -578,6 +580,40 @@ padding-bottom: 2rem;
 } */
 
 /* ///////////match-making/////////// */
+
+.no_milfs{
+    width: 20%;
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid;
+    border-radius: 10px;
+}
+.match-making-title{
+    font-size: 2rem;
+    font-weight: 900;
+    color: purple;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.matchmakingBTN{
+    border-radius: .5rem;
+    background-color: rgb(185, 120, 180);
+    color: white;
+    font-size: 1.1rem;
+    padding: .5rem;
+    cursor: pointer;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+
+}
+
+
 #matches {
     display: flex;
     flex-direction: row;
@@ -608,7 +644,8 @@ padding-bottom: 2rem;
 }
 
 #partner-img{
-    border-radius: 50%;
+    width: 200px;
+    border-radius: 50%; 
     object-fit: cover;
 }
 
@@ -662,6 +699,8 @@ color:purple;
 div.gallery {
     background-color: rgba(255, 255, 255, 0.512);
     border: 1px solid #ccc;
+    padding-top: 20px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
   
   
