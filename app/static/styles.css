@@ -89,6 +89,12 @@ body {
     cursor: pointer;
   }
 
+#bannerName{
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: white;
+}
+
   /* REGISTRATION FORM STYLE */
 
 #registration_form_page_container{
@@ -608,14 +614,15 @@ padding-bottom: 2rem;
   }
 
 /* ////////////////HOME HEART//////////////// */
-  
+
+
 .wrapper {
 width: 200px;
 height: 200px;
 position: relative;
 }
 
-/* Heart Style */
+
 .heart {
 position: absolute;
 height: 100px;
@@ -651,7 +658,7 @@ top: 0;
 left: -50px;
 }
 
-/* Beat Style */
+
 .beat {
 height: 100px;
 width: 100px;
@@ -683,7 +690,7 @@ top: 0;
 left: -50px;
 }
 
-/* Heart beat effect */
+
 .beat:hover {
 transform: rotate(45deg) scale(1.2);
 opacity: 0;

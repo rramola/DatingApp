@@ -7,10 +7,12 @@
     </div> {% endcomment %}
      
     {% block content %}
-    <button class = "button"> <a href= "{% url "matchmaking"%}">Match</a></button>
+    {% comment %} <button class = "button"> <a href= "{% url "matchmaking"%}">Match</a></button> {% endcomment %}
     <div class="wrapper">
-        <button class="heart"><a href= "{% url "matchmaking"%}"></button></a>
-        <div class="beat"></div>
+        <a href="{% url 'matchmaking' %}">
+            <button class="heart"></button>
+            <div class="beat"></div>
+        </a>
     </div>
     {% endblock content %}
     
