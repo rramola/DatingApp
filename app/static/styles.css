@@ -662,6 +662,7 @@ color:purple;
 div.gallery {
     background-color: rgba(255, 255, 255, 0.512);
     border: 1px solid #ccc;
+    padding-top: 20px;
   }
   
   
