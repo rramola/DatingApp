@@ -1,14 +1,12 @@
 {% extends "base.html" %}
 
  {% block content %}
-        <p>
-            <h2 class = "job-header">Personality Quiz</h2>
-        </p>
+ <div id="personality_page_container">
              
-          <form  method="POST" enctype="multipart/form-data">
+          <form  method="POST" enctype="multipart/form-data" id="personality_form">
           <div class="container">
             <div class="form container">
-                <h3 class="createformheader">Quiz</h3>
+                <h3 id="personality_form_header">Personality Quiz</h3>
                     {% if form.errors %}
                           {% for field in form %}
                               {% for error in field.errors %}
@@ -127,7 +125,6 @@
                                 <option value="soccer">Soccer</option>
                                 <option value="skate">Skating</option>
                                 <option value="golf">Golf</option>
-                    
                             </select>
                             </div>  
                            
@@ -142,23 +139,22 @@
                         </div> 
                       {% endif %}
                   {% endfor %}
-                
+                  <div class="row align-items">
+                    <div class="collums">
+                      <div class="row">
+                        <div class="colllums more">
+          
+                          <input class="btn1" type="submit" value="Submit" id="personality_form_button" >
+                        </div>
+                      </div>
+                    </div>
                  
             </div>    
           </div>
-          
-          <div class="row align-items">
-            <div class="collums">
-              <div class="row">
-                <div class="colllums more">
-  
-                  <input class="btn1" type="submit" value="Submit" >
-                </div>
-              </div>
-            </div>
+        
               </form>
   
           </div>
         </div>
-
+    </div>
 {% endblock content %}

@@ -1,11 +1,10 @@
 {% extends 'base.html'%} {%block content%}
 <div id="profile_information_container">
   <div id="profile_header_container">
-
     <div id="dating_profile_image_container">
       <img src="{{dating_profile.profile_pic.url}}" />
     </div>
-  
+
     <div id="profile_name_container">
       <div id="profile_welcome_text">Welcome</div>
       <div id="profile_first_name_container">{{user.first_name}}</div>
@@ -53,25 +52,23 @@
           {{dating_profile.favorite_place_ever_been}}
         </div>
       </div>
+      {% endif %} {% if dating_profile.created %}
+      <div id="dating_profile_edit_button_container">
+        <a href="{%url 'dating'%}"
+          ><button class="user_profile_button" id="dating_profile_edit_button">
+            Edit Dating Profile
+          </button></a
+        >
+      </div>
+      {% endif %} {% if dating_profile.created == False%}
+      <div id="dating_profile_edit_button_container">
+        <a href="{%url 'dating'%}"
+          ><button class="user_profile_button" id="dating_profile_edit_button">
+            Create Dating Profile
+          </button></a
+        >
+      </div>
       {% endif %}
-         {% if dating_profile.created %}
-        <div id="dating_profile_edit_button_container">
-          <a href="{%url 'dating'%}"
-            ><button class="user_profile_button" id="dating_profile_edit_button">
-              Edit Dating Profile
-            </button></a
-          >
-        </div>
-        {% endif %}
-        {% if dating_profile.created == False%}
-        <div id="dating_profile_edit_button_container">
-          <a href="{%url 'dating'%}"
-            ><button class="user_profile_button" id="dating_profile_edit_button">
-              Create Dating Profile
-            </button></a
-          >
-        </div>
-        {% endif %} 
     </div>
     <div id="personality_profile_container">
       <div id="personality_profile_header_container">
@@ -107,19 +104,28 @@
           <div class="profile_info_text">MOVIE</div>
           {{personality_profile.movie_pick}}
         </div>
+        <div id="personality_profile_hobby_pick_container">
+          <div class="profile_info_text">HOBBY</div>
+          {{personality_profile.hobby_pick}}
+        </div>
+        <div id="personality_profile_sport_pick_container">
+          <div class="profile_info_text">SPORT</div>
+          {{personality_profile.sport_pick}}
+        </div>
       </div>
-      {% endif %}
-      {% if personality_profile.created %}  <div id="dating_profile_edit_button_container">
-      <a href="{%url 'personality'%}"
-        ><button
-          class="user_profile_button"
-          id="personality_profile_create_button"
+      {% endif %} {% if personality_profile.created %}
+      <div id="dating_profile_edit_button_container">
+        <a href="{%url 'personality'%}"
+          ><button
+            class="user_profile_button"
+            id="personality_profile_create_button"
+          >
+            Edit Personality Profile
+          </button></a
         >
-          Edit Personality Profile
-        </button></a
-      >
-    </div>{% endif %}
-      {% if personality_profile.created == False %}  <div id="dating_profile_edit_button_container">
+      </div>
+      {% endif %} {% if personality_profile.created == False %}
+      <div id="dating_profile_edit_button_container">
         <a href="{%url 'personality'%}"
           ><button
             class="user_profile_button"
@@ -128,11 +134,9 @@
             Create Personality Profile
           </button></a
         >
-      </div>{% endif %}
-      
+      </div>
+      {% endif %}
     </div>
-    
-   
   </div>
 </div>
 {%endblock content%}

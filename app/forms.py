@@ -46,4 +46,6 @@ class PersonalityForm(forms.ModelForm):
             "outdoor_indoor_pick",
             "what_do_you_do_for_fun_pick",
             "movie_pick",
+            "hobby_pick",
+            "sport_pick",
         )

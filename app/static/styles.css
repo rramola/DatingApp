@@ -581,10 +581,56 @@ padding-bottom: 2rem;
 }
 
 #dating_profile_edit_button_container{
-    padding: 2rem;
-
-    
+    padding: 2rem; 
 }
+
+/* PERSONALITY FORM STYLE */
+
+#personality_page_container{
+    display: flex;
+    justify-content: center;
+}
+
+#personality_form{
+
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.301);
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.349);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 2rem;
+    margin: 3rem;
+}
+
+#personality_form_header{
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 42px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2;   
+    color: purple;
+    font-family: "Poppins", sans-serif;
+}
+
+#personality_form_button{
+    margin-top: 3.1rem;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size:1.5rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+/* PERSONALITY PROFILE PAGE STYLES */
 
 #personality_profile_container {
     background-color: rgba(255, 255, 255, 0.301);
@@ -713,6 +759,29 @@ padding-bottom: 2rem;
 }
 
 #personality_profile_movie_pick_container{
+    display: flex;
+    justify-content: space-between;
+
+    font-size:1.6rem;
+    text-align: center;
+    padding-left: .2rem;
+    padding-right: .2rem;
+    color: purple;
+}
+
+#personality_profile_hobby_pick_container{
+    display: flex;
+    justify-content: space-between;
+
+    font-size:1.6rem;
+    text-align: center;
+    padding-left: .2rem;
+    padding-right: .2rem;
+    color: purple;
+
+}
+
+#personality_profile_sport_pick_container{
     display: flex;
     justify-content: space-between;
 
