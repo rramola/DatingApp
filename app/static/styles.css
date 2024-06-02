@@ -1210,9 +1210,10 @@ opacity: 0;
     backdrop-filter: blur(10px);
     padding: 10px;
     border: 2px solid rgba(255, 255, 255, 0.349);
-    margin: 10px;
+    margin: 10px auto;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    margin-right: 80%;
+    margin-left: 40%;
+    margin-right: 40%;
 }
 
 .potential_partner_profile > img{
