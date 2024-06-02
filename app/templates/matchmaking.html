@@ -1,4 +1,6 @@
-{%extends 'base.html'%}{%load static%} {% block content%}
+{%extends 'base.html'%}{%load static%} 
+
+{% block content%}
 <h3 class="home_text">Say goodbye to the single milfs in your area looking for you and say hello to the matches that Cupid
 Shuffle's flawless algorithm has picked out for you and if a milf is in there it’s a win win!</h3>
 <img src="{% static 'hotnsinglemilfs.jpg' %}" alt="nomilf" class="no_milfs">
@@ -9,15 +11,15 @@ Shuffle's flawless algorithm has picked out for you and if a milf is in there it
 
 
 <div id="matches">
-  {% for set in val %}
+  {% comment %} {% for set in val %}
   {% for object in set%} 
-    {% if user != object.user_profile.user_profile  %}
+    {% if user != object.user_profile.user_profile  %} {% endcomment %}
     {% comment %} {%for key, value in random_potential_partners.items()%}
     <div id="render">{% if key == "1"%}</div>
     {{value.user__first_name}}
   </div>
   {% endcomment %}
-    <div id="partner-cards">
+    {% comment %} <div id="partner-cards">
 
           <img src="{{object.user_profile.profile_pic.url}}" id="partner-img"/>
           <div id = "partner-name">
@@ -35,15 +37,11 @@ Shuffle's flawless algorithm has picked out for you and if a milf is in there it
     {% endif %}  
     {%endfor%} 
     {%endfor%} 
-   
-  {% comment %} {% for object in compatible_personality_profiles  %}
-      {% if user != object.user_profile.user_profile  %} {% endcomment %}
-    {% comment %} {%for key, value in random_potential_partners.items()%}
-    <div id="render">{% if key == "1"%}</div>
-    {{value.user__first_name}}
-  </div>
-  {% endcomment %}
-    {% comment %} <div id="partner-cards">
+    {% endcomment %}
+  {% for object in compatible_personality_profiles  %}
+      {% if user != object.user_profile.user_profile  %} 
+
+    <div id="partner-cards">
           <img src="{{object.user_profile.profile_pic.url}}" id="partner-img"/>
           <div id = "partner-name">
             {{object.user_profile.user_profile.first_name}}
@@ -58,7 +56,7 @@ Shuffle's flawless algorithm has picked out for you and if a milf is in there it
           </div>
     </div>
     {% endif %}  
-    {%endfor%}  {% endcomment %}
+    {%endfor%} 
 
     
 

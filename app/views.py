@@ -208,47 +208,47 @@ def matchmakingView(request):
 
     random_potential_partners = key, val = random.choice(list(choices.items()))
     # Collect the user's personality data
-    # user_data_list = [
-    #     user_personality_profile.id,
-    #     user_personality_profile.interests,
-    #     user_personality_profile.do_you_like_drinking,
-    #     user_personality_profile.are_you_active,
-    #     user_personality_profile.music_pick,
-    #     user_personality_profile.outdoor_indoor_pick,
-    #     user_personality_profile.what_do_you_do_for_fun_pick,
-    #     user_personality_profile.movie_pick,
-    # ]
+    user_data_list = [
+        user_personality_profile.id,
+        user_personality_profile.interests,
+        user_personality_profile.do_you_like_drinking,
+        user_personality_profile.are_you_active,
+        user_personality_profile.music_pick,
+        user_personality_profile.outdoor_indoor_pick,
+        user_personality_profile.what_do_you_do_for_fun_pick,
+        user_personality_profile.movie_pick,
+    ]
 
-    # # Initialize list to store compatible profiles
-    # compatible_personality_profiles_list = []
-    # # Iterate through all personality profiles in the database
-    # for profile in PersonalityProfile.objects.all():
-    #     profile_data = {
-    #         "id": profile.id,
-    #         "interests": profile.interests,
-    #         "drinking": profile.do_you_like_drinking,
-    #         "active": profile.are_you_active,
-    #         "music": profile.music_pick,
-    #         "outdoor_indoor": profile.outdoor_indoor_pick,
-    #         "fun": profile.what_do_you_do_for_fun_pick,
-    #         "movie": profile.movie_pick,
-    #     }
+    # Initialize list to store compatible profiles
+    compatible_personality_profiles_list = []
+    # Iterate through all personality profiles in the database
+    for profile in PersonalityProfile.objects.all():
+        profile_data = {
+            "id": profile.id,
+            "interests": profile.interests,
+            "drinking": profile.do_you_like_drinking,
+            "active": profile.are_you_active,
+            "music": profile.music_pick,
+            "outdoor_indoor": profile.outdoor_indoor_pick,
+            "fun": profile.what_do_you_do_for_fun_pick,
+            "movie": profile.movie_pick,
+        }
 
-    #     matches = 0
-    #     for user_value, profile_value in zip(user_data_list, profile_data.values()):
-    #         if user_value == profile_value:
-    #             matches += 1
-    #         # Check for compatibility
+        matches = 0
+        for user_value, profile_value in zip(user_data_list, profile_data.values()):
+            if user_value == profile_value:
+                matches += 1
+            # Check for compatibility
 
-    #     if matches > 3:
-    #         compatible_personality_profiles_list.append(profile)
+        if matches > 3:
+            compatible_personality_profiles_list.append(profile)
 
     context = {
         "random_potential_partners": random_potential_partners,
         "key": key,
         "val": val,
         "user": user,
-        # "compatible_personality_profiles": compatible_personality_profiles_list,
+        "compatible_personality_profiles": compatible_personality_profiles_list,
     }
 
     return render(request, "matchmaking.html", context)
