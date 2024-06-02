@@ -1178,6 +1178,18 @@ opacity: 0;
     cursor: pointer;
 }
 
+.emptyInbox{
+    height: 500px;
+    width: 500px;
+    border: 10px solid rgb(185, 120, 180);
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 30px;
+
+}
+
 /* /////////////SEND MSGS//////////////// */
 .sendMSGs{
     color: purple;
