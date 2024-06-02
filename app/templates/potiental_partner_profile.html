@@ -32,7 +32,7 @@
 
 </div> {% endcomment %}
 <button> <a href= "{% url "matchmaking"%}" >Back</a></button>
-<button> <a href= # >Message</a></button>
+{% comment %} <button> <a href= "{% url "send_message" object.id %}">Message</a></button> {% endcomment %}
 </div>
 
 {%endblock content%}

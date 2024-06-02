@@ -930,6 +930,7 @@ padding-bottom: 2rem;
     align-items: center;
     height: 420px;
     justify-content: space-evenly;
+    margin: 10px;
 }
 
 #partner-img{
@@ -941,6 +942,14 @@ padding-bottom: 2rem;
 }
 
 
+.matchmakingBTNs{
+    border-radius: .5rem;
+    background-color: rgb(185, 120, 180);
+    color: white;
+    font-size: 1.1rem;
+    padding: .5rem;
+    cursor: pointer;
+}
 .button {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }

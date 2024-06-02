@@ -51,11 +51,10 @@ Shuffle's flawless algorithm has picked out for you and if a milf is in there it
           <div id = "partner_age">
             {{ object.user_profile.age}}
           </div>
-          <div id= "partner_buttons">
-          <button> <a href= "{% url "partner" object.id %}" >View Profile</a></button>
-          <button> <a href= "{% url "send_message" object.id %}" >Message</a></button>
-          </div>
+          <button class="matchmakingBTNs"> <a href= "{% url "partner" object.id %}" >View Profile</a></button>
+          <button class="matchmakingBTNs"> <a href= "{% url "send_message" object.id %}" >Message</a></button>
     </div>
+    
     {% endif %}  
     {%endfor%} 
 
