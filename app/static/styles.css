@@ -852,14 +852,32 @@ padding-bottom: 2rem;
 
 /* ///////////match-making/////////// */
 
+.milf_text{
+    text-align: left;
+    color:purple;
+    margin-right: 30%;
+    font-size: 150%;
+    padding-bottom: 10%;
+    
+}
+
 .no_milfs{
+    border-collapse: collapse;
+    border-color: #0e0d0d;
+    border-width: 3px;
+    float: left;
+    padding: 2px 5px 0 1px;
+    vertical-align: top;
+    margin: 15px;
+    margin-left: 20%;
+    border-radius:10%;
     width: 20%;
-    align-items: center;
+    /* align-items: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
     border: 5px solid;
-    border-radius: 10px;
+    border-radius: 10px; */
 }
 .match-making-title{
     font-size: 2rem;
@@ -931,7 +949,7 @@ padding-bottom: 2rem;
 
 /* ////////////HOME///////////// */
 .logo_img{
-    background: url("/DatingApp/app/static/border.png");
+    background: url("/DatingApp/app/static/cupid.png");
     background-size: 30%;
     background-position: 50%;
     display: block;
@@ -942,8 +960,9 @@ padding-bottom: 2rem;
 }
 
 .logo_name{
-    background: url("/DatingApp/app/static/cupidbackground.png");
+    background: url("/DatingApp/app/static/cupid.png");
     background-size: 30%;
+    background-position: 50%;
     color: rgb(120, 17, 33);
     font-weight: bold;
     font-size: 5rem;

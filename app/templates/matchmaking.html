@@ -1,12 +1,13 @@
 {%extends 'base.html'%}{%load static%} 
 
 {% block content%}
-<h3 class="home_text">Say goodbye to the single milfs in your area looking for you and say hello to the matches that Cupid
-Shuffle's flawless algorithm has picked out for you and if a milf is in there it’s a win win!</h3>
 <img src="{% static 'hotnsinglemilfs.jpg' %}" alt="nomilf" class="no_milfs">
+<h3 class="milf_text">Say goodbye to the single milfs in your area looking for you and say hello to the matches that Cupid
+Shuffle's flawless algorithm has picked out for you and if a milf is in there it’s a win win!</h3>
 
 
-'<h2 class = "match-making-title">Meet your Matches!</h2>
+
+{% comment %} <h2 class = "match-making-title">Meet your Matches!</h2> {% endcomment %}
 <button class="matchmakingBTN"> <a href= "{% url "matchmaking"%}">Find More Matches</a></button>
 
 
