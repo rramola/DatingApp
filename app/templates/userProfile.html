@@ -3,6 +3,7 @@
   <div id="profile_header_container">
     <div id="dating_profile_image_container">
       <img src="{{dating_profile.profile_pic.url}}" />
+      {% comment %} <img src="{{user_profile.profile_picture.url}}" /> {% endcomment %}
     </div>
 
     {% comment %}
@@ -61,6 +62,7 @@
             Edit Dating Profile
           </button></a
         >
+        <button class="user_profile_button">Delete Profile</button>
       </div>
       {% endif %} {% if dating_profile.created == False%}
       <div id="dating_profile_edit_button_container">

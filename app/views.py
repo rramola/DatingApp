@@ -125,6 +125,12 @@ def profileView(request):
     }
     return render(request, "userProfile.html", context)
 
+@login_required(login_url="login")
+def deleteProfile(request):
+    user = request.user
+    user.delete()
+    return redirect("login")
+
 
 @login_required(login_url="login")
 def partner_profile_view(request, id):
