@@ -30,6 +30,7 @@ urlpatterns = [
     path("dating/", dating_profile_register, name="dating"),
     path("personality/", personality_register, name="personality"),
     path("matchmaking/", matchmakingView, name="matchmaking"),
+    path("delete_profile/", deleteProfile, name="delete_profile"),
     # path("messages/<int:id>", messagesView, name="messages"),
     path('send_message/<int:recipient_id>/', send_message, name='send_message'),
     path('inbox/', inbox, name='inbox'),

@@ -62,7 +62,9 @@
             Edit Dating Profile
           </button></a
         >
-        <button class="user_profile_button">Delete Profile</button>
+        <a href="{% url 'delete_profile' %}">
+            <button class="user_profile_button">Delete Profile</button>
+        </a>
       </div>
       {% endif %} {% if dating_profile.created == False%}
       <div id="dating_profile_edit_button_container">
