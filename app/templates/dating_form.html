@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 
  {% block content %}
-        <p>
+ <div id="dating_profile_page_container">
+
+        {% comment %} <p id="dating_profile_page_header">
             <h2 class = "job-header">Make your Profile</h2>
-        </p>
+        </p> {% endcomment %}
              
-          <form  method="POST" enctype="multipart/form-data">
-          <div class="container">
-            <div class="form container">
-                <h3 class="createformheader">Profile</h3>
+          <form  method="POST" enctype="multipart/form-data" id="dating_form">
+          {% comment %} <div class="dating_profile_page_container"> {% endcomment %}
+            <div id="dating_form_header_container">
+                <h3 id="dating_form_header">Make your Profile</h3>
                     {% if form.errors %}
                           {% for field in form %}
                               {% for error in field.errors %}
@@ -23,7 +25,7 @@
                   {% for field in form %}
                       {% if field.name == 'gender'  %}
                           <div class="form-group">
-                          <label for="gender">gender</label>
+                          <label for="gender">Gender</label>
                           <select name="gender" class="selectpicker" id="job-type" data-style="btn-black" data-width="100%" data-live-search="true" title="Select Job Type">
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
@@ -33,9 +35,9 @@
                       
                                             
                         {% elif field.name == 'profile_pic' %}
-                            <div class="form-group">
+                            <div class="form-group-profile-pic">
                                 <label for="profile_pic">Profile Picture</label>
-                                <div class="">
+                                <div id="profile_pic_container">
                                 {% comment %} {{ form.media }} {% endcomment %}
                                 {{ form.profile_pic }}
                             </div>
@@ -54,10 +56,39 @@
                             <label for="smoker">Smoker</label>
                             <select name="smoker" class="selectpicker" id="smoker" data-style="btn-black" data-width="100%" data-live-search="true" title="smoker">
                                 <option value="Yes">Yes</option>
-                                <option value="No">NO</option>
+                                <option value="No">No</option>
                     
                             </select>
                             </div>
+                        {% elif field.name == 'drinker' %}
+                        <div class="form-group">
+                            <label for="drinker">Drinker</label>
+                            <select name="drinker" class="selectpicker" id="drinker" data-style="btn-black" data-width="100%" data-live-search="true" title="drinker">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                            </div>
+                        {% elif field.name == 'occupation' %}
+                        <div class="form-group">
+                            <label for="profile_occupation">Occupation</label>
+                            <div class="">
+                            {{ form.occupation }}
+                        </div>
+                        </div>
+                        {% elif field.name == 'bio' %}
+                        <div class="form-group-bio" id="form_bio">
+                            <label for="profile_bio">Bio</label>
+                            <div class="bio_input_container">
+                            {{ form.bio }}
+                        </div>
+                        </div>
+                        {% elif field.name == 'favorite_place_ever_been' %}
+                        <div class="form-group-favorite-place">
+                            <label for="profile_favorite_place_ever_been">Favorite place you have ever been</label>
+                            <div class="favorite_place_ever_been_input_container">
+                            {{ form.favorite_place_ever_been }}
+                        </div>
+                        </div>
                         {% else %}
                         <div class="form-group">
                             <label class="text-black" for="id_{{ field.name }}">{{ field.label }}</label>
@@ -69,23 +100,18 @@
                         </div> 
                       {% endif %}
                   {% endfor %}
+                  <div class="columns">
+                    <div class="row">
+                      <div class="columns more">
+                        <input class="btn1" type="submit" value="Submit" id="dating_form_button">
+                      </div>
+                    </div>
+                  </div>
                 
                  
             </div>    
           </div>
-          
-          <div class="row align-items">
-            <div class="collums">
-              <div class="row">
-                <div class="colllums more">
-  
-                  <input class="btn1" type="submit" value="Submit" >
-                </div>
-              </div>
-            </div>
-              </form>
-  
-          </div>
-        </div>
+        </form>
+      </div>
 
 {% endblock content %}

@@ -134,8 +134,6 @@ padding-bottom: 2rem;
     margin-bottom: 2;   
     color: purple;
     font-family: "Poppins", sans-serif;
-
-
   }
 
 #id_username, #id_first_name, #id_last_name, #id_email, #id_password1, #id_password2 {
@@ -207,6 +205,185 @@ padding-bottom: 2rem;
     color: purple;
     letter-spacing: 0.5px;
   }
+
+
+  /* DATING FORM STYLES */
+#dating_profile_page_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  #dating_form{
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.301);
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.349);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 2rem;
+    margin: 3rem;
+}
+
+#dating_form_header{
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 42px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2;   
+    color: purple;
+    font-family: "Poppins", sans-serif;
+  }
+  .form-group-profile-pic{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    column-gap: 1rem;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.411);
+    border-radius: .5rem;
+    margin-top: .5rem;
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+    color: purple;
+  }
+
+  #profile_pic_container{
+    line-height: 2rem;
+  }
+  .form-group-bio{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    column-gap: 1rem;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.411);
+    border-radius: .5rem;
+    margin-top: .5rem;
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+    color: purple;
+  }
+
+  .form-group-bio > label{
+    padding-left: 1rem;
+  }
+  .form-group{
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    column-gap: 1rem;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.411);
+    border-radius: .5rem;
+    margin-top: .5rem;
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+    color: purple;
+  }
+
+  .form-group > label{
+    padding-left: 1rem;
+  }
+
+  .form-group-profile-pic > label{
+    padding-left: 1rem;
+  }
+
+  .form-group-profile-pic:hover{
+    outline: 7px solid #0001;
+  }
+
+  .bio_input_container{
+    margin-top: .5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .form-group-bio:hover{
+    outline: 7px solid #0001;
+  }
+
+  
+  .form-group-favorite-place{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    column-gap: 1rem;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.411);
+    border-radius: .5rem;
+    margin-top: .5rem;
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+    color: purple;
+  }
+
+  .form-group-favorite-place > label{
+    padding-left: 1rem;
+  }
+
+  .form-group-favorite-place:hover{
+    outline: 7px solid #0001;
+  }
+
+  .favorite_place_ever_been_input_container{
+    margin-top: .5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  #id_bio{
+    width: 98%;
+  }
+
+  #id_favorite_place_ever_been{
+    width: 98%;
+    height: 2rem;
+  }
+
+  .form-group:hover{
+    outline: 7px solid #0001;
+}
+
+#profile_pic_container{
+    padding-left: 1rem;
+    margin-top: 1rem;
+}
+
+#dating_form_button {
+    margin-top: 3.1rem;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size:1.5rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+  }
+
 
 /* PROFILE PAGE STYLES */
 

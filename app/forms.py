@@ -28,6 +28,10 @@ class DatingProfileForm(forms.ModelForm):
             "age",
             "interested_in",
             "smoker",
+            "drinker",
+            "occupation",
+            "bio",
+            "favorite_place_ever_been",
         )
 
 
