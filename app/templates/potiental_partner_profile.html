@@ -2,7 +2,7 @@
 
 {%block content%}
 <div class="potential_partner_profile">
-<h1>Partner Profile: {{ dating_profile.profile_pic.url}}</h1>
+<h1>Partner Profile: {{ dating_profile.first_name}}</h1>
 {% comment %} <img src="{{dating_profile.profile_pic.url}}"/> {% endcomment %}
 <img src="{{ partner.profile.profile_picture.url }}"/>
 <p>Gender: {{dating_profile.gender}}</p>
