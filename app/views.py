@@ -251,6 +251,48 @@ def matchmakingView(request):
         if matches > 3:
             compatible_personality_profiles_list.append(profile)
 
+        match_list = []
+        for object in compatible_personality_profiles_list:
+            if (
+                user_dating_profile.interested_in == "Men"
+                and user_dating_profile.gender == "Male"
+                and object.user_profile.interested_in == "Men"
+                and object.user_profile.gender == "Male"
+            ):
+                match_list.append(object)
+            elif (
+                user_dating_profile.interested_in == "Women"
+                and user_dating_profile.gender == "Female"
+                and object.user_profile.interested_in == "Women"
+                and object.user_profile.gender == "Female"
+            ):
+                match_list.append(object)
+            elif (
+                user_dating_profile.interested_in == "Men"
+                and user_dating_profile.gender == "Female"
+                and object.user_profile.interested_in == "Women"
+                and object.user_profile.gender == "Male"
+            ):
+                match_list.append(object)
+            elif (
+                user_dating_profile.interested_in == "Women"
+                and user_dating_profile.gender == "Male"
+                and object.user_profile.interested_in == "Men"
+                and object.user_profile.gender == "Women"
+            ):
+                match_list.append(object)
+            elif (
+                user_dating_profile.interested_in == "Women"
+                and user_dating_profile.gender == "Male"
+                and object.user_profile.interested_in == "Men"
+                and object.user_profile.gender == "Women"
+                or user_dating_profile.interested_in == "Men"
+                and user_dating_profile.gender == "Female"
+                and object.user_profile.interested_in == "Women"
+                and object.user_profile.gender == "Male"
+            ):
+                match_list.append(object)
+
     context = {
         "random_potential_partners": random_potential_partners,
         "key": key,
@@ -258,6 +300,7 @@ def matchmakingView(request):
         "user": user,
         "user_dating_profile": user_dating_profile,
         "compatible_personality_profiles": compatible_personality_profiles_list,
+        "match_list": match_list,
     }
 
     return render(request, "matchmaking.html", context)
