@@ -1,17 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="inboxMSGs">
-    {% if message.sender.profile_pic %}
-        <img src="{{ message.sender.profile_pic.url }}">
-    {% endif %}
-    <p>From: {{ message.sender.user.username }}</p>
-    <p>{{ message.content }}</p>
+<div id="message_detail_page_container">
+    <div class="inboxMSGs_message_container">
+        {% if message.sender.profile_pic %}
+            <img src="{{ message.sender.profile_pic.url }}">
+        {% endif %}
 
-<form method="post">
-    {% csrf_token%}
-    <textarea name="content"></textarea>
-    <input type="submit" value="Send">
-</form>
-</div>
+
+        <div id="inbox_message_from_container">
+            <p id="message_from_text">From: {{ message.sender.user.username }}</p>
+        </div>
+
+        <div id="inbox_message_content_container">
+            <p id="inbox_message_text">{{ message.content }}</p>
+        </div>
+
+        <form method="post" id="inbox_respond_form">
+            {% csrf_token%}
+            <p id="reply_text_header">Reply:</p>
+            <div id="inbox_reply_container">
+                <textarea name="content" id"message_text"></textarea>
+            </div>
+            <div id="inbox_reply_button_container">
+                <input type="submit" value="Reply" id="message_send_button">
+            </div>
+        </form>
+    </div>
+<div>
 
 {% endblock content %}
