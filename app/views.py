@@ -22,6 +22,7 @@ def base(request):
 
 @login_required(login_url="login")
 def home_page(request):
+
     context = {}
     return render(request, "home.html", context)
 
@@ -280,7 +281,7 @@ def matchmakingView(request):
                 user_dating_profile.interested_in == "Women"
                 and user_dating_profile.gender == "Male"
                 and object.user_profile.interested_in == "Men"
-                and object.user_profile.gender == "Women"
+                and object.user_profile.gender == "Female"
             ):
                 match_list.append(object)
             elif (
@@ -301,7 +302,7 @@ def matchmakingView(request):
         "val": val,
         "user_profile": user_profile,
         "user": user,
-        "user_profile": user_profile,
+        "user_personality_profile": user_personality_profile,
         "user_dating_profile": user_dating_profile,
         "compatible_personality_profiles": compatible_personality_profiles_list,
         "match_list": match_list,
