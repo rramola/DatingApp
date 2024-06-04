@@ -125,6 +125,7 @@ def profileView(request):
     }
     return render(request, "userProfile.html", context)
 
+
 @login_required(login_url="login")
 def deleteProfile(request):
     user = request.user
@@ -134,11 +135,10 @@ def deleteProfile(request):
 
 @login_required(login_url="login")
 def partner_profile_view(request, id):
-    partner = Profile.objects.get(user__id=id)
-    dating_profile = DatingProfile.objects.get(user_profile=partner)
+    dating_profile = DatingProfile.objects.get(id=id)
     context = {
         "dating_profile": dating_profile,
-        "partner": partner,
+        # "partner": partner,
     }
     return render(request, "potiental_partner_profile.html", context)
 
@@ -217,6 +217,7 @@ def matchmakingView(request):
     user_data_list = [
         user_personality_profile.id,
         user_personality_profile.interests,
+        user_personality_profile.user_profile.interested_in,
         user_personality_profile.do_you_like_drinking,
         user_personality_profile.are_you_active,
         user_personality_profile.music_pick,
@@ -232,6 +233,7 @@ def matchmakingView(request):
         profile_data = {
             "id": profile.id,
             "interests": profile.interests,
+            "interested_in": profile.user_profile.interested_in,
             "drinking": profile.do_you_like_drinking,
             "active": profile.are_you_active,
             "music": profile.music_pick,
@@ -254,6 +256,7 @@ def matchmakingView(request):
         "key": key,
         "val": val,
         "user": user,
+        "user_dating_profile": user_dating_profile,
         "compatible_personality_profiles": compatible_personality_profiles_list,
     }
 

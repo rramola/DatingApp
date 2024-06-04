@@ -41,20 +41,21 @@ Shuffle's flawless algorithm has picked out for you and if a milf is in there it
     {% endcomment %}
   {% for object in compatible_personality_profiles  %}
       {% if user != object.user_profile.user_profile  %} 
-
-    <div id="partner-cards">
-          <img src="{{object.user_profile.profile_pic.url}}" id="partner-img"/>
-          <div id = "partner-name">
-            {{object.user_profile.user_profile.first_name}}
-            {{object.user_profile.user_profile.las}}
-          </div>
-          <div id = "partner_age">
-            {{ object.user_profile.age}}
-          </div>
-          <button class="matchmakingBTNs"> <a href= "{% url "partner" object.id %}" >View Profile</a></button>
-          <button class="matchmakingBTNs"> <a href= "{% url "send_message" object.id %}" >Message</a></button>
-    </div>
-    
+        {%if user_dating_profile.interested_in == object.user_profile.interested_in %}
+        
+              <div id="partner-cards">
+                    <img src="{{object.user_profile.profile_pic.url}}" id="partner-img"/>
+                    <div id = "partner-name">
+                      {{object.user_profile.user_profile.first_name}}
+                      {{object.user_profile.user_profile.las}}
+                    </div>
+                    <div id = "partner_age">
+                      {{ object.user_profile.age}}
+                    </div>
+                    <button class="matchmakingBTNs"> <a href= "{% url "partner" object.id %}" >View Profile</a></button>
+                    <button class="matchmakingBTNs"> <a href= "{% url "send_message" object.id %}" >Message</a></button>
+              </div>
+    {% endif %}
     {% endif %}  
     {%endfor%} 
 

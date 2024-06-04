@@ -51,56 +51,56 @@ class PersonalityProfile(models.Model):
     created = models.BooleanField(default=False)
     yes_or_no_options = (("Yes", "YES"), ("No", "NO"))
     what_are_you_looking_for_options = (
-        ("long-term", "Long-term partner"),
-        ("short-term", "Short-term partner"),
-        ("firguring-out", "Still figuring out"),
+        ("Long-term", "Long-term partner"),
+        ("Short-term", "Short-term partner"),
+        ("Firguring-out", "Still figuring out"),
     )
     music_options = (
-        ("metal", "METAL"),
-        ("classic", "CLASSIC"),
-        ("country", "COUNTRY"),
-        ("pop", "POP"),
-        ("hip-hop", "HIP-HOP"),
-        ("gospel", "GOSPEL"),
+        ("Metal", "METAL"),
+        ("Classic", "CLASSIC"),
+        ("Country", "COUNTRY"),
+        ("Pop", "POP"),
+        ("Hip-hop", "HIP-HOP"),
+        ("Gospel", "GOSPEL"),
     )
-    outdoor_indoor_options = (("outdoor", "OUTDOOR"), ("indoor", "INDOOR"))
+    outdoor_indoor_options = (("Outdoor", "OUTDOOR"), ("Indoor", "INDOOR"))
     what_do_you_do_for_fun_options = (
-        ("hiking", "HIKING"),
-        ("gaming", "GAMING"),
-        ("reading", "READING"),
-        ("singing", "SINGING"),
-        ("sports", "SPORTS"),
-        ("dancing", "DANCING"),
-        ("travel", "TRAVEL"),
-        ("poetry", "POETRY"),
-        ("music", "MUSIC"),
+        ("Hiking", "HIKING"),
+        ("Gaming", "GAMING"),
+        ("Reading", "READING"),
+        ("Singing", "SINGING"),
+        ("Sports", "SPORTS"),
+        ("Dancing", "DANCING"),
+        ("Travel", "TRAVEL"),
+        ("Poetry", "POETRY"),
+        ("Music", "MUSIC"),
     )
     movie_genre_options = (
-        ("horror", "HORROR"),
-        ("romance", "ROMANCE"),
-        ("comedy", "COMEDY"),
-        ("action", "ACTION"),
-        ("anime", "ANIME"),
-        ("sci-fi", "SCI-FI"),
+        ("Horror", "HORROR"),
+        ("Romance", "ROMANCE"),
+        ("Comedy", "COMEDY"),
+        ("Action", "ACTION"),
+        ("Anime", "ANIME"),
+        ("Sci-fi", "SCI-FI"),
     )
     hobby_options = (
-        ("biking", "BIKING"),
-        ("knitting", "KNITTING"),
-        ("painting", "PAINTING"),
-        ("bird-watching", "BIRD-WATCHING"),
-        ("antiquing", "ANTIQUING"),
-        ("couch-potato", "COUCH-POTATO"),
-        ("kayaking", "KAYAKING"),
-        ("swimming", "SWIMMING"),
+        ("Biking", "BIKING"),
+        ("Knitting", "KNITTING"),
+        ("Painting", "PAINTING"),
+        ("Bird-watching", "BIRD-WATCHING"),
+        ("Antiquing", "ANTIQUING"),
+        ("Couch-Potato", "COUCH-POTATO"),
+        ("Kayaking", "KAYAKING"),
+        ("Swimming", "SWIMMING"),
     )
     sport_interest_options = (
-        ("baseball", "BASEBALL"),
-        ("basketball", "BASKETBALL"),
-        ("tennis", "TENNIS"),
-        ("football", "FOOTBALL"),
-        ("soccer", "SOCCER"),
-        ("skate", "SKATING"),
-        ("golf", "GOLF"),
+        ("Baseball", "BASEBALL"),
+        ("Basketball", "BASKETBALL"),
+        ("Tennis", "TENNIS"),
+        ("Football", "FOOTBALL"),
+        ("Soccer", "SOCCER"),
+        ("Skate", "SKATING"),
+        ("Golf", "GOLF"),
     )
     interests = models.CharField(
         max_length=50, choices=what_are_you_looking_for_options, null=True
