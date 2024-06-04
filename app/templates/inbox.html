@@ -7,8 +7,8 @@
 <img src="{% static 'heartchatbox.png' %}" alt="chatbox" class="inbox_img">
 <div id="inbox_container">
     <div class="leftsideinbox">
+    <h3 class="sentMSGs">Sent Messages</h3> 
     {% if sent_messages %}
-        <h3 class="sentMSGs">Sent Messages</h3>
         {% for message in sent_messages %}
             <div class="sent">
                 <div class="inboxMSGs">
@@ -28,6 +28,8 @@
                         {% comment %} <a href="{% url 'delete_message' message.id %}">Delete</a> {% endcomment %}
             </div>
         {% endfor %}
+    {% else %}
+        <h1 class="emptyInbox">No Messages Sent</h1>
     {% endif %}
     </div>
     <div class="rightsideinbox">
@@ -58,6 +60,7 @@
     </div>
     </div>
     {% else %}
+    <h1 class="emptyInbox">No Messages Received</h1>
     {% comment %} <img src="{% static 'nobitches.png' %}"  class="emptyInbox"> {% endcomment %}
     {% comment %} <p class="cringeAlert">———————————No bitches?———————————
         ⠀⣞⢽⢪⢣⢣⢣⢫⡺⡵⣝⡮⣗⢷⢽⢽⢽⣮⡷⡽⣜⣜⢮⢺⣜⢷⢽⢝⡽⣝
