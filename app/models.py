@@ -28,7 +28,7 @@ class DatingProfile(models.Model):
     interested_in_options = ("Men", "MEN"), ("Women", "WOMEN"), ("Both", "BOTH")
     yes_or_no_options = (("Yes", "YES"), ("No", "NO"))
     gender = models.CharField(max_length=50, choices=gender_options, null=True)
-    birth_date = models.DateTimeField(null=True)
+    birth_date = models.DateTimeField()
     interested_in = models.CharField(
         max_length=50, choices=interested_in_options, null=True
     )
