@@ -63,7 +63,7 @@ def logout_user(request):
     logout(request)
     return redirect("login")
 
-@login_required(login_url="login")
+
 def dating_profile_register(request):
     user_profile = request.user.profile
     dating_profile, created = DatingProfile.objects.get_or_create(
@@ -146,10 +146,9 @@ def partner_profile_view(request, id):
 @login_required(login_url="login")
 def matchmakingView(request):
     # user = User.objects.filter(id=request.user.id)
-    user_profile = request.user.profile
-    user = request.user
+    user = request.user.profile
 
-    user_dating_profile = DatingProfile.objects.get(user_profile=user_profile)
+    user_dating_profile = DatingProfile.objects.get(user_profile=user)
     user_personality_profile = PersonalityProfile.objects.get(
         user_profile=user_dating_profile
     )
@@ -252,19 +251,61 @@ def matchmakingView(request):
         if matches > 3:
             compatible_personality_profiles_list.append(profile)
 
+        match_list = []
+        for object in compatible_personality_profiles_list:
+            if (
+                user_dating_profile.interested_in == "Men"
+                and user_dating_profile.gender == "Male"
+                and object.user_profile.interested_in == "Men"
+                and object.user_profile.gender == "Male"
+            ):
+                match_list.append(object)
+            elif (
+                user_dating_profile.interested_in == "Women"
+                and user_dating_profile.gender == "Female"
+                and object.user_profile.interested_in == "Women"
+                and object.user_profile.gender == "Female"
+            ):
+                match_list.append(object)
+            elif (
+                user_dating_profile.interested_in == "Men"
+                and user_dating_profile.gender == "Female"
+                and object.user_profile.interested_in == "Women"
+                and object.user_profile.gender == "Male"
+            ):
+                match_list.append(object)
+            elif (
+                user_dating_profile.interested_in == "Women"
+                and user_dating_profile.gender == "Male"
+                and object.user_profile.interested_in == "Men"
+                and object.user_profile.gender == "Women"
+            ):
+                match_list.append(object)
+            elif (
+                user_dating_profile.interested_in == "Women"
+                and user_dating_profile.gender == "Male"
+                and object.user_profile.interested_in == "Men"
+                and object.user_profile.gender == "Women"
+                or user_dating_profile.interested_in == "Men"
+                and user_dating_profile.gender == "Female"
+                and object.user_profile.interested_in == "Women"
+                and object.user_profile.gender == "Male"
+            ):
+                match_list.append(object)
+
     context = {
         "random_potential_partners": random_potential_partners,
         "key": key,
         "val": val,
         "user": user,
-        "user_profile": user_profile,
         "user_dating_profile": user_dating_profile,
         "compatible_personality_profiles": compatible_personality_profiles_list,
+        "match_list": match_list,
     }
 
     return render(request, "matchmaking.html", context)
 
-@login_required(login_url="login")
+
 def messagesView(request, id):
     user = Profile.objects.get(user__id=id)
     messages = Message.objects.filter(recipient=user)
@@ -280,7 +321,7 @@ def messagesView(request, id):
     return render(request, "messages.html", context)
 
 
-@login_required(login_url="login")
+@login_required
 def send_message(request, recipient_id):
     if request.method == "POST":
         sender = request.user.profile
@@ -316,14 +357,14 @@ def send_message(request, recipient_id):
 #         return render(request, 'send_message.html', {'recipient': recipient, 'parent_message': parent_message})
 
 
-@login_required(login_url="login")
+@login_required
 def inbox(request):
     user = request.user.profile
     received_messages = Message.objects.filter(recipient=user)
     return render(request, "inbox.html", {"received_messages": received_messages})
 
 
-@login_required(login_url="login")
+@login_required
 def message_detail(request, message_id):
     message = Message.objects.get(id=message_id)
     if request.method == "POST":
