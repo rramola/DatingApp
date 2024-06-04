@@ -1,39 +1,87 @@
 {%extends 'home.html'%}
 
 {%block content%}
-<div class="potential_partner_profile">
-<h1>Partner Profile: {{ dating_profile.first_name}}</h1>
-{% comment %} <img src="{{dating_profile.profile_pic.url}}"/> {% endcomment %}
-<img src="{{ dating_profile.profile_pic.url }}"/>
-<p>Gender: {{dating_profile.gender}}</p>
-<p>Age: {{dating_profile.age}}</p>
-<p>Interested In: {{dating_profile.interested_in}}</p>
-<p>Do you smoke? {{dating_profile.smoker}}</p>
-<p>Do you drink? {{dating_profile.drinker}}</p>
-<p>Occupation: {{dating_profile.occupation}}</p>
-<p>Bio: {{dating_profile.bio}}</p>
-<p>Favorite place you have ever visited? {{dating_profile.favorite_place_ever_been}}</p>
-{% comment %} <div id="partner_profile_image_container">
-    <img src="{{dating_profile.profile_pic.url}}"/>
-</div>
-<div id="partner_profile_gender_container"><div id="gender">Gender: </div>{{dating_profile.gender}}</div>
-<div id="partner_profile_age_container"><div id="age">Age:</div>{{dating_profile.age}}</div>
-<div id="partner_profile_interested_in_container">
-  <div id="partner_interested_in">Interested In: </div>{{dating_profile.interested_in}}
-</div>
-<div id="partner_profile_smoker_container"><div id="smoker">Do you smoke? </div>{{dating_profile.smoker}}</div>
-</div>
-<div id="partner_profile_drinker_container"><div id="drinker">Do you drink? </div>{{dating_profile.drinker}}</div>
-<div id="partner_profile_occupation_container"><div id="job">Occupation: </div>{{dating_profile.occupation}}</div>
-</div>
-<div id="partner_profile_bio_container"><div id="bio">Bio: </div>{{dating_profile.bio}}</div>
-</div>
-<div id="partner_profile_favorite_place_ever_been_container"><div id="favorite_place_ever_been">Favorite place you have ever visited? </div>{{dating_profile.favorite_place_ever_been}}</div>
-</div>
+<div id="partner_profile_page_container">
+  <div class="potential_partner_profile">
+    <div id="partner_profile_header_container">
+      <div id="partner_profile_header_info">
+        <h1>Partner Profile: {{ dating_profile.first_name}}</h1>
+        {% comment %} <img src="{{dating_profile.profile_pic.url}}"/> {% endcomment %}
+        <img src="{{ dating_profile.profile_pic.url }}"/>
+      </div>
+    </div>
 
-</div> {% endcomment %}
-<button> <a href= "{% url "matchmaking"%}" >Back</a></button>
-{% comment %} <button> <a href= "{% url "send_message" object.id %}">Message</a></button> {% endcomment %}
+      <div id="dating_profile_information_container" class="partner_profile_container">
+        <div id="dating_profile_gender_container">
+          <div class="profile_info_text">GENDER</div>
+          {{dating_profile.gender}}
+        </div>
+        <div id="dating_profile_age_container">
+          <div class="profile_info_text">AGE</div>
+          {{dating_profile.age}}
+        </div>
+        <div id="dating_profile_interested_in_container">
+          <div class="profile_info_text">PREFERENCE</div>
+          {{dating_profile.interested_in}}
+        </div>
+        <div id="dating_profile_smoker_container">
+          <div class="profile_info_text">SMOKER</div>
+          {{dating_profile.smoker}}
+        </div>
+        <div id="dating_profile_drinker_container">
+          <div class="profile_info_text">DRINKER</div>
+          {{dating_profile.drinker}}
+        </div>
+        <div id="dating_profile_occupation_container">
+          <div class="profile_info_text">OCCUPATION</div>
+          {{dating_profile.occupation}}
+        </div>
+        <div id="dating_profile_bio_container">
+          <div class="profile_info_text">BIO</div>
+          {{dating_profile.bio}}
+        </div>
+        <div id="dating_profile_favorite_place_container">
+          <div class="profile_info_text">FAVORITE PLACE</div>
+          {{dating_profile.favorite_place_ever_been}}
+        </div>
+      </div>
+    {% comment %} <div id="partner_dating_profile_info_container">
+      <p>Gender: {{dating_profile.gender}}</p>
+      <p>Age: {{dating_profile.age}}</p>
+      <p>Interested In: {{dating_profile.interested_in}}</p>
+      <p>Do you smoke? {{dating_profile.smoker}}</p>
+      <p>Do you drink? {{dating_profile.drinker}}</p>
+      <p>Occupation: {{dating_profile.occupation}}</p>
+      <p>Bio: {{dating_profile.bio}}</p>
+      <p>Favorite place you have ever visited? {{dating_profile.favorite_place_ever_been}}</p>
+    </div>
+   
+    
+    {% endcomment %}
+      {% comment %} <div id="partner_profile_image_container">
+        <img src="{{dating_profile.profile_pic.url}}"/>
+    </div>
+    <div id="partner_profile_gender_container"><div id="gender">Gender: </div>{{dating_profile.gender}}</div>
+    <div id="partner_profile_age_container"><div id="age">Age:</div>{{dating_profile.age}}</div>
+    <div id="partner_profile_interested_in_container">
+      <div id="partner_interested_in">Interested In: </div>{{dating_profile.interested_in}}
+    </div>
+    <div id="partner_profile_smoker_container"><div id="smoker">Do you smoke? </div>{{dating_profile.smoker}}</div>
+    </div>
+    <div id="partner_profile_drinker_container"><div id="drinker">Do you drink? </div>{{dating_profile.drinker}}</div>
+    <div id="partner_profile_occupation_container"><div id="job">Occupation: </div>{{dating_profile.occupation}}</div>
+    </div>
+    <div id="partner_profile_bio_container"><div id="bio">Bio: </div>{{dating_profile.bio}}</div>
+    </div>
+    <div id="partner_profile_favorite_place_ever_been_container"><div id="favorite_place_ever_been">Favorite place you have ever visited? </div>{{dating_profile.favorite_place_ever_been}}</div>
+    </div>
+
+    </div> {% endcomment %}
+    <div id="partner_profile_button_container">
+      <button id="partner_profile_button"> <a href= "{% url "matchmaking"%}" >Back</a></button>
+    {% comment %} <button> <a href= "{% url "send_message" object.id %}">Message</a></button> {% endcomment %}
+    </div>
+  </div>
 </div>
 
 {%endblock content%}
