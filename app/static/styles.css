@@ -1254,3 +1254,18 @@ opacity: 0;
     padding: .5rem;
     cursor: pointer;
 }
+
+
+/* /////////////Inbox//////////////// */
+
+.inbox_img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15% ;
+
+}
+.inbox_layout{
+    text-align:center;
+    margin: 0 auto;
+}
