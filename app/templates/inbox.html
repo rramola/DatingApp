@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+<h2 class="lyric_text">Welcome to the first message that will decide the rest of your life!
+    Your soulmate is just a message away!
+</h2>
+<img src="{% static 'heartchatbox.png' %}" alt="chatbox" class="inbox_img"> 
 {% if received_messages %}
     {% for message in received_messages %}
         <div class="inboxMSGs">
