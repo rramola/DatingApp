@@ -22,8 +22,18 @@ def base(request):
 
 @login_required(login_url="login")
 def home_page(request):
-
-    context = {}
+    user = request.user
+    user_profile = request.user.profile
+    dating_profile, created = DatingProfile.objects.get_or_create(
+        user_profile=user_profile
+    )
+    personality_profile, created = PersonalityProfile.objects.get_or_create(
+        user_profile=dating_profile
+    )
+    context = {
+        "user_dating_profile": dating_profile,
+        "personality_profile": personality_profile,
+    }
     return render(request, "home.html", context)
 
 
