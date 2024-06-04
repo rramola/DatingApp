@@ -906,11 +906,11 @@ padding-bottom: 2rem;
 }
 #matches {
     display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
     flex-direction: row;
     padding-right: 10px;
     justify-content: space-evenly;
-
-
 }
 
 #partner-cards {
