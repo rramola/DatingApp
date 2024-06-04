@@ -863,17 +863,24 @@ padding-bottom: 2rem;
 /* ///////////match-making/////////// */
 
 .milf_text{
-    padding-top: 2%;
-    text-align: left;
+    padding-top: 1%;
+    text-align: center;
     color:purple;
-    margin-right: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
     font-size: 150%;
-    padding-bottom: 10%;
+    padding-bottom: .5%;
     
 }
-
-.no_milfs{
-    border-collapse: collapse;
+.arrow{
+    width:40%;
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.neon{
+    /* border-collapse: collapse;
     border-color: #0e0d0d;
     border-width: 3px;
     float: left;
@@ -881,14 +888,14 @@ padding-bottom: 2rem;
     vertical-align: top;
     margin: 15px;
     margin-left: 20%;
-    border-radius:10%;
-    width: 20%;
-    /* align-items: center;
+    border-radius:10%; */
+    width: 30%;
+    align-items: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border: 5px solid;
-    border-radius: 10px; */
+    /* border: 5px solid; */
+    border-radius: 10px;
 }
 .match-making-title{
     font-size: 2rem;
