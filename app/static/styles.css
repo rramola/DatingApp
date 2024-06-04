@@ -923,11 +923,11 @@ padding-bottom: 2rem;
 }
 #matches {
     display: flex;
-    flex-wrap: wrap;
-    overflow: auto;
     flex-direction: row;
     padding-right: 10px;
     justify-content: space-evenly;
+
+
 }
 
 #partner-cards {
@@ -1203,10 +1203,9 @@ opacity: 0;
     padding: 10px;
     margin: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-right: 80%;
     backdrop-filter: blur(10px);
     border-radius: 10px;
-    margin-left: 35%;
-    margin-right: 35%;
 }
 
 .inboxBTN{
@@ -1218,7 +1217,7 @@ opacity: 0;
     cursor: pointer;
 }
 
-/* .emptyInbox{
+.emptyInbox{
     height: 500px;
     width: 500px;
     border: 10px solid rgb(185, 120, 180);
@@ -1227,71 +1226,8 @@ opacity: 0;
     margin-left: 40%;
     margin-right: 40%;
     margin-top: 30px;
-} */
-
-.emptyInbox{
-    color: purple;
-    font-weight: 900;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.301);
-    padding: 10px;
-    margin-left: 40%;
-    margin-right: 40%;
-    /* border: 2px solid rgba(255, 255, 255, 0.349);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    margin: 10px auto;
-    backdrop-filter: blur(10px);
-    margin-left: 35%;
-    margin-right: 35%; */
-}
-
-.leftsideinbox{
-    display: flex;
-    flex-direction: column;
-}
-
-.sentMSGs{
-    color: purple;
-    font-weight: 900;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.301);
-    padding: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.349);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    margin: 10px auto;
-    backdrop-filter: blur(10px);
-    margin-left: 35%;
-    margin-right: 35%;
-}
-
-.receivedMSGs{
-    color: purple;
-    font-weight: 900;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.301);
-    padding: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.349);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    margin: 10px auto;
-    backdrop-filter: blur(10px);
-    margin-left: 35%;
-    margin-right: 35%;
 
 }
-
-
 
 /* /////////////SEND MSGS//////////////// */
 .sendMSGs{
