@@ -22,8 +22,9 @@ body {
 #left_side_nav > a {
     text-decoration: none;
     font-size: 1.2rem;
-    padding-left:3rem
+    padding-left:3rem;
 }
+
 
 #right_side_nav > a {
     text-decoration: none;
@@ -433,9 +434,9 @@ padding-bottom: 2rem;
 #dating_profile_image_container > img{
     width: 256px;
     height: 256px;
-    border-radius: 50%;    border-radius: 50%;
+    border-radius: 50%;    
+    border-radius: 50%;
     object-fit: cover;
-
     object-fit: cover;
 }
 #dating_and_personality_profile_information_container {
@@ -880,7 +881,7 @@ padding-bottom: 2rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
-
+/* 
 .matchmakingBTN{
     border-radius: .5rem;
     background-color: rgb(185, 120, 180);
@@ -893,9 +894,16 @@ padding-bottom: 2rem;
     justify-content: center;
     margin-bottom: 40px;
 
+} */
+
+#matchmaking_profile_image_container {
+    display: flex;
+    justify-content: center;
+    max-width: fit-content;
+    border-radius: 50%;
+    box-shadow:  0 0 25px 5px #230031a4;
+
 }
-
-
 #matches {
     display: flex;
     flex-direction: row;
@@ -927,11 +935,22 @@ padding-bottom: 2rem;
 }
 
 #partner-img{
-    border: 2px solid purple;
     width: 200px;
     height: 200px;
     border-radius: 50%; 
     object-fit: cover;
+}
+
+#match_making_button_container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    column-gap:.5rem;
+}
+
+#match_making_button_container > a{
+    color: white;
+    text-decoration: none;
 }
 
 .matchmakingBTNs{
@@ -942,6 +961,14 @@ padding-bottom: 2rem;
     padding: .5rem;
     cursor: pointer;
 }
+
+
+.matchmakingBTNs > a{
+    color: white;
+    text-decoration: none;
+}
+
+
 .button {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
@@ -1233,6 +1260,8 @@ opacity: 0;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin-left: 40%;
     margin-right: 40%;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
     border-radius: 10px;
 
 }
@@ -1251,11 +1280,17 @@ opacity: 0;
     padding: .5rem;
     cursor: pointer;
 } */
-.potential_partner_profile > img{
+#partner_profile_image_container {
+    display: flex;
+    justify-content: center;
+    max-width: fit-content;
+    border-radius: 50%;
+    box-shadow:  0 0 25px 5px #230031a4;
+}
+#partner_profile_image_container > img{
     border-radius: 50%;
     width: 200px;
     height: 200px;
-    border: solid 2px purple;
     object-fit: cover;
 }
 
