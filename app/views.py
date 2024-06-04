@@ -63,7 +63,7 @@ def logout_user(request):
     logout(request)
     return redirect("login")
 
-
+@login_required(login_url="login")
 def dating_profile_register(request):
     user_profile = request.user.profile
     dating_profile, created = DatingProfile.objects.get_or_create(
@@ -262,7 +262,7 @@ def matchmakingView(request):
 
     return render(request, "matchmaking.html", context)
 
-
+@login_required(login_url="login")
 def messagesView(request, id):
     user = Profile.objects.get(user__id=id)
     messages = Message.objects.filter(recipient=user)
@@ -278,7 +278,7 @@ def messagesView(request, id):
     return render(request, "messages.html", context)
 
 
-@login_required
+@login_required(login_url="login")
 def send_message(request, recipient_id):
     if request.method == "POST":
         sender = request.user.profile
@@ -314,14 +314,14 @@ def send_message(request, recipient_id):
 #         return render(request, 'send_message.html', {'recipient': recipient, 'parent_message': parent_message})
 
 
-@login_required
+@login_required(login_url="login")
 def inbox(request):
     user = request.user.profile
     received_messages = Message.objects.filter(recipient=user)
     return render(request, "inbox.html", {"received_messages": received_messages})
 
 
-@login_required
+@login_required(login_url="login")
 def message_detail(request, message_id):
     message = Message.objects.get(id=message_id)
     if request.method == "POST":
