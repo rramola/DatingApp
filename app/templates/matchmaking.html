@@ -10,7 +10,7 @@ Shuffle's flawless algorithm has picked out for you and if a milf is in there it
 
 
 {% comment %} <h2 class = "match-making-title">Meet your Matches!</h2> {% endcomment %}
-<button class="matchmakingBTN"> <a href= "{% url "matchmaking"%}">Find More Matches</a></button>
+{% comment %} <button class="matchmakingBTN"> <a href= "{% url "matchmaking"%}">Find More Matches</a></button> {% endcomment %}
 
 
 <div id="matches">
@@ -42,7 +42,7 @@ Shuffle's flawless algorithm has picked out for you and if a milf is in there it
     {%endfor%} 
     {% endcomment %}
   {% for object in compatible_personality_profiles  %}
-      {% if user != object.user_profile.user_profile  %} 
+      {% if user_profile != object.user_profile.user_profile  %} 
         {%if user_dating_profile.interested_in == object.user_profile.interested_in %}
         
               <div id="partner-cards">
