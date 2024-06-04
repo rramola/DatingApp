@@ -853,6 +853,7 @@ padding-bottom: 2rem;
 /* ///////////match-making/////////// */
 
 .milf_text{
+    padding-top: 2%;
     text-align: left;
     color:purple;
     margin-right: 30%;
@@ -1264,8 +1265,4 @@ opacity: 0;
     margin-right: auto;
     width: 15% ;
 
-}
-.inbox_layout{
-    text-align:center;
-    margin: 0 auto;
 }
