@@ -146,9 +146,9 @@ def partner_profile_view(request, id):
 @login_required(login_url="login")
 def matchmakingView(request):
     # user = User.objects.filter(id=request.user.id)
-    user = request.user.profile
-
-    user_dating_profile = DatingProfile.objects.get(user_profile=user)
+    user_profile = request.user.profile
+    user = request.user
+    user_dating_profile = DatingProfile.objects.get(user_profile=user_profile)
     user_personality_profile = PersonalityProfile.objects.get(
         user_profile=user_dating_profile
     )
@@ -297,6 +297,7 @@ def matchmakingView(request):
         "random_potential_partners": random_potential_partners,
         "key": key,
         "val": val,
+        "user_profile": user_profile,
         "user": user,
         "user_dating_profile": user_dating_profile,
         "compatible_personality_profiles": compatible_personality_profiles_list,
