@@ -6,8 +6,10 @@
     <div id="partner_profile_header_container">
       <div id="partner_profile_header_info">
         <h1>Partner Profile: {{ dating_profile.first_name}}</h1>
-        {% comment %} <img src="{{dating_profile.profile_pic.url}}"/> {% endcomment %}
-        <img src="{{ dating_profile.profile_pic.url }}"/>
+        
+        <div id="partner_profile_image_container">{% comment %} <img src="{{dating_profile.profile_pic.url}}"/> {% endcomment %}
+          <img src="{{ dating_profile.profile_pic.url }}"/>
+        </div>
       </div>
     </div>
 
