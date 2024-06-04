@@ -4,8 +4,26 @@
 <h2 class="lyric_text">Welcome to the first message that will decide the rest of your life!
     Your soulmate is just a message away!
 </h2>
-<img src="{% static 'heartchatbox.png' %}" alt="chatbox" class="inbox_img"> 
+<img src="{% static 'heartchatbox.png' %}" alt="chatbox" class="inbox_img">
+<div class="leftsideinbox">
+{% if sent_messages %}
+    <h3 class="sentMSGs">Sent Messages</h3>
+    {% for message in sent_messages %}
+        <div class="sent">
+            <div class="inboxMSGs">
+                <p>To: {{ message.recipient.user.username }}</p>
+                <p>{{ message.content }}</p>
+                <button class="inboxBTN"><a href="{% url 'message_detail' message.id %}">View</a></button>
+                {% comment %} <a href="{% url 'delete_message' message.id %}">Delete</a> {% endcomment %}
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+</div>
+<div class="rightsideinbox">
+<div class="received">
 {% if received_messages %}
+    <h3 class="receivedMSGs">Received Messages</h3>
     {% for message in received_messages %}
         <div class="inboxMSGs">
             <p>From: {{ message.sender.user.username }}</p>
@@ -14,8 +32,12 @@
             {% comment %} <a href="{% url 'delete_message' message.id %}">Delete</a> {% endcomment %}
         </div>
     {% endfor %}
+</div>
+</div>
 {% else %}
-    <img src="{% static 'nobitches.png' %}"  class="emptyInbox">
+    <h1 class="emptyInbox">No messages yet!
+    </h1>
+    {% comment %} <img src="{% static 'nobitches.png' %}"  class="emptyInbox"> {% endcomment %}
     {% comment %} <p class="cringeAlert">———————————No bitches?———————————
         ⠀⣞⢽⢪⢣⢣⢣⢫⡺⡵⣝⡮⣗⢷⢽⢽⢽⣮⡷⡽⣜⣜⢮⢺⣜⢷⢽⢝⡽⣝
         ⠸⡸⠜⠕⠕⠁⢁⢇⢏⢽⢺⣪⡳⡝⣎⣏⢯⢞⡿⣟⣷⣳⢯⡷⣽⢽⢯⣳⣫⠇

@@ -22,8 +22,9 @@ body {
 #left_side_nav > a {
     text-decoration: none;
     font-size: 1.2rem;
-    padding-left:3rem
+    padding-left:3rem;
 }
+
 
 #right_side_nav > a {
     text-decoration: none;
@@ -105,8 +106,8 @@ body {
     outline: 7px solid #0001;
   }
 
-  #login-form > button {
-    margin-top: 3.1rem;
+  #login_button_container > button {
+    /* margin-top: 3.1rem;
     width: 100%;
     background-color: #ffffff;
     color: #080710;
@@ -114,8 +115,22 @@ body {
     font-size:1.5rem;
     font-weight: 600;
     border-radius: 5px;
+    cursor: pointer; */
+    justify-content: right;
+    border-radius: .5rem;
+    border:2px black solid;
+    background-color: rgb(185, 120, 180);
+    font-size: 1.1rem;
+    padding: .5rem;
     cursor: pointer;
+    margin-top: 2rem;
+    color: white;
   }
+
+#login_button_container {
+    text-align: right;
+
+}
 
 
   /* REGISTRATION FORM STYLE */
@@ -196,21 +211,19 @@ padding-bottom: 2rem;
     outline: 7px solid #0001;
 }
 
-
+#register_account_button_container{
+    text-align: right;
+}
 #register_button {
-    margin-top: 3.1rem;
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size:1.5rem;
-    font-weight: 600;
-    border-radius: 5px;
+    justify-content: right;
+    border-radius: .5rem;
+    border:2px black solid;
+    background-color: rgb(185, 120, 180);
+    font-size: 1.1rem;
+    padding: 1rem;
     cursor: pointer;
-    font-family: "Poppins", sans-serif;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
+    margin-top: 2rem;
+    color: white;
   }
 
   #registration_page_login_link{
@@ -246,6 +259,10 @@ padding-bottom: 2rem;
     margin-bottom: 2;   
     color: purple;
     font-family: "Poppins", sans-serif;
+  }
+
+  #dating_form_button_container{
+    text-align: right;
   }
   .form-group-profile-pic{
     padding-top: 1rem;
@@ -382,19 +399,14 @@ padding-bottom: 2rem;
 }
 
 #dating_form_button {
-    margin-top: 3.1rem;
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size:1.5rem;
-    font-weight: 600;
-    border-radius: 5px;
+    justify-content: right;
+    border-radius: .5rem;
+    background-color: rgb(185, 120, 180);
+    color: white;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    padding: .5rem;
     cursor: pointer;
-    font-family: "Poppins", sans-serif;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
   }
 
 
@@ -438,9 +450,9 @@ padding-bottom: 2rem;
 #dating_profile_image_container > img{
     width: 256px;
     height: 256px;
-    border-radius: 50%;    border-radius: 50%;
+    border-radius: 50%;    
+    border-radius: 50%;
     object-fit: cover;
-
     object-fit: cover;
 }
 #dating_and_personality_profile_information_container {
@@ -581,7 +593,10 @@ padding-bottom: 2rem;
 }
 
 #dating_profile_edit_button_container{
-    padding: 2rem; 
+    text-align: right;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
 }
 
 /* PERSONALITY FORM STYLE */
@@ -614,20 +629,21 @@ padding-bottom: 2rem;
     font-family: "Poppins", sans-serif;
 }
 
+#personality_form_button_container{
+    text-align: right;
+}
+
 #personality_form_button{
-    margin-top: 3.1rem;
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size:1.5rem;
-    font-weight: 600;
-    border-radius: 5px;
+    justify-content: right;
+    width: 20%;
+    border-radius: .5rem;
+    border:2px black solid;
+    background-color: rgb(185, 120, 180);
+    font-size: 1.1rem;
+    padding: .5rem;
     cursor: pointer;
-    font-family: "Poppins", sans-serif;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
+    margin-top: 2rem;
+    color: white;
 }
 
 /* PERSONALITY PROFILE PAGE STYLES */
@@ -823,19 +839,13 @@ padding-bottom: 2rem;
     font-size:1.4rem;
     padding: .5rem;
     cursor: pointer; */
-    margin-top: 3.1rem;
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size:1.5rem;
-    font-weight: 600;
-    border-radius: 5px;
+    justify-content: right;
+    border-radius: .5rem;
+    background-color: rgb(185, 120, 180);
+    color: white;
+    font-size: 1.1rem;
+    padding: .5rem;
     cursor: pointer;
-    font-family: "Poppins", sans-serif;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
 }
 
 /* .user_profile_button {
@@ -853,17 +863,24 @@ padding-bottom: 2rem;
 /* ///////////match-making/////////// */
 
 .milf_text{
-    padding-top: 2%;
-    text-align: left;
+    padding-top: 1%;
+    text-align: center;
     color:purple;
-    margin-right: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
     font-size: 150%;
-    padding-bottom: 10%;
+    padding-bottom: .5%;
     
 }
-
-.no_milfs{
-    border-collapse: collapse;
+.arrow{
+    width:40%;
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.neon{
+    /* border-collapse: collapse;
     border-color: #0e0d0d;
     border-width: 3px;
     float: left;
@@ -871,14 +888,14 @@ padding-bottom: 2rem;
     vertical-align: top;
     margin: 15px;
     margin-left: 20%;
-    border-radius:10%;
-    width: 20%;
-    /* align-items: center;
+    border-radius:10%; */
+    width: 30%;
+    align-items: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border: 5px solid;
-    border-radius: 10px; */
+    /* border: 5px solid; */
+    border-radius: 10px;
 }
 .match-making-title{
     font-size: 2rem;
@@ -888,7 +905,7 @@ padding-bottom: 2rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
-
+/* 
 .matchmakingBTN{
     border-radius: .5rem;
     background-color: rgb(185, 120, 180);
@@ -901,9 +918,16 @@ padding-bottom: 2rem;
     justify-content: center;
     margin-bottom: 40px;
 
+} */
+
+#matchmaking_profile_image_container {
+    display: flex;
+    justify-content: center;
+    max-width: fit-content;
+    border-radius: 50%;
+    box-shadow:  0 0 25px 5px #230031a4;
+
 }
-
-
 #matches {
     display: flex;
     flex-direction: row;
@@ -932,16 +956,29 @@ padding-bottom: 2rem;
     height: 420px;
     justify-content: space-evenly;
     margin: 10px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+
 }
 
 #partner-img{
-    border: 2px solid purple;
     width: 200px;
     height: 200px;
     border-radius: 50%; 
     object-fit: cover;
 }
 
+#match_making_button_container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    column-gap:.5rem;
+}
+
+#match_making_button_container > a{
+    color: white;
+    text-decoration: none;
+}
 
 .matchmakingBTNs{
     border-radius: .5rem;
@@ -951,6 +988,14 @@ padding-bottom: 2rem;
     padding: .5rem;
     cursor: pointer;
 }
+
+
+.matchmakingBTNs > a{
+    color: white;
+    text-decoration: none;
+}
+
+
 .button {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
@@ -1180,17 +1225,17 @@ opacity: 0;
 }
 
 .emptyInbox{
-    height: 500px;
-    width: 500px;
-    border: 10px solid rgb(185, 120, 180);
-    border-radius: 10px;
-    margin: 0 auto;
+    color: purple;
+    font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.301);
+    padding: 10px;
     margin-left: 40%;
     margin-right: 40%;
-    margin-top: 30px;
-
 }
-
 /* /////////////SEND MSGS//////////////// */
 .sendMSGs{
     color: purple;
@@ -1222,9 +1267,14 @@ opacity: 0;
 }
 
 /* ///////////////POTENTIAL PARTNER//////////// */
+#partner_profile_page_container{
+    display: flex;
+    justify-content: center;
+}
 .potential_partner_profile{
     color: purple;
     font-weight: 900;
+    width: max-content;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1237,25 +1287,68 @@ opacity: 0;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin-left: 40%;
     margin-right: 40%;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+
 }
 
-.potential_partner_profile > img{
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    border: solid 2px purple;
-    object-fit: cover;
+#partner_profile_header_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
-.potential_partner_profile > button{
+/* .potential_partner_profile > button{
     border-radius: .5rem;
     background-color: rgb(185, 120, 180);
     color: white;
     font-size: 1.1rem;
     padding: .5rem;
     cursor: pointer;
+} */
+#partner_profile_image_container {
+    display: flex;
+    justify-content: center;
+    max-width: fit-content;
+    border-radius: 50%;
+    box-shadow:  0 0 25px 5px #230031a4;
+}
+#partner_profile_image_container > img{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
 
+#partner_profile_button_container{
+    display: flex;
+    justify-content: end;
+    padding-bottom: 1rem;
+    width: 100%;
+}
+
+
+#partner_profile_button{
+    justify-content: right;
+    border-radius: .5rem;
+    background-color: rgb(185, 120, 180);
+    font-size: 1.1rem;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+#partner_profile_button > a{
+    text-decoration: none;
+    color: white;
+
+}
+
+.partner_profile_container{
+    width: 40rem;
+}
 
 /* /////////////Inbox//////////////// */
 

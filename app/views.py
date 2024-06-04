@@ -152,7 +152,6 @@ def matchmakingView(request):
     # user = User.objects.filter(id=request.user.id)
     user_profile = request.user.profile
     user = request.user
-
     user_dating_profile = DatingProfile.objects.get(user_profile=user_profile)
     user_personality_profile = PersonalityProfile.objects.get(
         user_profile=user_dating_profile
@@ -302,6 +301,7 @@ def matchmakingView(request):
         "random_potential_partners": random_potential_partners,
         "key": key,
         "val": val,
+        "user_profile": user_profile,
         "user": user,
         "user_profile": user_profile,
         "user_dating_profile": user_dating_profile,
@@ -368,7 +368,12 @@ def send_message(request, recipient_id):
 def inbox(request):
     user = request.user.profile
     received_messages = Message.objects.filter(recipient=user)
-    return render(request, "inbox.html", {"received_messages": received_messages})
+    sent_messages = Message.objects.filter(sender=user)
+    return render(
+        request,
+        "inbox.html",
+        {"received_messages": received_messages, "sent_messages": sent_messages},
+    )
 
 
 @login_required(login_url="login")
