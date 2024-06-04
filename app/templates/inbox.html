@@ -5,21 +5,25 @@
     Your soulmate is just a message away!
 </h2>
 <img src="{% static 'heartchatbox.png' %}" alt="chatbox" class="inbox_img">
-
+<div class="leftsideinbox">
 {% if sent_messages %}
+    <h3 class="sentMSGs">Sent Messages</h3>
     {% for message in sent_messages %}
-    <div class="sent">
-        <div class="inboxMSGs">
-            <p>To: {{ message.recipient.user.username }}</p>
-            <p>{{ message.content }}</p>
-            <button class="inboxBTN"><a href="{% url 'message_detail' message.id %}">View</a></button>
-            {% comment %} <a href="{% url 'delete_message' message.id %}">Delete</a> {% endcomment %}
+        <div class="sent">
+            <div class="inboxMSGs">
+                <p>To: {{ message.recipient.user.username }}</p>
+                <p>{{ message.content }}</p>
+                <button class="inboxBTN"><a href="{% url 'message_detail' message.id %}">View</a></button>
+                {% comment %} <a href="{% url 'delete_message' message.id %}">Delete</a> {% endcomment %}
+            </div>
         </div>
-</div>
     {% endfor %}
 {% endif %}
+</div>
+<div class="rightsideinbox">
 <div class="received">
 {% if received_messages %}
+    <h3 class="receivedMSGs">Received Messages</h3>
     {% for message in received_messages %}
         <div class="inboxMSGs">
             <p>From: {{ message.sender.user.username }}</p>
@@ -28,6 +32,7 @@
             {% comment %} <a href="{% url 'delete_message' message.id %}">Delete</a> {% endcomment %}
         </div>
     {% endfor %}
+</div>
 </div>
 {% else %}
     <img src="{% static 'nobitches.png' %}"  class="emptyInbox">
