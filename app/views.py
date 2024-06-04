@@ -362,7 +362,8 @@ def send_message(request, recipient_id):
 def inbox(request):
     user = request.user.profile
     received_messages = Message.objects.filter(recipient=user)
-    return render(request, "inbox.html", {"received_messages": received_messages})
+    sent_messages = Message.objects.filter(sender=user)
+    return render(request, "inbox.html", {"received_messages": received_messages, "sent_messages": sent_messages})
 
 
 @login_required

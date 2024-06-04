@@ -4,7 +4,21 @@
 <h2 class="lyric_text">Welcome to the first message that will decide the rest of your life!
     Your soulmate is just a message away!
 </h2>
-<img src="{% static 'heartchatbox.png' %}" alt="chatbox" class="inbox_img"> 
+<img src="{% static 'heartchatbox.png' %}" alt="chatbox" class="inbox_img">
+
+{% if sent_messages %}
+    {% for message in sent_messages %}
+    <div class="sent">
+        <div class="inboxMSGs">
+            <p>To: {{ message.recipient.user.username }}</p>
+            <p>{{ message.content }}</p>
+            <button class="inboxBTN"><a href="{% url 'message_detail' message.id %}">View</a></button>
+            {% comment %} <a href="{% url 'delete_message' message.id %}">Delete</a> {% endcomment %}
+        </div>
+</div>
+    {% endfor %}
+{% endif %}
+<div class="received">
 {% if received_messages %}
     {% for message in received_messages %}
         <div class="inboxMSGs">
@@ -14,6 +28,7 @@
             {% comment %} <a href="{% url 'delete_message' message.id %}">Delete</a> {% endcomment %}
         </div>
     {% endfor %}
+</div>
 {% else %}
     <img src="{% static 'nobitches.png' %}"  class="emptyInbox">
     {% comment %} <p class="cringeAlert">———————————No bitches?———————————
