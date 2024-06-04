@@ -25,7 +25,7 @@ class DatingProfileForm(forms.ModelForm):
         fields = (
             "profile_pic",
             "gender",
-            "age",
+            "birth_date",
             "interested_in",
             "smoker",
             "drinker",

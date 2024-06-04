@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
+from datetime import datetime
 
 # Create your models here.
 
@@ -27,7 +29,7 @@ class DatingProfile(models.Model):
     interested_in_options = ("Men", "MEN"), ("Women", "WOMEN"), ("Both", "BOTH")
     yes_or_no_options = (("Yes", "YES"), ("No", "NO"))
     gender = models.CharField(max_length=50, choices=gender_options, null=True)
-    age = models.IntegerField(null=True)
+    birth_date = models.DateTimeField(default=datetime.now)
     interested_in = models.CharField(
         max_length=50, choices=interested_in_options, null=True
     )
@@ -36,6 +38,16 @@ class DatingProfile(models.Model):
     occupation = models.CharField(max_length=50, null=True)
     bio = models.TextField(null=True)
     favorite_place_ever_been = models.TextField(null=True)
+
+    @property
+    def age(self):
+        today = timezone.now().date()
+        age = int(
+            today.year
+            - (self.birth_date.year)
+            - ((today.month, today.day) < (self.birth_date.month, self.birth_date.day))
+        )
+        return age
 
     def __str__(self) -> str:
         return self.user_profile.first_name

@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
-
+from django.core.exceptions import ValidationError
 
 # Create your views here.
 from .forms import *
@@ -64,6 +64,7 @@ def logout_user(request):
     return redirect("login")
 
 
+@login_required(login_url="login")
 def dating_profile_register(request):
     user_profile = request.user.profile
     dating_profile, created = DatingProfile.objects.get_or_create(
@@ -73,11 +74,14 @@ def dating_profile_register(request):
         form = DatingProfileForm(request.POST, request.FILES, instance=dating_profile)
         if form.is_valid():
             new_form = form.save(commit=False)
+
             new_form.created = True
             new_form.save()
 
             user_profile.has_dating_profile = True
             user_profile.save()
+            if new_form.age < 18:
+                raise ValidationError("You must be 18 years or older")
             return redirect("profile")
     else:
         form = DatingProfileForm(instance=dating_profile)
@@ -282,13 +286,13 @@ def matchmakingView(request):
             ):
                 match_list.append(object)
             elif (
-                user_dating_profile.interested_in == "Women"
+                user_dating_profile.interested_in == "Both"
                 and user_dating_profile.gender == "Male"
-                and object.user_profile.interested_in == "Men"
+                and object.user_profile.interested_in == "Both"
                 and object.user_profile.gender == "Women"
-                or user_dating_profile.interested_in == "Men"
+                or user_dating_profile.interested_in == "Both"
                 and user_dating_profile.gender == "Female"
-                and object.user_profile.interested_in == "Women"
+                and object.user_profile.interested_in == "Both"
                 and object.user_profile.gender == "Male"
             ):
                 match_list.append(object)
@@ -299,6 +303,7 @@ def matchmakingView(request):
         "val": val,
         "user_profile": user_profile,
         "user": user,
+        "user_profile": user_profile,
         "user_dating_profile": user_dating_profile,
         "compatible_personality_profiles": compatible_personality_profiles_list,
         "match_list": match_list,
@@ -307,6 +312,7 @@ def matchmakingView(request):
     return render(request, "matchmaking.html", context)
 
 
+@login_required(login_url="login")
 def messagesView(request, id):
     user = Profile.objects.get(user__id=id)
     messages = Message.objects.filter(recipient=user)
@@ -322,7 +328,7 @@ def messagesView(request, id):
     return render(request, "messages.html", context)
 
 
-@login_required
+@login_required(login_url="login")
 def send_message(request, recipient_id):
     if request.method == "POST":
         sender = request.user.profile
@@ -358,15 +364,19 @@ def send_message(request, recipient_id):
 #         return render(request, 'send_message.html', {'recipient': recipient, 'parent_message': parent_message})
 
 
-@login_required
+@login_required(login_url="login")
 def inbox(request):
     user = request.user.profile
     received_messages = Message.objects.filter(recipient=user)
     sent_messages = Message.objects.filter(sender=user)
-    return render(request, "inbox.html", {"received_messages": received_messages, "sent_messages": sent_messages})
+    return render(
+        request,
+        "inbox.html",
+        {"received_messages": received_messages, "sent_messages": sent_messages},
+    )
 
 
-@login_required
+@login_required(login_url="login")
 def message_detail(request, message_id):
     message = Message.objects.get(id=message_id)
     if request.method == "POST":
