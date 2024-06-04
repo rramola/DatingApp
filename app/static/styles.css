@@ -106,8 +106,8 @@ body {
     outline: 7px solid #0001;
   }
 
-  #login-form > button {
-    margin-top: 3.1rem;
+  #login_button_container > button {
+    /* margin-top: 3.1rem;
     width: 100%;
     background-color: #ffffff;
     color: #080710;
@@ -115,8 +115,22 @@ body {
     font-size:1.5rem;
     font-weight: 600;
     border-radius: 5px;
+    cursor: pointer; */
+    justify-content: right;
+    border-radius: .5rem;
+    border:2px black solid;
+    background-color: rgb(185, 120, 180);
+    font-size: 1.1rem;
+    padding: .5rem;
     cursor: pointer;
+    margin-top: 2rem;
+    color: white;
   }
+
+#login_button_container {
+    text-align: right;
+
+}
 
 
   /* REGISTRATION FORM STYLE */
@@ -197,21 +211,19 @@ padding-bottom: 2rem;
     outline: 7px solid #0001;
 }
 
-
+#register_account_button_container{
+    text-align: right;
+}
 #register_button {
-    margin-top: 3.1rem;
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size:1.5rem;
-    font-weight: 600;
-    border-radius: 5px;
+    justify-content: right;
+    border-radius: .5rem;
+    border:2px black solid;
+    background-color: rgb(185, 120, 180);
+    font-size: 1.1rem;
+    padding: 1rem;
     cursor: pointer;
-    font-family: "Poppins", sans-serif;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
+    margin-top: 2rem;
+    color: white;
   }
 
   #registration_page_login_link{
@@ -247,6 +259,10 @@ padding-bottom: 2rem;
     margin-bottom: 2;   
     color: purple;
     font-family: "Poppins", sans-serif;
+  }
+
+  #dating_form_button_container{
+    text-align: right;
   }
   .form-group-profile-pic{
     padding-top: 1rem;
@@ -384,10 +400,10 @@ padding-bottom: 2rem;
 
 #dating_form_button {
     justify-content: right;
-    width: 20%;
     border-radius: .5rem;
     background-color: rgb(185, 120, 180);
     color: white;
+    margin-top: 2rem;
     font-size: 1.1rem;
     padding: .5rem;
     cursor: pointer;
@@ -613,20 +629,21 @@ padding-bottom: 2rem;
     font-family: "Poppins", sans-serif;
 }
 
+#personality_form_button_container{
+    text-align: right;
+}
+
 #personality_form_button{
-    margin-top: 3.1rem;
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size:1.5rem;
-    font-weight: 600;
-    border-radius: 5px;
+    justify-content: right;
+    width: 20%;
+    border-radius: .5rem;
+    border:2px black solid;
+    background-color: rgb(185, 120, 180);
+    font-size: 1.1rem;
+    padding: .5rem;
     cursor: pointer;
-    font-family: "Poppins", sans-serif;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
+    margin-top: 2rem;
+    color: white;
 }
 
 /* PERSONALITY PROFILE PAGE STYLES */
@@ -932,6 +949,9 @@ padding-bottom: 2rem;
     height: 420px;
     justify-content: space-evenly;
     margin: 10px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+
 }
 
 #partner-img{
@@ -1263,6 +1283,8 @@ opacity: 0;
     margin-top: 5rem;
     margin-bottom: 5rem;
     border-radius: 10px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
 
 }
 
@@ -1304,7 +1326,6 @@ opacity: 0;
 
 #partner_profile_button{
     justify-content: right;
-    width: 20%;
     border-radius: .5rem;
     background-color: rgb(185, 120, 180);
     font-size: 1.1rem;
